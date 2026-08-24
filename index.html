@@ -1,0 +1,289 @@
+<meta charset="utf-8">
+<title>Tidewater Round 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap">
+<style>
+:root{
+  --blue:#3B6A91; --olive:#667137; --navy:#115468; --sky:#7EC6DB;
+  --ink:#0E2731; --slate:#3C4F58; --mist:#F2F4F1; --line:#C7CEC5;
+  --label:#4E562A; --card:#fff;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--mist);color:var(--ink);
+  font-family:'Lato','Helvetica Neue',Arial,sans-serif;line-height:1.5;
+  font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{margin:0;line-height:1.1;letter-spacing:-.02em;font-weight:900;text-wrap:balance}
+p{margin:0}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--olive);outline-offset:2px}
+.wrap{width:min(100% - 2rem,1180px);margin-inline:auto}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--label)}
+
+/* ---------- masthead + intro ---------- */
+.top{background:var(--navy);color:#fff;padding:1.3rem 0 1.4rem}
+.top .eyebrow{color:var(--sky)}
+.top h1{font-size:clamp(1.6rem,5vw,2.3rem);margin-top:.45rem}
+.top .rule{height:4px;background:var(--olive);width:74px;margin-top:.85rem}
+.intro{padding:1.4rem 0 .2rem;max-width:62ch}
+.intro p{margin-bottom:.75rem}
+.intro .hi{font-weight:900}
+
+/* ---------- gallery ---------- */
+.galhead{display:flex;flex-wrap:wrap;gap:.75rem;align-items:baseline;justify-content:space-between;
+  margin:1.5rem 0 .9rem}
+.galhead h2{font-size:1.25rem}
+.seg{display:inline-flex;border:2px solid var(--navy);border-radius:5px;overflow:hidden}
+.seg button{background:#fff;color:var(--navy);border:0;padding:.5rem .95rem;font-weight:900;font-size:.85rem}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+
+.gal{display:grid;gap:1.15rem;grid-template-columns:repeat(3,1fr)}
+.gal.desktop{grid-template-columns:1fr}
+.gal.desktop .item{display:grid;grid-template-columns:minmax(240px,340px) 1fr;align-items:stretch}
+.gal.desktop .stage{border:0;border-left:1px solid var(--line)}
+@media (max-width:820px){.gal.desktop .item{grid-template-columns:1fr}}
+@media (max-width:1080px){.gal{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:720px){.gal{grid-template-columns:1fr}}
+.item{background:var(--card);border:1px solid var(--line);border-radius:7px;overflow:hidden;
+  display:flex;flex-direction:column}
+.itop{padding:.95rem 1rem .6rem;display:grid;gap:.3rem}
+.itop .v{font-size:.68rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--label)}
+.itop h3{font-size:1.24rem}
+.itop .what{color:var(--slate);font-size:.92rem}
+.itop .catch{color:var(--slate);font-size:.86rem;border-left:3px solid var(--sky);padding-left:.6rem}
+.stage{background:#DDE2DC;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:grid;place-items:center;padding:.9rem;overflow:hidden}
+.shell{position:relative;overflow:hidden;background:#fff;border-radius:3px;
+  box-shadow:0 3px 14px rgba(14,39,49,.20)}
+.shell iframe{border:0;display:block;transform-origin:top left;background:#fff}
+.ibot{padding:.75rem 1rem 1rem;display:flex;gap:.55rem}
+.btn{flex:1;border:0;border-radius:5px;padding:.75rem .6rem;font-weight:900;font-size:.9rem;text-align:center}
+.btn-main{background:var(--olive);color:#fff}
+.btn-main:hover{background:#55602c}
+.btn-ghost{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+
+/* ---------- fullscreen viewer ---------- */
+.viewer{position:fixed;inset:0;z-index:100;background:#101c22;display:none;flex-direction:column}
+.viewer.on{display:flex}
+.vbar{background:var(--navy);color:#fff;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;
+  padding:.6rem .8rem calc(.6rem + env(safe-area-inset-top))}
+.vbar .name{font-weight:900;font-size:.95rem;margin-right:auto}
+.vbar .seg{border-color:#fff}
+.vbar .seg button{background:transparent;color:#fff}
+.vbar .seg button[aria-pressed="true"]{background:#fff;color:var(--navy)}
+.vbar .x{background:#fff;color:var(--navy);border:0;border-radius:4px;padding:.55rem .9rem;font-weight:900;font-size:.85rem}
+.vstage{flex:1;display:grid;place-items:center;overflow:auto;padding:.8rem}
+.vstage .shell{box-shadow:0 8px 34px rgba(0,0,0,.5)}
+
+/* ---------- the ask ---------- */
+.ask{background:#fff;border:2px solid var(--olive);border-radius:6px;padding:1.15rem;margin:1.8rem 0 2.4rem}
+.ask h2{font-size:1.15rem;margin-bottom:.7rem}
+.ask ol{margin:0;padding-left:1.2rem;display:grid;gap:.55rem}
+.ask li::marker{font-weight:900;color:var(--olive)}
+.ask .extra{margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--line);color:var(--slate);font-size:.94rem}
+</style>
+
+<div class="top"><div class="wrap">
+  <span class="eyebrow">KODA · Tidewater Staffing</span>
+  <h1>Round 2, rebuilt to your notes</h1>
+  <div class="rule"></div>
+</div></div>
+
+<div class="wrap">
+  <div class="intro">
+    <p><span class="hi">Hi Marion, this is DAWG OS</span>, the AI system Pat built. I do the build work.</p>
+    <p>Logo is back to your branding board exactly. Two versions crash the waves together, two lock the two halves of the logo, and two just load straight in. Apply Now and Request Staff are above the fold on all six.</p>
+    <p>Flip between <b>Phone</b> and <b>Desktop</b> to see either layout. Tap <b>Full screen</b> to actually use one. Then text me back.</p>
+  </div>
+
+  <div class="galhead">
+    <h2>Six versions</h2>
+    <div class="seg" role="group" aria-label="Layout">
+      <button type="button" data-mode="phone"   aria-pressed="true">Phone</button>
+      <button type="button" data-mode="desktop" aria-pressed="false">Desktop</button>
+    </div>
+  </div>
+
+  <div class="gal" id="gal"></div>
+
+  <div class="ask">
+    <h2>Text me back two things</h2>
+    <ol>
+      <li><b>Which one?</b> Just say the number, or the name. V1 through V6.</li>
+      <li><b>Anything you'd change?</b> Say it however you want, I'll do it. Mixing two of them is fine as well.</li>
+    </ol>
+    <p class="extra"><b>One favor if it's easy:</b> can you get the Tidewater logo from Jay as an Illustrator or vector file? I rebuilt it from the branding board PDF, which is fine for this, but the real file makes the animation sharp everywhere.</p>
+  </div>
+</div>
+
+<div class="viewer" id="viewer">
+  <div class="vbar">
+    <span class="name" id="vname"></span>
+    <div class="seg" role="group" aria-label="Layout">
+      <button type="button" data-vmode="phone"   aria-pressed="true">Phone</button>
+      <button type="button" data-vmode="desktop" aria-pressed="false">Desktop</button>
+    </div>
+    <button class="x" id="replay" type="button">Replay waves</button>
+    <button class="x" id="close" type="button">Close</button>
+  </div>
+  <div class="vstage" id="vstage"></div>
+</div>
+
+<script>
+(function(){
+  var VERSIONS=[
+    {id:1,name:'The Lock',tag:'Crashing waves, light',
+     what:'Waves crash across the whole screen, drain off and leave the logo standing. Straight into "I need work" / "I need a crew" on a diagonal split.',
+     catch:'Biggest reaction. Costs two seconds before anyone can tap Apply.'},
+    {id:2,name:'Tideline',tag:'No takeover',
+     what:'No big opening. The waves lock into the logo up in the header, and a wave rolls between each section as you scroll.',
+     catch:'Least flashy. Best for the guy applying from his truck on a bad phone.'},
+    {id:3,name:'Deep Water',tag:'Crashing waves, dark',
+     what:'Same crash, but white water on a near-black screen, and the two choices become gates you walk through.',
+     catch:'Looks the most expensive. Hardest to read outside in the sun, which is where these guys are.'},
+    {id:4,name:'Dry Dock',tag:'Shipyard drawing',
+     what:'The whole site as a technical drawing. Grid paper, sheet border, figure numbers, dimension callouts, and the wave drawn as survey contours that draw themselves in.',
+     catch:'Speaks to the shipyards and the government side better than anything else here. Coldest for the worker.'},
+    {id:5,name:'Shift Change',tag:'Speed and the clock',
+     what:'Built around the run from the phone call to the gate. A live track carries crews across the screen through four stages: called, screened, badged, on site.',
+     catch:'Sells the one thing nobody else can match. Leans on the speed claim we still need Jay to approve.'},
+    {id:6,name:'Breakwater',tag:'Type as the picture',
+     what:'No pictures at all, on purpose. The headline is set enormous and the water runs through the letters themselves.',
+     catch:'Boldest of the six. Furthest from anything they have seen, so expect a strong opinion either way.'}
+  ];
+  var SIZE={phone:{w:390,h:844},desktop:{w:1280,h:820}};
+  var mode='phone';
+
+  var FILES={1:'V1-the-lock.html',2:'V2-tideline.html',3:'V3-deep-water.html',
+             4:'V4-dry-dock.html',5:'V5-shift-change.html',6:'V6-breakwater.html'};
+  var cache={};
+  function docFor(n){
+    if(cache[n]) return Promise.resolve(cache[n]);
+    return fetch(FILES[n]).then(function(r){return r.text();})
+      .then(function(t){ cache[n]=t; return t; });
+  }
+  /* the openings only play once per session; the review tool has to be able to replay them */
+  function clearGate(){
+    try{ sessionStorage.removeItem('tsi-intro');
+         sessionStorage.removeItem('tsi-intro2');
+         sessionStorage.removeItem('tsi-intro3'); }catch(e){}
+  }
+  /* render at the real device width, then scale, so media queries see the true width */
+  function mount(shell,n,m,availW,availH){
+    var s=SIZE[m], k=Math.min(availW/s.w, availH/s.h, 1);
+    shell.style.width=Math.round(s.w*k)+'px';
+    shell.style.height=Math.round(s.h*k)+'px';
+    var f=document.createElement('iframe');
+    f.title='Preview';
+    f.style.width=s.w+'px'; f.style.height=s.h+'px';
+    f.style.transform='scale('+k+')';
+    shell.innerHTML=''; shell.appendChild(f);
+    clearGate();
+    docFor(n).then(function(html){ f.srcdoc=html; })
+             .catch(function(){ shell.innerHTML='<p style="padding:1rem">Could not load this version.</p>'; });
+    return f;
+  }
+
+  /* ---------- gallery ---------- */
+  var gal=document.getElementById('gal');
+  VERSIONS.forEach(function(v){
+    var el=document.createElement('div');
+    el.className='item';
+    el.innerHTML=
+      '<div class="itop"><span class="v">Version '+v.id+' &middot; '+v.tag+'</span><h3>'+v.name+'</h3>'+
+      '<p class="what">'+v.what+'</p><p class="catch">'+v.catch+'</p></div>'+
+      '<div class="stage"><div class="shell"></div></div>'+
+      '<div class="ibot">'+
+        '<button class="btn btn-main" data-full="'+v.id+'">Full screen</button>'+
+        '<button class="btn btn-ghost" data-rep="'+v.id+'">Replay waves</button>'+
+      '</div>';
+    gal.appendChild(el);
+  });
+  var shells=[].slice.call(gal.querySelectorAll('.shell'));
+
+  function galSize(){
+    var stage=gal.querySelector('.stage');
+    var w=stage?stage.clientWidth-4:300;
+    return {w:Math.max(180,w), h:mode==='phone'?430:470};
+  }
+  function paintGallery(){
+    var a=galSize();
+    shells.forEach(function(sh,i){ mount(sh,VERSIONS[i].id,mode,a.w,a.h); });
+  }
+
+  document.querySelectorAll('[data-mode]').forEach(function(b){
+    b.addEventListener('click',function(){
+      mode=b.getAttribute('data-mode');
+      gal.classList.toggle('desktop',mode==='desktop');
+      document.querySelectorAll('[data-mode]').forEach(function(o){
+        o.setAttribute('aria-pressed', String(o===b));
+      });
+      paintGallery();
+    });
+  });
+
+  gal.addEventListener('click',function(e){
+    var f=e.target.closest('[data-full]'), r=e.target.closest('[data-rep]');
+    if(f) openViewer(+f.getAttribute('data-full'));
+    if(r){
+      var i=VERSIONS.findIndex(function(v){return v.id===+r.getAttribute('data-rep');});
+      var a=galSize(); mount(shells[i],VERSIONS[i].id,mode,a.w,a.h);
+    }
+  });
+
+  /* ---------- fullscreen viewer ---------- */
+  var viewer=document.getElementById('viewer'), vstage=document.getElementById('vstage'),
+      vname=document.getElementById('vname'), current=1, vmode='phone';
+  function paintViewer(){
+    var v=VERSIONS.filter(function(x){return x.id===current;})[0];
+    vname.textContent='Version '+v.id+' · '+v.name;
+    var sh=document.createElement('div'); sh.className='shell';
+    vstage.innerHTML=''; vstage.appendChild(sh);
+    var aw=vstage.clientWidth||window.innerWidth, ah=vstage.clientHeight||(window.innerHeight-56);
+    mount(sh,current,vmode,aw-24,ah-24);
+  }
+  function openViewer(id){
+    current=id; vmode=mode;
+    document.querySelectorAll('[data-vmode]').forEach(function(o){
+      o.setAttribute('aria-pressed', String(o.getAttribute('data-vmode')===vmode));
+    });
+    viewer.classList.add('on');
+    document.body.style.overflow='hidden';
+    void viewer.offsetHeight;              // force layout so vstage has real dimensions
+    paintViewer();
+    if(viewer.requestFullscreen) viewer.requestFullscreen().catch(function(){});
+  }
+  document.querySelectorAll('[data-vmode]').forEach(function(b){
+    b.addEventListener('click',function(){
+      vmode=b.getAttribute('data-vmode');
+      document.querySelectorAll('[data-vmode]').forEach(function(o){
+        o.setAttribute('aria-pressed', String(o===b));
+      });
+      paintViewer();
+    });
+  });
+  document.getElementById('replay').addEventListener('click',paintViewer);
+  document.getElementById('close').addEventListener('click',function(){
+    viewer.classList.remove('on');
+    vstage.innerHTML='';
+    document.body.style.overflow='';
+    if(document.fullscreenElement&&document.exitFullscreen) document.exitFullscreen().catch(function(){});
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&viewer.classList.contains('on')) document.getElementById('close').click();
+  });
+
+  var rt;
+  window.addEventListener('resize',function(){
+    clearTimeout(rt);
+    rt=setTimeout(function(){
+      paintGallery();
+      if(viewer.classList.contains('on')) paintViewer();
+    },250);
+  });
+
+  paintGallery();
+})();
+</script>
