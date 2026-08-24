@@ -94,13 +94,12 @@ button{font:inherit;cursor:pointer}
 <div class="wrap">
   <div class="intro">
     <p><span class="hi">Hi Marion, this is DAWG OS</span>, the AI system Pat built. I do the build work.</p>
-    <p><b>New: the first three are complete homepages, not hero crops.</b> Each argues for Tidewater a different way, and they share no sentence between them. Direction 2, Gate, is the one Pat picked. Round 2's six versions are still below, unchanged.</p>
-    <p>Logo is the branding board exactly, on all nine. Apply Now and Request Staff are above the fold everywhere.</p>
+    <p>Logo is back to your branding board exactly. Two versions crash the waves together, two lock the two halves of the logo, and two just load straight in. Apply Now and Request Staff are above the fold on all six.</p>
     <p>Flip between <b>Phone</b> and <b>Desktop</b> to see either layout. Tap <b>Full screen</b> to actually use one. Then text me back.</p>
   </div>
 
   <div class="galhead">
-    <h2>Three directions, then round 2's six</h2>
+    <h2>Six versions</h2>
     <div class="seg" role="group" aria-label="Layout">
       <button type="button" data-mode="phone"   aria-pressed="true">Phone</button>
       <button type="button" data-mode="desktop" aria-pressed="false">Desktop</button>
@@ -112,7 +111,7 @@ button{font:inherit;cursor:pointer}
   <div class="ask">
     <h2>Text me back two things</h2>
     <ol>
-      <li><b>Which one?</b> Say the name. Gate, Signal or Live Yard for the three new ones, or V1 through V6.</li>
+      <li><b>Which one?</b> Just say the number, or the name. V1 through V6.</li>
       <li><b>Anything you'd change?</b> Say it however you want, I'll do it. Mixing two of them is fine as well.</li>
     </ol>
     <p class="extra"><b>One favor if it's easy:</b> can you get the Tidewater logo from Jay as an Illustrator or vector file? I rebuilt it from the branding board PDF, which is fine for this, but the real file makes the animation sharp everywhere.</p>
@@ -135,15 +134,6 @@ button{font:inherit;cursor:pointer}
 <script>
 (function(){
   var VERSIONS=[
-    {id:'D2',label:'Direction 2',name:'Gate',tag:'Two doors, the preferred look',
-     what:'The whole page is built on one idea: two people want opposite things, so give them a door each. "I need work" over a real photo of a man working, "I need a crew" over the Chesapeake building. Every heading after that asks or answers a question the visitor actually has.',
-     catch:'Pat picked this one. Faces are real and on a public URL, so worker media releases still need confirming with Jay.'},
-    {id:'D1',label:'Direction 1',name:'Signal',tag:'Evidence, dark and engineered',
-     what:'Written for the superintendent who has been burned by a crew that did not turn up. Opens "Nothing on this page is a promise. It is all checkable," then earns it: compare line by line, five auditable steps, four addresses instead of an 800 number.',
-     catch:'Coldest of the three for a worker applying from a truck. Numbers we cannot yet source show as visible slots, on purpose.'},
-    {id:'D3',label:'Direction 3',name:'Live Yard',tag:'People, cinematic reel',
-     what:'The company told through the people in it. Four-frame reel behind "These are our people. This is where the job goes," then paint to power tooling to lead to trade, which is TSI's own advancement ladder.',
-     catch:'Leans hardest on photography, which is the thinnest asset we have. The marine line still has no usable frame at all.'},
     {id:1,name:'The Lock',tag:'Crashing waves, light',
      what:'Waves crash across the whole screen, drain off and leave the logo standing. Straight into "I need work" / "I need a crew" on a diagonal split.',
      catch:'Biggest reaction. Costs two seconds before anyone can tap Apply.'},
@@ -166,8 +156,7 @@ button{font:inherit;cursor:pointer}
   var SIZE={phone:{w:390,h:844},desktop:{w:1280,h:820}};
   var mode='phone';
 
-  var FILES={D1:'D1-signal.html',D2:'D2-gate.html',D3:'D3-live-yard.html',
-             1:'V1-the-lock.html',2:'V2-tideline.html',3:'V3-deep-water.html',
+  var FILES={1:'V1-the-lock.html',2:'V2-tideline.html',3:'V3-deep-water.html',
              4:'V4-dry-dock.html',5:'V5-shift-change.html',6:'V6-breakwater.html'};
   var cache={};
   function docFor(n){
@@ -203,7 +192,7 @@ button{font:inherit;cursor:pointer}
     var el=document.createElement('div');
     el.className='item';
     el.innerHTML=
-      '<div class="itop"><span class="v">'+(v.label||('Version '+v.id))+' &middot; '+v.tag+'</span><h3>'+v.name+'</h3>'+
+      '<div class="itop"><span class="v">Version '+v.id+' &middot; '+v.tag+'</span><h3>'+v.name+'</h3>'+
       '<p class="what">'+v.what+'</p><p class="catch">'+v.catch+'</p></div>'+
       '<div class="stage"><div class="shell"></div></div>'+
       '<div class="ibot">'+

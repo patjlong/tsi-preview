@@ -295,7 +295,6 @@ section{padding:clamp(2.8rem,6vw,5rem) 0}
 <section class="hero">
   <canvas id="swell" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="kick">The question the phone asks every day</span>
     <h1 class="mono"><span class="wet">Yes.<br>We are<br>hiring.</span></h1>
     <p class="sub">Open roles this week across Chesapeake, Virginia Beach, Portsmouth and Suffolk.
        Weekly pay. Benefits from day one. No fee to you, ever.</p>
@@ -303,11 +302,7 @@ section{padding:clamp(2.8rem,6vw,5rem) 0}
       <a class="btn btn-primary" href="#">Apply Now</a>
       <a class="btn btn-ghost" href="#">Request Staff</a>
     </div>
-    <div class="gate">
-      <span class="gate-label">Open, awaiting a timed run of the live application</span>
-      <div class="gate-draft"><b>Draft, not approved</b>
-        A second button reading <span class="strike">Apply in about five minutes</span> only prints once someone times the real application.</div>
-    </div>
+    
   </div>
 </section>
 
@@ -335,15 +330,15 @@ section{padding:clamp(2.8rem,6vw,5rem) 0}
     <div class="rw"><span class="num">01</span><div>
       <h3>Base access, at depth</h3>
       <p>Thousands of our people hold active DBIDS credentials for the installations Hampton Roads runs on, and we process new submissions every working day. Credentialing is a queue, and we are already in it.</p>
-      <div class="gate"><span class="gate-label">Open, awaiting TSI confirmation of the DBIDS count and daily cadence</span></div></div></div>
+      </div></div>
     <div class="rw"><span class="num">02</span><div>
       <h3>Screened before the gate, not after</h3>
       <p>Every employee we send into a shipyard is E-Verified, background checked, drug screened and trained for the work, then checked in on site by our own staff.</p>
-      <div class="gate"><span class="gate-label">Open, awaiting written confirmation of E-Verify scope</span></div></div></div>
+      </div></div>
     <div class="rw"><span class="num">03</span><div>
       <h3>We train our own</h3>
       <p>OSHA 10 runs in our own classrooms with our own trainers, and our safety program is built to dovetail with the host employer's.</p>
-      <div class="gate"><span class="gate-label">Open, awaiting confirmation of OSHA Outreach Trainer authorization</span></div></div></div>
+      </div></div>
     <div class="rw"><span class="num">04</span><div>
       <h3>Payroll that survives an audit</h3>
       <p>In-house payroll, weekly. Certified payroll when your contract needs it.</p></div></div>
@@ -363,11 +358,7 @@ section{padding:clamp(2.8rem,6vw,5rem) 0}
     <div class="photo">Real TSI photo held back<br>faces stay offline until the media release scope is confirmed</div>
     <div class="photo">Real crew photo<br>hero shot still to be supplied, see the shot list</div>
   </div>
-  <div class="gate" style="margin-top:1.1rem;max-width:66ch">
-    <span class="gate-label">Open, awaiting the media-release scope, and the shot list Jay offered to fill</span>
-    <div class="gate-draft"><b>Where this stands</b>
-      Of the eight photographs sent, three are cleared, one is usable once cropped away from a customer sign, one is unpublishable, and the rest are weak or still gated. No face publishes until the release question is answered, and the one shot with no face in it is the only one not waiting on that.</div>
-  </div>
+  
 </div></section>
 
 <section class="kbsec"><div class="wrap">
@@ -381,11 +372,7 @@ section{padding:clamp(2.8rem,6vw,5rem) 0}
     <a class="svcc" href="#"><h3>Warehouse and logistics</h3><p>Pick, pack, ship, and the shifts that run around them.</p></a>
     <a class="svcc" href="#"><h3>Manufacturing and industrial</h3><p>Production, assembly and plant support.</p></a>
   </div>
-  <div class="gate" style="margin-top:1.1rem;max-width:64ch">
-    <span class="gate-label">Open, awaiting the list of trades to name, in TSI's own words</span>
-    <div class="gate-draft"><b>What fills this</b>
-      An eight-cell trade grid sits under these three. The strongest competitors publish named trades with skill tiers and the current site enumerates none, so this is where the per-trade searches get won.</div>
-  </div>
+  
 </div></section>
 
 <section class="kbsec"><div class="wrap">
@@ -441,11 +428,7 @@ section{padding:clamp(2.8rem,6vw,5rem) 0}
 
 <section><div class="wrap">
   <div class="hd"><span class="kick">Our own training facility</span><h2 style="margin-top:.5rem">TESC</h2></div>
-  <div class="gate" style="max-width:64ch">
-    <span class="gate-label">Open, awaiting the spelling confirmed letter by letter</span>
-    <div class="gate-draft"><b>Where the spelling came from</b>
-      The name is set from the client's own live site, which renders it TESC at 742 Florida Avenue, Portsmouth. It still wants a letter-by-letter confirmation before it goes into a URL or structured data, because four different renderings exist across our meeting sources.</div>
-  </div>
+  
 </div></section>
 
 <section class="locations"><div class="wrap">
@@ -494,6 +477,15 @@ section{padding:clamp(2.8rem,6vw,5rem) 0}
   }
   draw();
 })();
+</script>
+<script>
+/* Review build. Marion, 2026-08-23: "None of these buttons should work... it'll confuse
+   the shit out of it." Clicks are swallowed so nothing navigates, but hover states are
+   preserved because pointer-events:none would kill those too. */
+document.addEventListener('click', function(e){
+  var t = e.target.closest && e.target.closest('a,button');
+  if (t && !t.closest('.opening')) { e.preventDefault(); e.stopPropagation(); }
+}, true);
 </script>
 </body>
 </html>
