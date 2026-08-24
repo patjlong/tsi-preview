@@ -305,6 +305,15 @@ img{display:block;max-width:100%}
   .flow .track i{transform:scaleY(1)}
   .card{position:static}
 }
+
+.aerialband{position:relative;isolation:isolate}
+.aerialband img{display:block;inline-size:100%;block-size:clamp(11rem,26vw,20rem);object-fit:cover}
+.aerialband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,20,26,.86),rgba(8,20,26,.28) 62%,rgba(8,20,26,.12));z-index:1}
+.aerialband p{position:absolute;inset-block-end:clamp(1rem,3vw,2rem);inset-inline-start:clamp(1rem,5vw,4rem);z-index:2;color:#fff;margin:0;max-inline-size:32ch;font-size:clamp(.95rem,1.7vw,1.15rem);text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.aerialband b{display:block;font-size:1.25em;letter-spacing:.01em}
+.orientfig{margin:1.1rem 0 0;max-inline-size:26rem}
+.orientfig img{display:block;inline-size:100%;block-size:auto;border-radius:.25rem}
+.orientfig figcaption{margin-block-start:.45rem;font-size:.8rem;letter-spacing:.02em;opacity:.75}
 </style>
 <script type="application/ld+json">
 {
@@ -397,6 +406,15 @@ img{display:block;max-width:100%}
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;002 &middot; OPEN ROLES</p>
+      <figure class="arrivefig">
+        <img src="assets/photos/tsi-arrival-card-640.jpg"
+             srcset="assets/photos/tsi-arrival-card-640.jpg 640w, assets/photos/tsi-arrival-card-1000.jpg 1000w"
+             sizes="(min-width:52rem) 24vw, 80vw"
+             alt="A worker arriving at a Tidewater Staffing branch entrance, wearing a Tidewater Staffing backpack."
+             width="1000" height="750" loading="lazy" decoding="async">
+        <figcaption>Walk in, or apply from your phone.</figcaption>
+      </figure>
+
         <h2 class="h2">Search what is open right now.</h2>
         <p class="lead">Two fields. The application goes to a recruiter at the branch nearest the job, not to a queue.</p>
       </div>
@@ -421,7 +439,7 @@ img{display:block;max-width:100%}
       </div>
       <div class="stack">
         <article class="card">
-          <div class="ph phslot"><span class="slotmark">PHOTO TO SOURCE<br><small>marine work, no customer identifiers</small></span></div>
+          <div class="ph"><img src="assets/photos/tsi-marine-card-400.jpg" srcset="assets/photos/tsi-marine-card-400.jpg 400w, assets/photos/tsi-marine-card-640.jpg 640w" sizes="(min-width:52rem) 30vw, 92vw" alt="Three Tidewater Staffing associates in hard hats, hi-vis and full protective gear at a marine job site." width="640" height="480" loading="lazy" decoding="async"></div>
           <div class="bd"><p class="no">01</p><h3>Marine and ship repair</h3><p>Yard crews. Screening and safety training are completed and recorded before dispatch.</p><div class="roles"><span class="slot">TRADES TO CONFIRM</span></div></div>
         </article>
         <article class="card">
@@ -429,7 +447,7 @@ img{display:block;max-width:100%}
           <div class="bd"><p class="no">02</p><h3>Warehouse and logistics</h3><p>Pick, pack, load and move, at volume, with the same screening applied to every associate.</p><div class="roles"><span>General labor</span><span>Warehouse</span><span>Forklift</span></div></div>
         </article>
         <article class="card">
-          <div class="ph phslot"><span class="slotmark">PHOTO TO SOURCE<br><small>plant or line work</small></span></div>
+          <div class="ph"><img src="assets/photos/tsi-crew-card-400.jpg" srcset="assets/photos/tsi-crew-card-400.jpg 400w, assets/photos/tsi-crew-card-720.jpg 720w" sizes="(min-width:52rem) 30vw, 92vw" alt="Three Tidewater Staffing associates on shift, one in a hi-vis vest." width="720" height="540" loading="lazy" decoding="async"></div>
           <div class="bd"><p class="no">03</p><h3>Manufacturing and industrial</h3><p>Line and plant support, under the same safety program and the same compliance stack.</p><div class="roles"><span class="slot">TRADES TO CONFIRM</span></div></div>
         </article>
       </div>
@@ -480,6 +498,15 @@ img{display:block;max-width:100%}
     <div class="shell split2">
       <div>
         <p class="no">N&ordm;006 &middot; THE RECORD</p>
+      <figure class="orientfig">
+        <img src="assets/photos/tsi-orientation-card-400.jpg"
+             srcset="assets/photos/tsi-orientation-card-400.jpg 400w, assets/photos/tsi-orientation-card-640.jpg 640w"
+             sizes="(min-width:52rem) 34vw, 92vw"
+             alt="A Tidewater Staffing safety orientation session in progress, an instructor presenting to seated associates."
+             width="640" height="480" loading="lazy" decoding="async">
+        <figcaption>Orientation, before the first shift.</figcaption>
+      </figure>
+
         <h2 class="h2" style="margin-block-start:1rem">Trained on our floor, documented before dispatch.</h2>
         <p class="lead" style="margin-block-start:1rem">Fit testing, OSHA 10 and hands-on instruction are delivered at a facility Tidewater runs, by trainers on its own payroll. The training is finished before the associate reaches your site.</p>
         <ul class="ticks">
@@ -530,6 +557,15 @@ img{display:block;max-width:100%}
   </section>
 
   <!-- BRANCHES -->
+  <section class="aerialband" aria-label="Hampton Roads">
+    <img src="assets/photos/tsi-aerial-band-1200.jpg"
+         srcset="assets/photos/tsi-aerial-band-1200.jpg 1200w, assets/photos/tsi-aerial-band-1920.jpg 1920w"
+         sizes="100vw"
+         alt="Aerial view of a Hampton Roads shipyard and waterfront where Tidewater Staffing places crews."
+         width="1920" height="823" loading="lazy" decoding="async">
+    <p><b>Hampton Roads.</b> Four branches inside the belt, and crews on the water since 1992.</p>
+  </section>
+
   <section class="sec" id="brs" data-theme-sec="dark">
     <div class="shell">
       <div class="hd">
@@ -734,8 +770,5 @@ img{display:block;max-width:100%}
   }catch(e){clearTimeout(guard);settle();}
 })();
 </script>
-<script>/* review build: Marion 2026-08-23, no workable buttons */
-document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a,button');
-if(t&&!t.closest('[data-reel-controls]')){e.preventDefault();e.stopPropagation();}},true);
-</script></body>
+</body>
 </html>

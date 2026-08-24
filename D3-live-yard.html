@@ -340,6 +340,18 @@ img{display:block;max-width:100%}
   .step,.rung{opacity:1;transform:none}
   .rail i{transform:scaleY(1)}
 }
+
+.aerialband{position:relative;isolation:isolate}
+.aerialband img{display:block;inline-size:100%;block-size:clamp(11rem,26vw,20rem);object-fit:cover}
+.aerialband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,20,26,.86),rgba(8,20,26,.28) 62%,rgba(8,20,26,.12));z-index:1}
+.aerialband p{position:absolute;inset-block-end:clamp(1rem,3vw,2rem);inset-inline-start:clamp(1rem,5vw,4rem);z-index:2;color:#fff;margin:0;max-inline-size:32ch;font-size:clamp(.95rem,1.7vw,1.15rem);text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.aerialband b{display:block;font-size:1.25em;letter-spacing:.01em}
+.orientfig{margin:1.1rem 0 0;max-inline-size:26rem}
+.orientfig img{display:block;inline-size:100%;block-size:auto;border-radius:.25rem}
+.orientfig figcaption{margin-block-start:.45rem;font-size:.8rem;letter-spacing:.02em;opacity:.75}
+.arrivefig{margin:1.1rem 0 0;max-inline-size:22rem}
+.arrivefig img{display:block;inline-size:100%;block-size:auto;border-radius:.25rem}
+.arrivefig figcaption{margin-block-start:.45rem;font-size:.8rem;letter-spacing:.02em;opacity:.75}
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"EmploymentAgency","name":"Tidewater Staffing, Inc.","foundingDate":"1992","areaServed":"Hampton Roads, Virginia","telephone":"+1-757-543-0100","knowsLanguage":["en","es"],
@@ -479,7 +491,7 @@ img{display:block;max-width:100%}
       <h2 class="h2">Where our people work.</h2>
       <div class="grid">
         <article class="svc">
-          <div class="ph phslot"><span class="no">01</span><span class="slotmark">PHOTO TO SOURCE<br><small>marine work, no customer identifiers</small></span></div>
+          <div class="ph"><img src="assets/photos/tsi-marine-card-400.jpg" srcset="assets/photos/tsi-marine-card-400.jpg 400w, assets/photos/tsi-marine-card-640.jpg 640w" sizes="(min-width:52rem) 30vw, 92vw" alt="Three Tidewater Staffing associates in hard hats, hi-vis and full protective gear at a marine job site." width="640" height="480" loading="lazy" decoding="async"></div>
           <div class="bd">
             <h3>Marine and ship repair</h3>
             <p>Crews for the yards, screened and safety trained before they walk through the gate.</p>
@@ -495,7 +507,7 @@ img{display:block;max-width:100%}
           </div>
         </article>
         <article class="svc">
-          <div class="ph phslot"><span class="no">03</span><span class="slotmark">PHOTO TO SOURCE<br><small>plant or line work</small></span></div>
+          <div class="ph"><img src="assets/photos/tsi-crew-card-400.jpg" srcset="assets/photos/tsi-crew-card-400.jpg 400w, assets/photos/tsi-crew-card-720.jpg 720w" sizes="(min-width:52rem) 30vw, 92vw" alt="Three Tidewater Staffing associates on shift, one in a hi-vis vest." width="720" height="540" loading="lazy" decoding="async"></div>
           <div class="bd">
             <h3>Manufacturing and industrial</h3>
             <p>Line and plant support, with the same screening and the same safety program.</p>
@@ -547,6 +559,15 @@ img{display:block;max-width:100%}
     <div class="shell wrap">
       <div>
         <p class="eyebrow">Before the first shift</p>
+      <figure class="orientfig">
+        <img src="assets/photos/tsi-orientation-card-400.jpg"
+             srcset="assets/photos/tsi-orientation-card-400.jpg 400w, assets/photos/tsi-orientation-card-640.jpg 640w"
+             sizes="(min-width:52rem) 34vw, 92vw"
+             alt="A Tidewater Staffing safety orientation session in progress, an instructor presenting to seated associates."
+             width="640" height="480" loading="lazy" decoding="async">
+        <figcaption>Orientation, before the first shift.</figcaption>
+      </figure>
+
         <h2 class="h2">Nobody learns on the job here.</h2>
         <p class="sub">Fit testing, OSHA 10 and hands-on instruction happen in a facility Tidewater runs and staffs, with its own trainers.</p>
         <ul class="safelist">
@@ -604,6 +625,15 @@ img{display:block;max-width:100%}
   </section>
 
   <!-- 12. BRANCHES -->
+  <section class="aerialband" aria-label="Hampton Roads">
+    <img src="assets/photos/tsi-aerial-band-1200.jpg"
+         srcset="assets/photos/tsi-aerial-band-1200.jpg 1200w, assets/photos/tsi-aerial-band-1920.jpg 1920w"
+         sizes="100vw"
+         alt="Aerial view of a Hampton Roads shipyard and waterfront where Tidewater Staffing places crews."
+         width="1920" height="823" loading="lazy" decoding="async">
+    <p><b>Hampton Roads.</b> Four branches inside the belt, and crews on the water since 1992.</p>
+  </section>
+
   <section class="sec br" id="br">
     <div class="shell">
       <p class="eyebrow">Walk in</p>
@@ -774,8 +804,5 @@ img{display:block;max-width:100%}
   }catch(e){clearTimeout(guard);settle();}
 })();
 </script>
-<script>/* review build: Marion 2026-08-23, no workable buttons */
-document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a,button');
-if(t&&!t.closest('[data-reel-controls]')){e.preventDefault();e.stopPropagation();}},true);
-</script></body>
+</body>
 </html>
