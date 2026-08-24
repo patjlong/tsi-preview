@@ -16,9 +16,13 @@
 
 Six homepage versions. Live at the GitHub Pages URL for this repo.
 
-**Client-safe build.** Internal notes and any photograph showing a face are stripped by
-`build/sanitise.py` in the private `tsi-site` repo before anything lands here, because the
-media-release scope for employee photography is still unconfirmed.
+**Faces are cleared.** Jay confirmed on the record (analysis day, 01:07:05, `decision_17`)
+that TSI holds a signed media release from every employee, taken at application, covering
+social media and marketing use. Employee faces may be published. Do not re-raise this.
+
+**The live constraint is customer identity, not faces.** No customer or shipyard name,
+signage or identifiable facility may appear in any image. `build/sanitise.py` still strips
+internal notes before publishing.
 
 Working source, the full internal versions, design notes and the research trail live in
 `koda-brain` under `04_Clients/Tidewater Staffing/website/`.
