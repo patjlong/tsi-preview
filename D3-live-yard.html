@@ -774,5 +774,8 @@ img{display:block;max-width:100%}
   }catch(e){clearTimeout(guard);settle();}
 })();
 </script>
-</body>
+<script>/* review build: Marion 2026-08-23, no workable buttons */
+document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('a,button');
+if(t&&!t.closest('[data-reel-controls]')){e.preventDefault();e.stopPropagation();}},true);
+</script></body>
 </html>
