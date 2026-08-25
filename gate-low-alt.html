@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en" class="tier-lowalt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Gate Low Alt | Tidewater Staffing homepage concept (internal)</title>
+<meta name="description" content="Internal KODA homepage concept for Tidewater Staffing. Not a published page.">
+
+<link rel="preload" href="assets/fonts/encode-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/photos/tsi-warehouse-tall-720.jpg" as="image" imagesrcset="assets/photos/tsi-warehouse-tall-720.jpg 720w, assets/photos/tsi-warehouse-tall-1080.jpg 1080w" imagesizes="(min-width:52rem) 50vw, 100vw" fetchpriority="high">
+
+<script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("js")</script>
+
+<style>
+/* ==========================================================================
+   DIRECTION 2, "GATE"
+   The split dual-path hero. A staffing company serves two people who want
+   opposite things, so the first screen is two doors rather than one message
+   with a compromise headline. Light ground, so it reads as the opposite of
+   Directions 1 and 3 at a glance.
+   ========================================================================== */
+@view-transition{navigation:auto}
+
+@font-face{font-family:Encode;src:url("assets/fonts/encode-sans.woff2") format("woff2");font-weight:100 900;font-stretch:75% 125%;font-display:swap}
+@font-face{font-family:Grotesk;src:url("assets/fonts/space-grotesk.woff2") format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:PlexMono;src:url("assets/fonts/ibm-plex-mono-500.woff2") format("woff2");font-weight:500;font-display:swap}
+
+:root{
+  --blue:#3B6A91; --olive:#667137; --bone:#D6D7C8;
+  --teal:#5194A8; --deep:#115468; --sky:#7EC6DB;
+  --olive-ink:#4A5424;
+
+  --paper:#F3F4EF; --paper-2:#E9EBE3; --card:#FFFFFF;
+  --ink:#101C22; --ink-2:#3B4A50; --ink-3:#5E6C71;
+  --line:rgba(16,28,34,.14);
+
+  --shell:min(1440px,100% - 2.5rem);
+  --head:3.5rem;
+  --out:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;background:var(--paper);scroll-padding-block-start:calc(var(--head) + 1.5rem)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Grotesk,system-ui,sans-serif;font-size:clamp(1rem,.95rem + .2vw,1.0625rem);line-height:1.6;text-wrap:pretty;overflow-x:hidden}
+h1,h2,h3,h4{font-family:Encode,Grotesk,sans-serif;font-weight:700;line-height:1;letter-spacing:-.024em;text-wrap:balance;margin:0}
+p,ul,ol,figure,form{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--deep);outline-offset:3px}
+.shell{width:var(--shell);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.mono{font-family:PlexMono,ui-monospace,monospace;font-weight:500;letter-spacing:.02em}
+.stamp{position:fixed;inset-block-start:auto;inset-block-end:calc(4.25rem + env(safe-area-inset-bottom));inset-inline-start:0;z-index:99;font:500 .5rem/1 PlexMono,monospace;letter-spacing:.14em;padding:.35rem .55rem;background:var(--ink);color:var(--paper);border-start-end-radius:5px}
+@media (min-width:52rem){.stamp{inset-block-end:0}}
+.grain{position:fixed;inset:0;z-index:95;pointer-events:none;opacity:.045;mix-blend-mode:multiply}
+
+.sec{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.no{font:500 .6875rem/1 PlexMono,monospace;letter-spacing:.16em;color:var(--olive-ink)}
+.hd{display:grid;gap:.9rem;margin-block-end:clamp(2rem,4vw,3rem)}
+.h2{font-size:clamp(2rem,1.3rem + 3vw,3.75rem);max-inline-size:19ch;font-stretch:104%}
+.lead{color:var(--ink-2);max-inline-size:58ch}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-block-size:3.25rem;padding:0 1.6rem;border:2px solid transparent;border-radius:2px;font:600 .9375rem/1 Grotesk,sans-serif;transition:transform .16s var(--out),background-color .2s var(--out),border-color .2s var(--out),color .2s var(--out)}
+.btn:active{transform:scale(.97)}
+.btn-deep{background:var(--deep);color:#fff}
+.btn-olive{background:var(--olive-ink);color:#fff}
+.btn-line{border-color:var(--line);color:var(--ink)}
+.btn-ghostw{border-color:rgba(255,255,255,.5);color:#fff}
+.arw{transition:transform .2s var(--out)}
+
+/* ==== HEADER ============================================================= */
+.head{position:sticky;inset-block-start:0;z-index:60;block-size:var(--head);display:flex;align-items:center;background:rgba(243,244,239,.86);backdrop-filter:blur(14px);border-block-end:1px solid transparent;transition:border-color .3s var(--out)}
+.head.stuck{border-block-end-color:var(--line)}
+.head .shell{display:flex;align-items:center;gap:1.5rem}
+.brand{display:inline-flex;align-items:center;min-block-size:2.75rem}
+.brand img{block-size:1.5rem;inline-size:auto}
+.nav{display:none;gap:1.5rem;margin-inline-start:auto;font:500 .8125rem/1 PlexMono,monospace;letter-spacing:.05em;text-transform:uppercase}
+.nav a{color:var(--ink-2);position:relative;padding-block:.45rem;white-space:nowrap}
+.nav a::after{content:"";position:absolute;inset-inline:0;inset-block-end:0;block-size:2px;background:var(--deep);transform:scaleX(0);transform-origin:left;transition:transform .22s var(--out)}
+.tools{margin-inline-start:auto;display:flex;gap:.5rem;align-items:center}
+.lang{display:inline-flex;align-items:center;min-block-size:2.75rem;min-inline-size:2.75rem;justify-content:center;padding:0 .75rem;border:1px solid var(--line);font:500 .75rem/1 PlexMono,monospace;color:var(--ink)}
+.head .btn{display:none;min-block-size:2.5rem;padding:0 1.1rem}
+
+/* ==== HERO: two doors ==================================================== */
+.gate{display:grid;min-block-size:calc(100dvh - var(--head));border-block-end:1px solid var(--line)}
+.door{position:relative;overflow:hidden;display:grid;align-content:end;padding:clamp(1.5rem,4vw,3rem);isolation:isolate;min-block-size:min(52vh,26rem)}
+.door .bg{position:absolute;inset:0;z-index:-2}
+.door .bg img{inline-size:100%;block-size:100%;object-fit:cover;will-change:transform;transition:transform .8s var(--out)}
+.door::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.door.work::after{background:linear-gradient(to top,rgba(9,26,33,.92) 6%,rgba(9,26,33,.55) 42%,rgba(9,26,33,.25) 100%),linear-gradient(140deg,rgba(17,84,104,.45),transparent 60%)}
+.door.hire::after{background:linear-gradient(to top,rgba(20,26,12,.94) 6%,rgba(22,28,14,.68) 46%,rgba(24,30,16,.34) 100%),linear-gradient(140deg,rgba(74,84,36,.42),transparent 62%)}
+.door .in2{position:relative;z-index:2;color:#fff;display:grid;gap:.9rem;max-inline-size:34rem}
+.door .tag{font:500 .6875rem/1 PlexMono,monospace;letter-spacing:.16em;text-transform:uppercase;color:#D8E7ED;display:inline-flex;align-items:center;gap:.5rem}
+.door.hire .tag{color:#DEE3CC}
+.door h2{font-size:clamp(2.25rem,1.3rem + 4vw,4.25rem);font-stretch:106%;color:#fff;line-height:.96}
+.door p{color:rgba(255,255,255,.9);max-inline-size:36ch}
+.door .row{display:flex;flex-wrap:wrap;gap:.6rem;margin-block-start:.5rem}
+.door .seg{display:flex;flex-wrap:wrap;gap:.4rem;margin-block-start:.9rem}
+.door .seg span{font:500 .75rem/1 PlexMono,monospace;padding:.45rem .6rem;border:1px solid rgba(255,255,255,.4);color:#fff;letter-spacing:.03em}
+.door .seg span.slot{border-style:dashed}
+
+/* ==== TRUST RIBBON ======================================================= */
+.ribbon{background:var(--ink);color:#E7ECE9;overflow:hidden;padding-block:.95rem}
+.ribbon .tr{display:flex;gap:2.25rem;inline-size:max-content;will-change:transform}
+.js .ribbon .tr{animation:slide 40s linear infinite}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ribbon .tr span{display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap;font:500 .75rem/1 PlexMono,monospace;letter-spacing:.1em;text-transform:uppercase}
+.ribbon .tr span::before{content:"";inline-size:.3rem;block-size:.3rem;background:var(--sky);flex:0 0 auto}
+
+/* ==== PROOF BENTO ======================================================== */
+.bento{display:grid;gap:.75rem;grid-template-columns:repeat(2,1fr)}
+.bx{background:var(--card);border:1px solid var(--line);padding:1.5rem;display:grid;align-content:center;gap:.45rem;min-block-size:9rem;min-inline-size:0}
+.bx .k{font:500 .625rem/1.3 PlexMono,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.bx .v{font-family:Encode,sans-serif;font-weight:700;font-stretch:108%;font-size:clamp(1.5rem,1.1rem + 2.2vw,3.25rem);line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.bx .n{font-size:.8125rem;color:var(--ink-2);line-height:1.45}
+.bx.wide{grid-column:span 2}
+.bx.dark{background:var(--deep);border-color:var(--deep);color:#fff}
+.bx.dark .k{color:#AECEDA}
+.bx.dark .n{color:#D5E7EE}
+.bx.slotbx{border-style:dashed;border-color:var(--deep);background:transparent}
+.bx .slot{display:inline-block;font:500 .625rem/1 PlexMono,monospace;letter-spacing:.1em;color:var(--deep);border:1px dashed var(--deep);padding:.32rem .48rem;justify-self:start}
+.bx .stars{display:flex;gap:.12rem;color:var(--deep)}
+
+/* ==== SERVICES: horizontal rail ========================================== */
+.rail{position:relative}
+.railtrack{display:grid;gap:1rem;grid-auto-flow:row}
+.sv{position:relative;background:var(--card);border:1px solid var(--line);overflow:hidden;display:grid}
+.sv .ph{position:relative;aspect-ratio:16/9;overflow:hidden}
+.sv .ph.phslot{display:grid;place-items:center;background:var(--paper-2);border-block-end:1px dashed var(--deep)}
+.slotmark{font:500 .6875rem/1.6 PlexMono,monospace;letter-spacing:.12em;color:var(--deep);text-align:center;padding:1rem}
+.slotmark small{font-size:.625rem;letter-spacing:.08em;color:var(--ink-3);text-transform:none}
+/* No clipped start state in CSS on purpose: if the script never runs, the
+   photograph is simply visible rather than invisible. */
+.sv .ph img{inline-size:100%;block-size:100%;object-fit:cover;transition:transform .7s var(--out)}
+.sv .idx{position:absolute;inset-block-start:.8rem;inset-inline-start:.8rem;z-index:2;font:500 .6875rem/1 PlexMono,monospace;color:#fff;background:rgba(16,28,34,.72);padding:.35rem .5rem}
+.sv .bd{padding:1.4rem 1.25rem 1.6rem;display:grid;gap:.6rem;align-content:start}
+.sv h3{font-size:1.5rem;font-stretch:104%}
+.sv p{color:var(--ink-2);font-size:.9375rem}
+.sv .roles{display:flex;flex-wrap:wrap;gap:.4rem}
+.sv .roles span{font:500 .75rem/1 PlexMono,monospace;padding:.4rem .55rem;border:1px solid var(--line);color:var(--ink-2)}
+.sv .roles span.slot{border-style:dashed;border-color:var(--deep);color:var(--deep)}
+
+/* ==== SEARCH ============================================================= */
+.find{background:var(--paper-2)}
+.find .searchbar{display:grid;gap:.5rem;background:var(--card);border:1px solid var(--line);padding:.5rem}
+.fld{display:grid;gap:.3rem;padding:.75rem .9rem;min-inline-size:0}
+.fld label{font:500 .625rem/1 PlexMono,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.fld input{border:0;outline:0;background:transparent;color:var(--ink);font:400 1.0625rem/1.4 Grotesk,sans-serif;min-block-size:2.75rem;min-inline-size:0;inline-size:100%}
+.fld input::placeholder{color:var(--ink-3)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-block-start:1.25rem}
+.chip{display:inline-flex;align-items:center;min-block-size:2.75rem;padding:0 .9rem;border:1px solid var(--line);background:var(--card);font:500 .8125rem/1 Grotesk,sans-serif;color:var(--ink-2);transition:border-color .18s var(--out),color .18s var(--out)}
+.chip.slot{border-style:dashed;border-color:var(--deep);color:var(--deep);background:transparent}
+
+/* ==== PROCESS ============================================================ */
+.flow{position:relative;display:grid;gap:0}
+.flow .track{position:absolute;inset-block:0;inset-inline-start:1.1rem;inline-size:2px;background:var(--line)}
+.flow .track i{display:block;block-size:100%;background:var(--deep);transform:scaleY(0);transform-origin:top}
+@supports (animation-timeline: view()){
+  .js .flow .track i{animation:draw linear both;animation-timeline:view();animation-range:cover 2% cover 78%}
+  .js .stepi{animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 26%}
+  .js .sv,.js .rung{animation:rise linear both;animation-timeline:view();animation-range:entry 2% cover 24%}
+}
+@keyframes draw{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.stepi{position:relative;padding:1.4rem 0 1.4rem 3.5rem}
+.stepi .d{position:absolute;inset-inline-start:0;inset-block-start:1.55rem;inline-size:2.25rem;block-size:2.25rem;border:2px solid var(--deep);background:var(--paper);display:grid;place-items:center;font:500 .6875rem/1 PlexMono,monospace;color:var(--deep);z-index:2}
+.stepi h3{font-size:1.375rem}
+.stepi p{margin-block-start:.35rem;color:var(--ink-2);font-size:.9375rem;max-inline-size:52ch}
+
+/* ==== COMPARISON ========================================================= */
+.tbl{border:1px solid var(--line);background:var(--card)}
+.tr2{display:grid;grid-template-columns:1fr 6rem 6rem;gap:.5rem;padding:.95rem 1rem;border-block-end:1px solid var(--line);font-size:.9375rem;align-items:center}
+.tr2:last-child{border-block-end:0}
+.tr2.hd2{background:var(--paper-2);font:500 .6875rem/1.2 PlexMono,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:center}
+.tr2.hd2 span:first-child{text-align:start}
+.tr2 .a,.tr2 .b{text-align:center;font-weight:600}
+.tr2 .a{color:var(--deep)}
+.tr2 .b{color:var(--ink-3)}
+
+/* ==== TRAINING SPLIT ===================================================== */
+.split2{display:grid;gap:clamp(1.5rem,4vw,3rem);align-items:center}
+.split2 .art{position:relative;overflow:hidden;aspect-ratio:4/3}
+.split2 .art img{inline-size:100%;block-size:100%;object-fit:cover}
+.ticks{display:grid;gap:.6rem;margin-block-start:1.5rem}
+.ticks li{display:flex;gap:.65rem;font-size:.9375rem;color:var(--ink-2)}
+.ticks svg{color:var(--deep);flex:0 0 auto;margin-block-start:.25rem}
+.slotchip{display:inline-flex;align-items:center;font:500 .6875rem/1 PlexMono,monospace;letter-spacing:.1em;color:var(--deep);border:1px dashed var(--deep);padding:.45rem .6rem;margin-block-start:1.25rem}
+
+/* ==== LADDER ============================================================= */
+.ladder{display:grid;gap:.7rem}
+.rung{background:var(--card);border:1px solid var(--line);padding:1.2rem;display:grid;gap:.3rem;margin-inline-start:calc(var(--i) * clamp(0rem,1.5vw,2.25rem))}
+.rung .n2{font:500 .6875rem/1 PlexMono,monospace;letter-spacing:.12em;color:var(--olive-ink)}
+.rung h3{font-size:1.25rem}
+.rung p{color:var(--ink-2);font-size:.9375rem}
+
+/* ==== BRANCHES =========================================================== */
+.brs{display:grid;gap:.7rem}
+.brc{background:var(--card);border:1px solid var(--line);padding:1.2rem;display:grid;gap:.25rem;transition:border-color .2s var(--out)}
+.brc h3{font-size:1.125rem}
+.brc p{font-size:.875rem;color:var(--ink-2)}
+.brc .addr{font:500 .6875rem/1 PlexMono,monospace;letter-spacing:.1em;color:var(--deep);border:1px dashed var(--deep);padding:.35rem .5rem;justify-self:start}
+.brc a{font:500 .8125rem/1 PlexMono,monospace;color:var(--deep);margin-block-start:.45rem;display:inline-flex;align-items:center;min-block-size:2.75rem}
+.brc.t2{border-color:var(--deep)}
+
+/* ==== CLOSER ============================================================= */
+.close{background:var(--deep);color:#fff;position:relative;overflow:hidden}
+.close .bgimg{position:absolute;inset:0;opacity:.15}
+.close .bgimg img{inline-size:100%;block-size:100%;object-fit:cover}
+.close .shell{position:relative;display:grid;gap:1.25rem;justify-items:start}
+.close .no{color:#AECEDA}
+.close h2{font-size:clamp(2.25rem,1.5rem + 3.4vw,4.25rem);max-inline-size:17ch;color:#fff}
+.close .row{display:flex;flex-wrap:wrap;gap:.7rem}
+.close .mono a{display:inline-block;padding-block:.72rem}
+
+/* ==== FOOTER ============================================================= */
+.foot{background:var(--ink);color:#C9D4D8;padding-block:3rem}
+.foot .cols{display:grid;gap:2rem}
+.foot h4{font:500 .6875rem/1 PlexMono,monospace;letter-spacing:.14em;text-transform:uppercase;color:#84969C;margin-block-end:.9rem}
+.foot li{margin-block-end:.5rem}
+.foot a{font-size:.875rem;color:#C9D4D8;display:inline-block;padding-block:.72rem}
+.legal{margin-block-start:2.5rem;padding-block-start:1.5rem;border-block-start:1px solid rgba(255,255,255,.14);font-size:.75rem;color:#8FA0A6;display:grid;gap:.85rem}
+.scam{border:1px solid rgba(126,198,219,.3);padding:.9rem 1rem;font-size:.8125rem;color:#C9D4D8;max-inline-size:72ch}
+
+/* ==== MOBILE BAR ========================================================= */
+.bar{position:fixed;inset-inline:0;inset-block-end:0;z-index:80;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;padding:.5rem .75rem calc(.5rem + env(safe-area-inset-bottom));background:rgba(243,244,239,.95);backdrop-filter:blur(14px);border-block-start:1px solid var(--line)}
+.bar a{display:flex;align-items:center;justify-content:center;gap:.4rem;min-block-size:3.25rem;border-radius:2px;font:600 .9375rem/1 Grotesk,sans-serif}
+.bar .p{background:var(--deep);color:#fff}
+.bar .s{border:2px solid var(--deep);color:var(--deep)}
+
+/* ==== NOTES ============================================================== */
+.notes{background:var(--paper-2);padding-block:2.5rem calc(4.75rem + 2.5rem);font-size:.875rem;border-block-start:1px solid var(--line)}
+.notes h2{font-size:1.25rem}
+.notes .cols{display:grid;gap:1.25rem;margin-block-start:1.25rem}
+.notes ul{display:grid;gap:.45rem;color:var(--ink-2)}
+.notes li{padding-inline-start:1rem;position:relative}
+.notes li::before{content:"";position:absolute;inset-inline-start:0;inset-block-start:.62em;inline-size:.3rem;block-size:.3rem;background:var(--olive-ink)}
+.notes a{color:var(--deep);text-decoration:underline}
+
+.js .in{opacity:0;transform:translateY(20px)}
+
+/* ==== RESPONSIVE ========================================================= */
+@media (min-width:52rem){
+  :root{--head:4.25rem}
+  .tools{margin-inline-start:0}
+  .head .btn{display:inline-flex}
+  .bar{display:none}
+  .gate{grid-template-columns:1fr 1fr}
+  .door{min-block-size:auto}
+  .bento{grid-template-columns:repeat(4,1fr)}
+  .bx.wide{grid-column:span 2}
+  .railtrack{grid-template-columns:repeat(3,1fr)}
+  .sv{grid-template-rows:auto 1fr}
+  .find .searchbar{grid-template-columns:1.5fr 1fr auto;align-items:center}
+  .fld + .fld{border-inline-start:1px solid var(--line)}
+  .find .searchbar .btn{min-block-size:3.5rem}
+  .split2{grid-template-columns:1fr 1fr}
+  .brs{grid-template-columns:repeat(3,1fr)}
+  .foot .cols{grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2.5rem}
+  .notes .cols{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .notes{padding-block-end:3rem}
+  .tr2{grid-template-columns:1fr 9rem 9rem}
+}
+/* The desktop nav only appears once there is room for it on one line. */
+@media (min-width:62rem){.nav{display:flex}}
+@media (min-width:68rem){.brs{grid-template-columns:repeat(5,1fr)}}
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover::after{transform:scaleX(1)}
+  .btn-deep:hover{background:#0C4053}
+  .btn-olive:hover{background:#3C441D}
+  .btn-line:hover{border-color:var(--deep);color:var(--deep)}
+  .btn-ghostw:hover{background:rgba(255,255,255,.14)}
+  .btn:hover .arw{transform:translateX(3px)}
+  .door:hover .bg img{transform:scale(1.05)}
+  .chip:hover{border-color:var(--deep);color:var(--deep)}
+  .sv:hover .ph img{transform:scale(1.04)}
+  .brc:hover{border-color:var(--deep)}
+  .ribbon:hover .tr{animation-play-state:paused}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .in{opacity:1 !important;transform:none !important}
+  .stepi,.sv,.rung{opacity:1;transform:none}
+  .flow .track i{transform:scaleY(1)}
+}
+
+.aerialband{position:relative;isolation:isolate}
+.aerialband img{display:block;inline-size:100%;block-size:clamp(11rem,26vw,20rem);object-fit:cover}
+.aerialband::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,20,26,.86),rgba(8,20,26,.28) 62%,rgba(8,20,26,.12));z-index:1}
+.aerialband p{position:absolute;inset-block-end:clamp(1rem,3vw,2rem);inset-inline-start:clamp(1rem,5vw,4rem);z-index:2;color:#fff;margin:0;max-inline-size:32ch;font-size:clamp(.95rem,1.7vw,1.15rem);text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.aerialband b{display:block;font-size:1.25em;letter-spacing:.01em}
+.orientfig{margin:1.1rem 0 0;max-inline-size:26rem}
+.orientfig img{display:block;inline-size:100%;block-size:auto;border-radius:.25rem}
+.orientfig figcaption{margin-block-start:.45rem;font-size:.8rem;letter-spacing:.02em;opacity:.75}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EmploymentAgency","name":"Tidewater Staffing, Inc.","foundingDate":"1992","areaServed":"Hampton Roads, Virginia","telephone":"+1-757-543-0100","knowsLanguage":["en","es"],
+"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Marine and ship repair staffing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Warehouse and logistics staffing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Manufacturing and industrial staffing"}}],
+"location":[{"@type":"Place","name":"Chesapeake","address":{"@type":"PostalAddress","streetAddress":"1000 Poindexter Street","addressLocality":"Chesapeake","addressRegion":"VA","addressCountry":"US"}},{"@type":"Place","name":"Virginia Beach","address":{"@type":"PostalAddress","addressLocality":"Virginia Beach","addressRegion":"VA","addressCountry":"US"}},{"@type":"Place","name":"Portsmouth","address":{"@type":"PostalAddress","addressLocality":"Portsmouth","addressRegion":"VA","addressCountry":"US"}},{"@type":"Place","name":"Suffolk","address":{"@type":"PostalAddress","addressLocality":"Suffolk","addressRegion":"VA","addressCountry":"US"}}]}
+</script>
+<style id='tier'>
+
+/* Gate Low Alt: identical energy, alternative presentation. Doors swap order,
+   the olive door leads, ribbon is static, ground shifts one step warmer. */
+html.tier-lowalt body{background:var(--paper-2)}
+html.tier-lowalt .head{background:rgba(233,235,227,.88)}
+html.tier-lowalt .gate{direction:rtl}
+html.tier-lowalt .gate .door{direction:ltr}
+html.tier-lowalt .ribbon .tr{animation:none;flex-wrap:wrap;inline-size:auto;justify-content:center}
+html.tier-lowalt .bx.dark{background:var(--olive-ink);border-color:var(--olive-ink)}
+html.tier-lowalt .tr2 .a{color:var(--olive-ink)}
+html.tier-lowalt .stepi .d{border-color:var(--olive-ink);color:var(--olive-ink)}
+html.tier-lowalt .flow .track i{background:var(--olive-ink)}
+
+</style>
+</head>
+<body>
+
+<svg class="grain" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
+
+<p class="stamp">INTERNAL DRAFT</p>
+<a class="sr" href="#main">Skip to content</a>
+
+<header class="head" id="head">
+  <div class="shell">
+    <a class="brand" href="#" aria-label="Tidewater Staffing home"><img src="assets/logo/tsi-lockup.png" alt="Tidewater Staffing" width="2353" height="450"></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#find">Find work</a><a href="#svcs">What we staff</a><a href="#how">Process</a><a href="#train">Training</a><a href="#brs">Branches</a>
+    </nav>
+    <div class="tools">
+      <a class="lang" href="#" lang="es" hreflang="es">ES</a>
+      <a class="btn btn-deep" href="tel:+17575430100">757 543 0100</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO: two doors ===== -->
+<h1 class="sr">Tidewater Staffing puts Hampton Roads tradespeople to work and sends screened marine, warehouse and manufacturing crews to local employers. Family owned since 1992.</h1>
+<section class="gate" aria-label="Choose your path">
+
+  <div class="door work">
+    <div class="bg" aria-hidden="true"><img src="assets/photos/tsi-warehouse-tall-720.jpg" srcset="assets/photos/tsi-warehouse-tall-720.jpg 720w, assets/photos/tsi-warehouse-tall-1080.jpg 1080w" sizes="(min-width:52rem) 50vw, 100vw" alt="" width="1080" height="1440" fetchpriority="high" decoding="async"></div>
+    <div class="in2">
+      <p class="tag">N&ordm;001 &middot; For job seekers</p>
+      <h2>I need work.</h2>
+      <p>Weekly pay every Friday. Health, dental and vision from your first shift, and you are covered without filling anything in.</p>
+      <div class="seg">
+        <span class="slot">JOB TITLES TO CONFIRM</span>
+      </div>
+      <div class="row">
+        <a class="btn btn-deep" href="#find">Search jobs <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghostw" href="#">Apply now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="door hire">
+    <div class="bg" aria-hidden="true"><img src="assets/photos/tsi-branch-tall-720.jpg" srcset="assets/photos/tsi-branch-tall-720.jpg 720w, assets/photos/tsi-branch-tall-1080.jpg 1080w" sizes="(min-width:52rem) 50vw, 100vw" alt="" width="1080" height="1440" decoding="async"></div>
+    <div class="in2">
+      <p class="tag">N&ordm;002 &middot; For employers</p>
+      <h2>I need a crew.</h2>
+      <p>Say the trade, the count and the day you need them. They arrive screened, trained and in PPE. No hiring fee, now or later.</p>
+      <div class="seg">
+        <span>Marine and ship repair</span><span>Warehouse and logistics</span><span>Manufacturing</span>
+      </div>
+      <div class="row">
+        <a class="btn btn-olive" href="#close">Request a crew <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghostw" href="tel:+17575430100">757 543 0100</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon" ><div class="tr" id="tr"><span>Absolutely no hiring fees, ever</span><span>E-Verify participant</span><span>Background checked</span><span>Drug screened</span><span>Onsite OSHA compliance program</span><span>In-house OSHA 10 trainers</span><span>PPE provided</span><span>ACA and Wage Determination compliant</span><span>Certified payroll available</span><span>Coordinator check-ins on site</span><span>Se habla espa&ntilde;ol</span></div></div>
+<p class="sr">Every associate is E-Verified, background checked and drug screened. PPE provided. Onsite OSHA compliance program. In-house OSHA 10 trainers. ACA and Wage Determination compliant. Certified payroll available. Absolutely no hiring fees, ever. Se habla espa&ntilde;ol.</p>
+
+<main id="main">
+
+  <!-- PROOF BENTO -->
+  <section class="sec">
+    <div class="shell">
+      <div class="hd">
+        <p class="no">N&ordm;003 &middot; THE SHORT VERSION</p>
+        <h2 class="h2">Thirty four years of picking up the phone.</h2>
+      </div>
+      <div class="bento">
+        <div class="bx"><span class="k">Years, family owned</span><span class="v" data-count="34">34</span><span class="n">Founded 1992, still family run.</span></div>
+        <div class="bx dark"><span class="k">Google rating, Portsmouth</span><span class="v" data-count="4.9" data-dec="1">4.9</span><div class="stars" style="color:#7EC6DB" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.4 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.4 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.4 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.4 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg><svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.4 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg></div><span class="n">Across 773 reviews of the Portsmouth branch.</span></div>
+        <div class="bx"><span class="k">Tradespeople placed</span><span class="v">Thousands</span><span class="n">Year after year, across the trades.</span></div>
+        <div class="bx slotbx"><span class="slot">MEASURE THIS</span><span class="k">Call to crew on site</span><span class="n">Days from first call to a crew on site.</span></div>
+        <div class="bx wide"><span class="k">Branches</span><span class="v">4 + 1</span><span class="n">Chesapeake, Virginia Beach, Portsmouth and Suffolk, plus a training facility of our own.</span></div>
+        <div class="bx wide"><span class="k">The line nobody else runs</span><span class="v" style="font-size:clamp(1.375rem,1rem + 1.6vw,2.125rem)">No hiring fees, ever</span><span class="n">No fee to hire the people we place, at any point.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES RAIL -->
+  <section class="sec rail" id="svcs">
+    <div class="shell">
+      <div class="hd">
+        <p class="no">N&ordm;004 &middot; PICK YOUR LINE</p>
+        <h2 class="h2">Which one are you hiring for?</h2>
+      </div>
+      <div class="railtrack">
+        <article class="sv">
+          <div class="ph"><img src="assets/photos/tsi-marine-card-400.jpg" srcset="assets/photos/tsi-marine-card-400.jpg 400w, assets/photos/tsi-marine-card-640.jpg 640w" sizes="(min-width:52rem) 30vw, 92vw" alt="Three Tidewater Staffing associates in hard hats, hi-vis and full protective gear at a marine job site." width="640" height="480" loading="lazy" decoding="async"></div>
+          <div class="bd"><h3>Marine and ship repair</h3><p>Crews for the yards. They clear screening and safety training before they reach your gate.</p><div class="roles"><span class="slot">TRADES TO CONFIRM</span></div></div>
+        </article>
+        <article class="sv">
+          <div class="ph"><span class="idx">02</span><img src="assets/photos/tsi-warehouse-wide-800.jpg" srcset="assets/photos/tsi-warehouse-wide-800.jpg 800w, assets/photos/tsi-warehouse-wide-1200.jpg 1200w" sizes="(min-width:52rem) 31vw, 92vw" alt="A Tidewater Staffing associate in a hi-vis vest carrying a stock box inside a shipping container." width="800" height="450" loading="lazy" decoding="async"></div>
+          <div class="bd"><h3>Warehouse and logistics</h3><p>Pick, pack, load, move. Ask for ten or ask for a hundred, and ask on short notice.</p><div class="roles"><span class="slot">JOB TITLES TO CONFIRM</span></div></div>
+        </article>
+        <article class="sv">
+          <div class="ph"><img src="assets/photos/tsi-crew-card-400.jpg" srcset="assets/photos/tsi-crew-card-400.jpg 400w, assets/photos/tsi-crew-card-720.jpg 720w" sizes="(min-width:52rem) 30vw, 92vw" alt="Three Tidewater Staffing associates on shift, one in a hi-vis vest." width="720" height="540" loading="lazy" decoding="async"></div>
+          <div class="bd"><h3>Manufacturing and industrial</h3><p>Line and plant support. Same screening, same safety program, same people answering your calls.</p><div class="roles"><span class="slot">TRADES TO CONFIRM</span></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH -->
+  <section class="sec find" id="find">
+    <div class="shell">
+      <div class="hd">
+        <p class="no">N&ordm;005 &middot; IF YOU WANT WORK</p>
+      <figure class="arrivefig">
+        <img src="assets/photos/tsi-arrival-card-640.jpg"
+             srcset="assets/photos/tsi-arrival-card-640.jpg 640w, assets/photos/tsi-arrival-card-1000.jpg 1000w"
+             sizes="(min-width:52rem) 24vw, 80vw"
+             alt="A worker arriving at a Tidewater Staffing branch entrance, wearing a Tidewater Staffing backpack."
+             width="1000" height="750" loading="lazy" decoding="async">
+        <figcaption>Walk in, or apply from your phone.</figcaption>
+      </figure>
+
+        <h2 class="h2">Two fields. That is the whole thing.</h2>
+      </div>
+      <form class="searchbar" onsubmit="return false">
+        <div class="fld"><label for="q">I am looking for</label><input id="q" type="text" placeholder="Trade, or a job title"></div>
+        <div class="fld"><label for="w">Somewhere near</label><input id="w" type="text" placeholder="City or ZIP"></div>
+        <button class="btn btn-deep" type="submit">Search jobs <span class="arw" aria-hidden="true">&rarr;</span></button>
+      </form>
+      <div class="chips">
+        <a class="chip" href="#">Marine and ship repair</a><a class="chip" href="#">Warehouse and logistics</a><a class="chip" href="#">Manufacturing and industrial</a>
+        <span class="chip slot">JOB TITLES TO CONFIRM WITH TSI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="sec" id="how">
+    <div class="shell">
+      <div class="hd">
+        <p class="no">N&ordm;006 &middot; IF YOU NEED PEOPLE</p>
+        <h2 class="h2">What happens after you call.</h2>
+      </div>
+      <div class="flow">
+        <div class="track" aria-hidden="true"><i></i></div>
+        <div class="stepi"><span class="d">01</span><h3>You call</h3><p>Somebody picks up. You describe the work, we tell you straight away whether we can cover it.</p></div>
+        <div class="stepi"><span class="d">02</span><h3>You get a rate</h3><p>One sheet, one agreement. Nothing on the back of it about fees if you later hire the person.</p></div>
+        <div class="stepi"><span class="d">03</span><h3>We screen</h3><p>E-Verify, background check, drug screen. Every associate, every placement, no exceptions asked for.</p></div>
+        <div class="stepi"><span class="d">04</span><h3>We train</h3><p>Fit testing and safety training happen at our place, before the first shift, on our time.</p></div>
+        <div class="stepi"><span class="d">05</span><h3>They show up, and so do we</h3><p>The crew arrives in PPE, and a coordinator keeps coming back for as long as the job runs.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section class="sec">
+    <div class="shell">
+      <div class="hd">
+        <p class="no">N&ordm;007 &middot; THE HONEST COMPARISON</p>
+        <h2 class="h2">What you get here that you do not get from a national.</h2>
+      </div>
+      <div class="tbl" role="table" aria-label="Tidewater Staffing compared with a national agency">
+        <div class="tr2 hd2" role="row"><span role="columnheader">&nbsp;</span><span role="columnheader">Tidewater</span><span role="columnheader">Typical national</span></div>
+        <div class="tr2" role="row"><span role="cell">Branches inside Hampton Roads</span><span class="a" role="cell">Four</span><span class="b" role="cell">Usually one</span></div>
+        <div class="tr2" role="row"><span role="cell">Hiring fees</span><span class="a" role="cell">None, ever</span><span class="b" role="cell">Varies</span></div>
+        <div class="tr2" role="row"><span role="cell">Payroll, HR, safety, accounting</span><span class="a" role="cell">In house</span><span class="b" role="cell">Varies</span></div>
+        <div class="tr2" role="row"><span role="cell">Certified payroll available</span><span class="a" role="cell">Yes</span><span class="b" role="cell">Varies</span></div>
+        <div class="tr2" role="row"><span role="cell">On-site coordinator check-ins</span><span class="a" role="cell">Yes</span><span class="b" role="cell">Varies</span></div>
+        <div class="tr2" role="row"><span role="cell">PPE provided</span><span class="a" role="cell">Yes</span><span class="b" role="cell">Varies</span></div>
+        <div class="tr2" role="row"><span role="cell">Its own training facility</span><span class="a" role="cell">Yes</span><span class="b" role="cell">Varies</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section class="sec" id="train">
+    <div class="shell split2">
+      <div>
+        <p class="no">N&ordm;008 &middot; BEFORE THEY ARRIVE</p>
+      <figure class="orientfig">
+        <img src="assets/photos/tsi-orientation-card-400.jpg"
+             srcset="assets/photos/tsi-orientation-card-400.jpg 400w, assets/photos/tsi-orientation-card-640.jpg 640w"
+             sizes="(min-width:52rem) 34vw, 92vw"
+             alt="A Tidewater Staffing safety orientation session in progress, an instructor presenting to seated associates."
+             width="640" height="480" loading="lazy" decoding="async">
+        <figcaption>Orientation, before the first shift.</figcaption>
+      </figure>
+
+        <h2 class="h2" style="margin-block-start:.9rem">Your crew is trained before it reaches you.</h2>
+        <p class="lead" style="margin-block-start:.9rem">Fit testing, OSHA 10 and hands-on instruction happen at a facility we run, with trainers on our own payroll. You are not paying for anybody to learn.</p>
+        <ul class="ticks">
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> In-house OSHA 10 trainers and classes</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Onsite OSHA compliance safety program</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Respirator fit testing before placement</li>
+          <li><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> PPE provided to every associate</li>
+        </ul>
+        <p class="slotchip">TRAINING FACILITY NAME TBD</p>
+      </div>
+      <figure class="art"><img src="assets/photos/tsi-training-card-1000.jpg" alt="Two Tidewater Staffing associates at a respirator fit test in the company training facility." width="1000" height="750" loading="lazy" decoding="async"></figure>
+    </div>
+  </section>
+
+  <!-- LADDER -->
+  <section class="sec">
+    <div class="shell">
+      <div class="hd">
+        <p class="no">N&ordm;009 &middot; IF YOU CAME FOR THE WORK</p>
+        <h2 class="h2">What you get on day one.</h2>
+        <p class="lead">Weekly pay, and health, dental and vision from the first shift. It is opt out, so you are covered by default. Plenty of people get hired on permanently, and we backfill behind them.</p>
+      </div>
+      <ol class="ladder">
+        <li class="rung" style="--i:0"><span class="n2">STEP 01</span><h3>Paint</h3><p>Where most people start. It gets you through the gate and onto a crew.</p></li>
+        <li class="rung" style="--i:1"><span class="n2">STEP 02</span><h3>Power tooling</h3><p>More skill in your hands, and the rate moves with it.</p></li>
+        <li class="rung" style="--i:2"><span class="n2">STEP 03</span><h3>Supervise and lead</h3><p>Your own crew. The leads you would be working under started here too.</p></li>
+        <li class="rung" style="--i:3"><span class="n2">STEP 04</span><h3>Trades</h3><p>Something you keep. It belongs to you after that, wherever you go.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- BRANCHES -->
+  <section class="aerialband" aria-label="Hampton Roads">
+    <img src="assets/photos/tsi-aerial-band-1200.jpg"
+         srcset="assets/photos/tsi-aerial-band-1200.jpg 1200w, assets/photos/tsi-aerial-band-1920.jpg 1920w"
+         sizes="100vw"
+         alt="Aerial view of a Hampton Roads shipyard and waterfront where Tidewater Staffing places crews."
+         width="1920" height="823" loading="lazy" decoding="async">
+    <p><b>Hampton Roads.</b> Four branches inside the belt, and crews on the water since 1992.</p>
+  </section>
+
+  <section class="sec" id="brs">
+    <div class="shell">
+      <div class="hd">
+        <p class="no">N&ordm;010 &middot; COME IN, OR CALL</p>
+        <h2 class="h2">There is a branch near your yard.</h2>
+      </div>
+      <div class="brs">
+        <article class="brc"><h3>Chesapeake</h3><p>1000 Poindexter Street</p><a href="tel:+17575430100">757 543 0100</a></article>
+        <article class="brc"><h3>Virginia Beach</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Details &rarr;</a></article>
+        <article class="brc"><h3>Portsmouth</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Details &rarr;</a></article>
+        <article class="brc"><h3>Suffolk</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Details &rarr;</a></article>
+        <article class="brc t2"><h3>Training facility</h3><p class="addr">NAME AND ADDRESS TBD</p><a href="#train">Name TBD &rarr;</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSER -->
+  <section class="sec close" id="close">
+    <div class="bgimg" aria-hidden="true"><img src="assets/photos/tsi-branch-band-1920.jpg" alt="" width="1920" height="823" loading="lazy" decoding="async"></div>
+    <div class="shell">
+      <p class="no">N&ordm;011 &middot; PICK ONE</p>
+      <h2>So which door was yours?</h2>
+      <div class="row">
+        <a class="btn" style="background:#fff;color:var(--deep)" href="#">I need a crew <span class="arw" aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghostw" href="#find">I need work</a>
+      </div>
+      <p class="mono" style="color:#CDE6EE;font-size:.875rem">Or call <a href="tel:+17575430100" style="color:#fff;border-block-end:2px solid var(--sky)">757 543 0100</a>. A person answers.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="cols">
+      <div>
+        <img src="assets/logo/tsi-lockup-white.png" alt="Tidewater Staffing" width="2353" height="450" style="block-size:1.5rem;inline-size:auto">
+        <p style="font-size:.875rem;margin-block-start:1rem;max-inline-size:34ch">Family owned since 1992. Marine, warehouse and manufacturing crews across Hampton Roads.</p>
+      </div>
+      <div><h4>Job seekers</h4><ul><li><a href="#find">Search jobs</a></li><li><a href="#">Apply now</a></li><li><a href="#train">Training</a></li><li><a href="#">Benefits</a></li></ul></div>
+      <div><h4>Employers</h4><ul><li><a href="#close">Request a crew</a></li><li><a href="#svcs">What we staff</a></li><li><a href="#how">Process</a></li><li><a href="#brs">Branches</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog</a></li><li><a href="tel:+17575430100">757 543 0100</a></li><li><a href="#" lang="es" hreflang="es">Espa&ntilde;ol</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <p class="scam"><strong style="color:#fff">Recruiting scam notice.</strong> Tidewater Staffing never charges a fee to apply. If someone asks you to pay, it is not us. Call the branch directly.</p>
+      <p>Equal opportunity employer &middot; E-Verify participant &middot; &copy; 1992-2026 Tidewater Staffing, Inc.</p>
+    </div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Quick actions">
+  <a class="p" href="#find">Apply now <span class="arw" aria-hidden="true">&rarr;</span></a>
+  <a class="s" href="tel:+17575430100">Call us</a>
+</nav>
+
+<section class="notes">
+  <div class="shell">
+    <h2>Direction 2, "Gate", internal rationale</h2>
+    <div class="cols">
+      <ul>
+        <li><strong>Two doors instead of one compromise headline.</strong> A staffing company serves two people who want opposite things. Tradesmen International runs this pattern and it is the cleanest dual-audience answer in the benchmark set. The current TSI site buries its audience split at section five.</li>
+        <li><strong>Each door carries its own segment chips</strong>, so a warehouse supervisor and a painter both land in their own lane inside the first screen.</li>
+        <li><strong>A single visually hidden h1</strong> carries the whole business in one sentence for crawlers and AI answers, because two visible h2 doors would otherwise leave the page with no single statement of what the company does.</li>
+        <li><strong>The bento grid</strong> puts proof immediately after the doors, including the one number nobody at TSI has measured, shown as a slot rather than a guess.</li>
+      </ul>
+      <ul>
+        <li><strong>Light ground on purpose.</strong> Set against Directions 1 and 3 it reads as the opposite at a glance, which is the point of showing three.</li>
+        <li><strong>Type:</strong> Encode Sans for display, a corporate-technical face built for spec-sheet density, with Space Grotesk for text and IBM Plex Mono for labels. Lato is not carried.</li>
+        <li><strong>Real assets:</strong> TSI's own logo in colour and reversed, the six branding board colours, and their own photographs. Brand olive is darkened to #4A5424 for small text, since the true value is only 4.8:1 on this paper.</li>
+        <li><strong>Risk worth naming:</strong> a split hero gives each audience half a screen, so neither gets a full cinematic moment. If TSI wants one dominant story, Direction 1 or 3 carries it better.</li>
+      </ul>
+    </div>
+    <p style="color:var(--ink-3);margin-block-start:1.5rem">Internal KODA draft, 2026-08-16. Not for client release. <a href="index.html">Back to all directions</a></p>
+  </div>
+</section>
+
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var root=document.documentElement,reduced=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Claims are real HTML so a crawler sees them. The loop only needs a second
+     copy of what is already in the document to wrap without a jump. */
+  var tr=document.getElementById("tr");
+  if(tr){[].slice.call(tr.children).forEach(function(el){tr.appendChild(el.cloneNode(true));});}
+
+  var head=document.getElementById("head");
+  if(head&&"IntersectionObserver" in window){
+    var probe=document.createElement("div");
+    probe.style.cssText="position:absolute;top:0;height:1px;width:1px";
+    document.querySelector(".gate").appendChild(probe);
+    new IntersectionObserver(function(e){head.classList.toggle("stuck",!e[0].isIntersecting);},{rootMargin:"-60px 0px 0px 0px"}).observe(probe);
+  }
+
+  function settle(){root.classList.remove("js");}
+  if(reduced||!window.gsap){settle();return;}
+  var guard=setTimeout(settle,3500);
+  try{
+    if(window.ScrollTrigger)gsap.registerPlugin(ScrollTrigger);
+
+    /* Doors arrive as a pair, staggered, with the photograph settling behind. */
+    gsap.timeline({defaults:{ease:"power3.out"}})
+      .from(".door.work .in2 > *",{y:26,opacity:0,duration:.7,stagger:.07})
+      .from(".door.hire .in2 > *",{y:26,opacity:0,duration:.7,stagger:.07},"-=.5");
+    gsap.from(".door .bg img",{scale:1.14,duration:1.6,ease:"power2.out",stagger:.12});
+
+    /* Counters, once, on entry. */
+    if("IntersectionObserver" in window){
+      var cio=new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting)return;
+          var el=en.target,to=parseFloat(el.dataset.count),dec=parseInt(el.dataset.dec||"0",10),o={v:0};
+          gsap.to(o,{v:to,duration:1.5,ease:"power2.out",onUpdate:function(){el.textContent=o.v.toFixed(dec);}});
+          cio.unobserve(el);
+        });
+      },{threshold:.6});
+      document.querySelectorAll("[data-count]").forEach(function(el){cio.observe(el);});
+    }
+
+    /* Each service photograph is uncovered by a clip-path wipe while the image
+       inside counter-scales, so it reads as revealed rather than squashed. */
+    if(window.ScrollTrigger){
+      document.querySelectorAll(".sv .ph").forEach(function(ph,i){
+        var img=ph.querySelector("img");
+        gsap.fromTo(ph,{clipPath:"inset(0% 0% 100% 0%)"},{clipPath:"inset(0% 0% 0% 0%)",
+          duration:1,ease:"power4.inOut",delay:i*.09,
+          scrollTrigger:{trigger:ph,start:"top 88%",once:true}});
+        gsap.fromTo(img,{scale:1.24},{scale:1,duration:1.3,ease:"power3.out",delay:i*.09,
+          scrollTrigger:{trigger:ph,start:"top 88%",once:true}});
+      });
+    }
+    clearTimeout(guard);
+  }catch(e){clearTimeout(guard);settle();}
+})();
+</script>
+</body>
+</html>
