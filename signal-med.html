@@ -384,7 +384,7 @@ p.tag{display:none!important}
 </header>
 
 <!-- ===== HERO: data first ===== -->
-<section class="hero" data-theme-sec="dark">
+<section class="hero">
   <div class="shell">
     <div class="lead-col">
       <p class="no in">N&ordm;001 &middot; MARINE / WAREHOUSE / MANUFACTURING &middot; EST 1992</p>
@@ -417,7 +417,7 @@ p.tag{display:none!important}
 <main id="main">
 
   <!-- SEARCH -->
-  <section class="sec find" id="find" data-theme-sec="light">
+  <section class="sec find" id="find">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;002 &middot; OPEN ROLES</p>
@@ -446,7 +446,7 @@ p.tag{display:none!important}
   </section>
 
   <!-- SERVICES, sticky stack -->
-  <section class="sec svcs" id="svcs" data-theme-sec="dark">
+  <section class="sec svcs" id="svcs">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;003 &middot; SCOPE</p>
@@ -470,7 +470,7 @@ p.tag{display:none!important}
   </section>
 
   <!-- COMPARISON -->
-  <section class="sec" data-theme-sec="light">
+  <section class="sec">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;004 &middot; SIDE BY SIDE</p>
@@ -491,7 +491,7 @@ p.tag{display:none!important}
   </section>
 
   <!-- PROCESS -->
-  <section class="sec" id="how" data-theme-sec="dark">
+  <section class="sec" id="how">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;005 &middot; THE PROCESS</p>
@@ -509,7 +509,7 @@ p.tag{display:none!important}
   </section>
 
   <!-- TRAINING -->
-  <section class="sec" id="train" data-theme-sec="light">
+  <section class="sec" id="train">
     <div class="shell split2">
       <div>
         <p class="no">N&ordm;006 &middot; THE RECORD</p>
@@ -537,7 +537,7 @@ p.tag{display:none!important}
   </section>
 
   <!-- LADDER -->
-  <section class="sec" data-theme-sec="dark">
+  <section class="sec">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;007 &middot; TERMS FOR ASSOCIATES</p>
@@ -554,7 +554,7 @@ p.tag{display:none!important}
   </section>
 
   <!-- REVIEWS -->
-  <section class="sec" data-theme-sec="light">
+  <section class="sec">
     <div class="shell rev">
       <div>
         <p class="no">N&ordm;008 &middot; PUBLIC RECORD</p>
@@ -581,7 +581,7 @@ p.tag{display:none!important}
     <p><b>Hampton Roads.</b> Four branches inside the belt, and crews on the water since 1992.</p>
   </section>
 
-  <section class="sec" id="brs" data-theme-sec="dark">
+  <section class="sec" id="brs">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;009 &middot; COVERAGE</p>
@@ -598,7 +598,7 @@ p.tag{display:none!important}
   </section>
 
   <!-- CLOSER -->
-  <section class="sec close" id="close" data-theme-sec="dark">
+  <section class="sec close" id="close">
     <div class="bgimg" aria-hidden="true"><img src="assets/photos/tsi-branch-band-1920.jpg" alt="" width="1920" height="823" loading="lazy" decoding="async"></div>
     <div class="shell">
       <p class="no">N&ordm;010 &middot; NEXT</p>
@@ -612,7 +612,7 @@ p.tag{display:none!important}
   </section>
 </main>
 
-<footer class="foot" data-theme-sec="dark">
+<footer class="foot">
   <div class="shell">
     <div class="cols">
       <div>
@@ -649,17 +649,7 @@ p.tag{display:none!important}
      second copy of what is already in the document to wrap without a jump. */
   var tr=document.getElementById("tr");
   if(tr){[].slice.call(tr.children).forEach(function(el){tr.appendChild(el.cloneNode(true));});}
-
-  /* --- section theme flip. One class swap drives the whole palette. ------ */
-  if("IntersectionObserver" in window){
-    var secs=[].slice.call(document.querySelectorAll("[data-theme-sec]"));
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting) root.setAttribute("data-theme", e.target.dataset.themeSec);
-      });
-    },{rootMargin:"-45% 0px -45% 0px",threshold:0});
-    secs.forEach(function(s){io.observe(s);});
-  }
+  /* Marion rule 3 (2026-08-24): no live theme switching while scrolling. The page holds one theme. */
 
   /* --- sticky header hairline ------------------------------------------- */
   var head=document.getElementById("head");

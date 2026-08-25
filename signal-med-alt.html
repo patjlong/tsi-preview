@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark" class="tier-sigalt">
+<html lang="en" data-theme="light" class="tier-sigalt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -350,14 +350,7 @@ img{display:block;max-width:100%}
 .no,.idx,.door .tag{display:none!important}
 p.tag{display:none!important}
 </style>
-<style id='tier'>
-
-/* Signal Med Alt: the same data-hero design flipped to the paper ground. */
-html.tier-sigalt{--bg:#F3F4EF;--bg-2:#E9EBE3;--bg-3:#FFFFFF;--tx:#101C22;--tx-2:#3B4A50;--tx-3:#5E6C71;--line:rgba(16,28,34,.16)}
-html.tier-sigalt body{background:var(--bg);color:var(--tx)}
-html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
-
-</style>
+<style id='tier'>/* Signal Med Alt: the design's native light theme, held page-wide (rule 3). */</style>
 </head>
 <body>
 
@@ -389,7 +382,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
 </header>
 
 <!-- ===== HERO: data first ===== -->
-<section class="hero" data-theme-sec="dark">
+<section class="hero">
   <div class="shell">
     <div class="lead-col">
       <p class="no in">N&ordm;001 &middot; MARINE / WAREHOUSE / MANUFACTURING &middot; EST 1992</p>
@@ -422,7 +415,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
 <main id="main">
 
   <!-- SEARCH -->
-  <section class="sec find" id="find" data-theme-sec="light">
+  <section class="sec find" id="find">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;002 &middot; OPEN ROLES</p>
@@ -451,7 +444,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 
   <!-- SERVICES, sticky stack -->
-  <section class="sec svcs" id="svcs" data-theme-sec="dark">
+  <section class="sec svcs" id="svcs">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;003 &middot; SCOPE</p>
@@ -475,7 +468,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 
   <!-- COMPARISON -->
-  <section class="sec" data-theme-sec="light">
+  <section class="sec">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;004 &middot; SIDE BY SIDE</p>
@@ -496,7 +489,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 
   <!-- PROCESS -->
-  <section class="sec" id="how" data-theme-sec="dark">
+  <section class="sec" id="how">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;005 &middot; THE PROCESS</p>
@@ -514,7 +507,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 
   <!-- TRAINING -->
-  <section class="sec" id="train" data-theme-sec="light">
+  <section class="sec" id="train">
     <div class="shell split2">
       <div>
         <p class="no">N&ordm;006 &middot; THE RECORD</p>
@@ -542,7 +535,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 
   <!-- LADDER -->
-  <section class="sec" data-theme-sec="dark">
+  <section class="sec">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;007 &middot; TERMS FOR ASSOCIATES</p>
@@ -559,7 +552,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 
   <!-- REVIEWS -->
-  <section class="sec" data-theme-sec="light">
+  <section class="sec">
     <div class="shell rev">
       <div>
         <p class="no">N&ordm;008 &middot; PUBLIC RECORD</p>
@@ -586,7 +579,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
     <p><b>Hampton Roads.</b> Four branches inside the belt, and crews on the water since 1992.</p>
   </section>
 
-  <section class="sec" id="brs" data-theme-sec="dark">
+  <section class="sec" id="brs">
     <div class="shell">
       <div class="hd">
         <p class="no">N&ordm;009 &middot; COVERAGE</p>
@@ -603,7 +596,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 
   <!-- CLOSER -->
-  <section class="sec close" id="close" data-theme-sec="dark">
+  <section class="sec close" id="close">
     <div class="bgimg" aria-hidden="true"><img src="assets/photos/tsi-branch-band-1920.jpg" alt="" width="1920" height="823" loading="lazy" decoding="async"></div>
     <div class="shell">
       <p class="no">N&ordm;010 &middot; NEXT</p>
@@ -617,7 +610,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
   </section>
 </main>
 
-<footer class="foot" data-theme-sec="dark">
+<footer class="foot">
   <div class="shell">
     <div class="cols">
       <div>
@@ -654,17 +647,7 @@ html.tier-sigalt h1,html.tier-sigalt h2,html.tier-sigalt h3{color:var(--tx)}
      second copy of what is already in the document to wrap without a jump. */
   var tr=document.getElementById("tr");
   if(tr){[].slice.call(tr.children).forEach(function(el){tr.appendChild(el.cloneNode(true));});}
-
-  /* --- section theme flip. One class swap drives the whole palette. ------ */
-  if("IntersectionObserver" in window){
-    var secs=[].slice.call(document.querySelectorAll("[data-theme-sec]"));
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting) root.setAttribute("data-theme", e.target.dataset.themeSec);
-      });
-    },{rootMargin:"-45% 0px -45% 0px",threshold:0});
-    secs.forEach(function(s){io.observe(s);});
-  }
+  /* Marion rule 3 (2026-08-24): no live theme switching while scrolling. The page holds one theme. */
 
   /* --- sticky header hairline ------------------------------------------- */
   var head=document.getElementById("head");
