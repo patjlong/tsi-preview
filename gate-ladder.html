@@ -26,6 +26,17 @@ h1{margin:0;font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:-.02em}
 .frame iframe{width:1280px;height:800px;border:0;transform-origin:top left;position:absolute;top:0;left:0}
 .note{padding:.6rem 1rem .9rem;color:var(--ink2);font-size:.85rem}
 </style>
+<style id="clean-draft">
+/* Guardrail (Marion, 2026-08-24): a visual draft carries zero internal noise. */
+.stamp,.notes,.slotmark,.grain ~ .notes{display:none!important}
+.seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
+.sv .ph.phslot{border-block-end:1px solid var(--line)!important}
+.bx .slot{display:none!important}
+/* Marion rule 2 (2026-08-24): section numbering and numbered labels go too. */
+.no,.idx{display:none!important}
+.door .tag,.tag{display:none!important}
+.sv .ph.phslot,.card .ph.phslot,.svc .ph.phslot{border-style:solid!important}
+</style>
 </head>
 <body>
 <div class="wrap">

@@ -11,6 +11,10 @@ CSS = """<style id="clean-draft">
 .seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
 .sv .ph.phslot{border-block-end:1px solid var(--line)!important}
 .bx .slot{display:none!important}
+/* Marion rule 2 (2026-08-24): section numbering and numbered labels go too. */
+.no,.idx{display:none!important}
+.door .tag,.tag{display:none!important}
+.sv .ph.phslot,.card .ph.phslot,.svc .ph.phslot{border-style:solid!important}
 </style>
 """
 def clean(path):
@@ -38,6 +42,7 @@ if __name__=="__main__":
     # verify nothing instructional remains visible
     bad=[]
     PATTERNS=["INTERNAL DRAFT","PHOTO TO SOURCE","TO CONFIRM","TO VERIFY","awaiting","PHOTO PENDING"]
+    # rule 2 note: numbered labels are hidden by css; empty phslot panels are a publish failure per the mandatory-photograph rule
     for t in targets:
         try: s=open(t).read()
         except FileNotFoundError: continue
