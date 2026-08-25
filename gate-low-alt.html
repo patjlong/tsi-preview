@@ -102,7 +102,9 @@ img{display:block;max-width:100%}
 .door .seg span.slot{border-style:dashed}
 
 /* ==== TRUST RIBBON ======================================================= */
-.ribbon{background:var(--ink);color:#E7ECE9;overflow:hidden;padding-block:.95rem}
+.ribbon{background:var(--ink);color:#E7ECE9;overflow:hidden;padding-block:.95rem;
+  max-block-size:0;padding-block:0;opacity:0;transition:max-block-size .5s var(--out),opacity .5s var(--out),padding .5s var(--out)}
+.ribbon.show{max-block-size:6rem;padding-block:.95rem;opacity:1}
 .ribbon .tr{display:flex;gap:2.25rem;inline-size:max-content;will-change:transform}
 .js .ribbon .tr{animation:slide 40s linear infinite}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -327,6 +329,23 @@ html.tier-lowalt .flow .track i{background:var(--olive-ink)}
    on a review draft. Real headings stay; the mono number rows and photo badges go. */
 .no,.idx,.door .tag{display:none!important}
 </style>
+<style id='gate-alt-mods'>
+/* the TSI wave mark, no wordmark, locks between the two doors */
+.gate{position:relative}
+.gatemark{position:absolute;inset-inline-start:50%;inset-block-start:50%;translate:-50% -50%;
+  inline-size:clamp(96px,10vw,160px);z-index:5;pointer-events:none;
+  filter:drop-shadow(0 3px 14px rgba(0,0,0,.45))}
+.gatemark .half{position:absolute;inset:0}
+.gatemark .half img{inline-size:100%;display:block}
+.gatemark .half.l{clip-path:inset(0 50% 0 0)}
+.gatemark .half.r{clip-path:inset(0 0 0 50%)}
+html.js .gatemark .half.l{animation:gml .9s var(--out) both .25s}
+html.js .gatemark .half.r{animation:gmr .9s var(--out) both .25s}
+@keyframes gml{from{transform:translateX(-60px);opacity:0}to{transform:none;opacity:1}}
+@keyframes gmr{from{transform:translateX(60px);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:51.99rem){.gatemark{inset-block-start:50%}}
+@media (prefers-reduced-motion:reduce){.gatemark .half{animation:none!important}}
+</style>
 </head>
 <body>
 
@@ -368,7 +387,7 @@ html.tier-lowalt .flow .track i{background:var(--olive-ink)}
   </div>
 
   <div class="door hire">
-    <div class="bg" aria-hidden="true"><img src="assets/photos/tsi-branch-tall-720.jpg" srcset="assets/photos/tsi-branch-tall-720.jpg 720w, assets/photos/tsi-branch-tall-1080.jpg 1080w" sizes="(min-width:52rem) 50vw, 100vw" alt="" width="1080" height="1440" decoding="async"></div>
+    <div class="bg" aria-hidden="true"><img src="assets/photos/tsi-marine-tall-640.jpg" srcset="assets/photos/tsi-marine-tall-400.jpg 400w, assets/photos/tsi-marine-tall-640.jpg 640w" sizes="(min-width:52rem) 50vw, 100vw" alt="" width="1080" height="1440" decoding="async"></div>
     <div class="in2">
       <p class="tag">N&ordm;002 &middot; For employers</p>
       <h2>I need a crew.</h2>
@@ -381,6 +400,10 @@ html.tier-lowalt .flow .track i{background:var(--olive-ink)}
         <a class="btn btn-ghostw" href="tel:+17575430100">757 543 0100</a>
       </div>
     </div>
+  </div>
+  <div class="gatemark" aria-hidden="true">
+    <div class="half l"><img src="assets/logo/tsi-mark-white.png" alt=""></div>
+    <div class="half r"><img src="assets/logo/tsi-mark-white.png" alt=""></div>
   </div>
 </section>
 
@@ -666,6 +689,17 @@ html.tier-lowalt .flow .track i{background:var(--olive-ink)}
     clearTimeout(guard);
   }catch(e){clearTimeout(guard);settle();}
 })();
+</script>
+<script id="ribbon-on-scroll">
+document.addEventListener('DOMContentLoaded',function(){
+  var r=document.querySelector('.ribbon'); if(!r) return;
+  var gate=document.querySelector('.gate');
+  if('IntersectionObserver' in window && gate){
+    new IntersectionObserver(function(e){
+      r.classList.toggle('show', !e[0].isIntersecting);
+    },{rootMargin:'-30% 0px 0px 0px'}).observe(gate);
+  } else { r.classList.add('show'); }
+});
 </script>
 </body>
 </html>
