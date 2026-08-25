@@ -96,7 +96,7 @@ header{position:absolute;inset-inline:0;inset-block-start:0;z-index:30}
 .loc .tel{display:inline-block;margin-block-start:.7rem;font-family:'Geist Mono',monospace;font-size:.9rem;letter-spacing:.06em;color:var(--accent);text-decoration:none}
 /* values */
 .values{background:var(--band-dark);color:var(--on-dark)}
-.vrow{display:grid;grid-template-columns:5.5rem minmax(10rem,.5fr) 1fr;gap:1.2rem;align-items:center;padding-block:1.3rem;border-block-end:1px solid var(--line)}
+.vrow{display:grid;grid-template-columns:minmax(11rem,.42fr) 1fr;gap:1.2rem;align-items:baseline;padding-block:1.3rem;border-block-end:1px solid var(--line)}
 .vrow:first-of-type{border-block-start:1px solid var(--line)}
 .vrow .mono{font-family:'Anybody',sans-serif;font-weight:800;font-size:clamp(2.6rem,5vw,4rem);color:var(--accent);line-height:1}
 .vrow h3{font-size:1.05rem}
@@ -150,7 +150,7 @@ footer .mail{color:var(--accent);text-decoration:none}
  .why .grid2{grid-template-columns:1fr}.why .lead{position:static}
  .vert{grid-template-columns:1fr}.vert.img-right .vphoto{order:0}.vert .vphoto img{block-size:clamp(220px,45vw,340px)}
  .locgrid{grid-template-columns:1fr 1fr}
- .vrow{grid-template-columns:3.4rem 1fr;grid-template-rows:auto auto}.vrow p{grid-column:2}
+ .vrow{grid-template-columns:1fr;grid-template-rows:auto auto}.vrow p{grid-column:1}
  footer .offs{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
@@ -184,6 +184,18 @@ footer .mail{color:var(--accent);text-decoration:none}
 @media (prefers-reduced-motion: reduce){.hero-img{animation:none}}
 
 </style>
+<style id="clean-draft">
+/* Guardrail (Marion, 2026-08-24): a visual draft carries zero internal noise. */
+.stamp,.notes,.slotmark,.grain ~ .notes{display:none!important}
+.seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
+.sv .ph.phslot{border-block-end:1px solid var(--line)!important}
+.bx .slot{display:none!important}
+/* Marion rule 2 (2026-08-24): section numbering and numbered labels go too. */
+.no,.idx{display:none!important}
+.door .tag,.tag{display:none!important}
+.sv .ph.phslot,.card .ph.phslot,.svc .ph.phslot{border-style:solid!important}
+</style>
+<style id="clean-draft-2">.no,.idx,.door .tag{display:none!important}</style>
 </head>
 <body>
 <header>
@@ -202,7 +214,7 @@ footer .mail{color:var(--accent);text-decoration:none}
  <img class="hero-img" src="assets/hero-r4/r4-drydock-norfolk-1920.jpg" srcset="assets/hero-r4/r4-drydock-norfolk-960.jpg 960w, assets/hero-r4/r4-drydock-norfolk-1920.jpg 1920w" sizes="100vw" alt="Industrial work in progress" fetchpriority="high">
  <div class="hero-shade"></div>
  <div class="hero-inner">
-  <h1>Virginia Shipyard &amp; Warehouse Staffing <span class="u">Experts</span></h1>
+  <h1>Virginia Shipyard &amp; Warehouse Staffing Experts</h1>
   <p class="slogan">Put people to work. Do the right thing every day.</p>
   <p class="tagline">Make Tidewater Staffing your permanent solution for your temporary needs!</p>
   <div class="fork">
@@ -260,7 +272,7 @@ footer .mail{color:var(--accent);text-decoration:none}
  <div class="col">
   <span class="eyebrow">Our Values</span>
   <h2 class="h2u" style="margin-block-end:1.6rem">What we stand <span class="u">behind</span></h2>
-  <div class="vrow reveal"><span class="mono" aria-hidden="true">L</span><h3>Leadership</h3><p>Leadership of our industry, communities and our peer groups</p></div><div class="vrow reveal"><span class="mono" aria-hidden="true">A</span><h3>Attitude</h3><p>Positive. No matter the challenge ahead, it is always better with a can do attitude</p></div><div class="vrow reveal"><span class="mono" aria-hidden="true">S</span><h3>Service</h3><p>Serve our clients, associates and fellow employees to the absolute best of our abilities</p></div><div class="vrow reveal"><span class="mono" aria-hidden="true">I</span><h3>Integrity</h3><p>Do the right thing even when nobody's watching</p></div><div class="vrow reveal"><span class="mono" aria-hidden="true">R</span><h3>Responsibility</h3><p>Embrace our actions and be accountable for what we do, even if it was a mistake</p></div>
+  <div class="vrow reveal"><h3>Leadership</h3><p>Leadership of our industry, communities and our peer groups</p></div><div class="vrow reveal"><h3>Attitude</h3><p>Positive. No matter the challenge ahead, it is always better with a can do attitude</p></div><div class="vrow reveal"><h3>Service</h3><p>Serve our clients, associates and fellow employees to the absolute best of our abilities</p></div><div class="vrow reveal"><h3>Integrity</h3><p>Do the right thing even when nobody's watching</p></div><div class="vrow reveal"><h3>Responsibility</h3><p>Embrace our actions and be accountable for what we do, even if it was a mistake</p></div>
  </div>
 </section>
 
@@ -284,7 +296,7 @@ footer .mail{color:var(--accent);text-decoration:none}
 </section>
 
 <section class="cta" id="request">
- <img src="assets/photos/tsi-arrival-wide-1920.jpg" alt="An associate arriving at the yard" loading="lazy">
+ <img src="assets/hero-r4/r4-keel-welder-nn-1920.jpg" alt="A structural welder at work in a Newport News shipyard" loading="lazy">
  <div class="shade"></div>
  <div class="inner">
   <div class="col">
