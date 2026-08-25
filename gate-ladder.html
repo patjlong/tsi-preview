@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Gate Ladder | Tidewater Staffing homepage concept (internal)</title>
+<style>
+:root{--paper:#F3F4EF;--ink:#101C22;--ink2:#3B4A50;--deep:#115468;--line:rgba(16,28,34,.14);--olive:#4A5424}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Space Grotesk",system-ui,sans-serif}
+.wrap{width:min(1560px,100% - 2rem);margin-inline:auto}
+header{padding:2.2rem 0 1rem}
+h1{margin:0;font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:-.02em}
+.sub{color:var(--ink2);max-width:70ch;margin-top:.5rem}
+.tier{margin:2.2rem 0}
+.tier h2{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--olive);border-bottom:1px solid var(--line);padding-bottom:.5rem}
+.pair{display:grid;gap:1rem;grid-template-columns:1fr 1fr;margin-top:1rem}
+@media(max-width:900px){.pair{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.chead{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.8rem 1rem}
+.chead b{font-size:1.05rem}
+.chead a{color:var(--deep);font-weight:600;text-decoration:none;font-size:.85rem}
+.chead a:hover{text-decoration:underline}
+.frame{position:relative;aspect-ratio:16/10;overflow:hidden;border-top:1px solid var(--line);background:#E9EBE3}
+.frame iframe{width:1280px;height:800px;border:0;transform-origin:top left;position:absolute;top:0;left:0}
+.note{padding:.6rem 1rem .9rem;color:var(--ink2);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Gate, six ways up the ladder</h1>
+  <p class="sub">Gate is the base. Two rungs per energy level: the version and its alternative.
+  Low is today's Gate untouched. Every page scrolls, nothing clicks. Open one full screen for a real look.</p>
+</header>
+<section class="tier"><h2>Low</h2><div class="pair">
+  <div class="card"><div class="chead"><b>Gate Low</b><a href="gate-low.html">Open full &rarr;</a></div><div class="frame"><iframe loading="lazy" src="gate-low.html" title="Gate Low"></iframe></div><div class="note">The base, exactly as reviewed.</div></div>
+  <div class="card"><div class="chead"><b>Gate Low Alt</b><a href="gate-low-alt.html">Open full &rarr;</a></div><div class="frame"><iframe loading="lazy" src="gate-low-alt.html" title="Gate Low Alt"></iframe></div><div class="note">Same calm. Doors swapped, olive leads, ribbon still.</div></div>
+</div></section>
+<section class="tier"><h2>Medium</h2><div class="pair">
+  <div class="card"><div class="chead"><b>Gate Med</b><a href="gate-med.html">Open full &rarr;</a></div><div class="frame"><iframe loading="lazy" src="gate-med.html" title="Gate Med"></iframe></div><div class="note">Drifting wave dividers, doors breathe, cards rise in, arrows slide.</div></div>
+  <div class="card"><div class="chead"><b>Gate Med Alt</b><a href="gate-med-alt.html">Open full &rarr;</a></div><div class="frame"><iframe loading="lazy" src="gate-med-alt.html" title="Gate Med Alt"></iframe></div><div class="note">Same energy by wipes: sections sweep open, doors parallax, underlines draw.</div></div>
+</div></section>
+<section class="tier"><h2>High</h2><div class="pair">
+  <div class="card"><div class="chead"><b>Gate High</b><a href="gate-high.html">Open full &rarr;</a></div><div class="frame"><iframe loading="lazy" src="gate-high.html" title="Gate High"></iframe></div><div class="note">Living wave bands, headline words rise, buttons sheen, photo mosaic added.</div></div>
+  <div class="card"><div class="chead"><b>Gate High Alt</b><a href="gate-high-alt.html">Open full &rarr;</a></div><div class="frame"><iframe loading="lazy" src="gate-high-alt.html" title="Gate High Alt"></iframe></div><div class="note">The dusk remix: harbor-navy ground, white mark locks between the doors, smooth scroll.</div></div>
+</div></section>
+</div>
+<script>
+function fit(){document.querySelectorAll('.frame').forEach(function(fr){
+  var f=fr.querySelector('iframe'),k=fr.clientWidth/1280;
+  f.style.transform='scale('+k+')';f.style.height=(fr.clientHeight/k)+'px';});}
+addEventListener('resize',fit);addEventListener('load',fit);fit();
+</script>
+</body>
+</html>

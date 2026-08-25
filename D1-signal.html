@@ -337,12 +337,18 @@ img{display:block;max-width:100%}
   ]
 }
 </script>
+<style id="clean-draft">
+/* Guardrail (Marion, 2026-08-24): a visual draft carries zero internal noise. */
+.stamp,.notes,.slotmark,.grain ~ .notes{display:none!important}
+.seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
+.sv .ph.phslot{border-block-end:1px solid var(--line)!important}
+.bx .slot{display:none!important}
+</style>
 </head>
 <body>
 
 <svg class="grain" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
 
-<p class="stamp">INTERNAL DRAFT</p>
 <a class="sr" href="#main">Skip to content</a>
 
 <div class="util">
@@ -574,9 +580,9 @@ img{display:block;max-width:100%}
       </div>
       <div class="brs">
         <article class="brc"><h3>Chesapeake</h3><p>1000 Poindexter Street</p><a href="tel:+17575430100">757 543 0100</a></article>
-        <article class="brc"><h3>Virginia Beach</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Details &rarr;</a></article>
-        <article class="brc"><h3>Portsmouth</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Details &rarr;</a></article>
-        <article class="brc"><h3>Suffolk</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Details &rarr;</a></article>
+        <article class="brc"><h3>Virginia Beach</h3><a href="#">Details &rarr;</a></article>
+        <article class="brc"><h3>Portsmouth</h3><a href="#">Details &rarr;</a></article>
+        <article class="brc"><h3>Suffolk</h3><a href="#">Details &rarr;</a></article>
         <article class="brc tr2"><h3>Training facility</h3><p class="addr">NAME AND ADDRESS TBD</p><a href="#train">Details &rarr;</a></article>
       </div>
     </div>
@@ -619,28 +625,6 @@ img{display:block;max-width:100%}
   <a class="p" href="#find">Apply now <span class="arw" aria-hidden="true">&rarr;</span></a>
   <a class="s" href="tel:+17575430100">Call us</a>
 </nav>
-
-<section class="notes" data-theme-sec="dark">
-  <div class="shell">
-    <h2>Direction 1, "Signal", internal rationale</h2>
-    <div class="cols">
-      <ul>
-        <li><strong>This is a data hero.</strong> The award research was blunt that centered headline-subhead-button heroes now read as dated, and that for staffing the strongest archetype puts real operational numbers above the fold. The benchmark teardown said the same thing from the other side: NSC beat TSI largely by putting five hard numbers directly under its hero.</li>
-        <li><strong>The empty slot is deliberate and it is the point.</strong> Call-to-crew time is the number that wins the job and TSI does not measure it. Showing it as a marked slot rather than a guess makes the gap visible and gives Jay something concrete to start counting.</li>
-        <li><strong>Numbered sections</strong> and mono labels come from the industrial reference set. They read as a guided argument rather than a marketing dump.</li>
-        <li><strong>Motion is motivated.</strong> Counters reveal data, the rail draws the process, the theme flips per section, the marquee reacts to scroll velocity, the buttons pull toward the cursor. Nothing moves purely to move.</li>
-      </ul>
-      <ul>
-        <li><strong>Type:</strong> Big Shoulders for display, a condensed American industrial gothic with an optical size axis, with Public Sans for text and IBM Plex Mono for data and labels. That trio lands in the engineered and civic register rather than the startup one. All three are OFL.</li>
-        <li><strong>Real assets:</strong> TSI's own logo in both colour and reversed lockups, swapping automatically as the page theme flips. The six branding board colours. Their own photographs.</li>
-        <li><strong>The comparison table</strong> is the section that converts. TSI wins every row honestly against a national agency.</li>
-        <li><strong>Worker releases are unconfirmed.</strong> Two photographs show identifiable faces. Written confirmation must land before this reaches any client-shared URL or a build.</li>
-        <li><strong>Risk worth naming:</strong> this direction is the most demanding of TSI. It only fully lands once the three placeholder numbers are real.</li>
-      </ul>
-    </div>
-    <p style="color:var(--fg-3);margin-block-start:1.5rem">Internal KODA draft, 2026-08-16. Not for client release. <a href="index.html">Back to all directions</a></p>
-  </div>
-</section>
 
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/SplitText.min.js"></script>

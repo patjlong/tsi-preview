@@ -358,10 +358,16 @@ img{display:block;max-width:100%}
 "makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Marine and ship repair staffing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Warehouse and logistics staffing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Manufacturing and industrial staffing"}}],
 "location":[{"@type":"Place","name":"Chesapeake","address":{"@type":"PostalAddress","streetAddress":"1000 Poindexter Street","addressLocality":"Chesapeake","addressRegion":"VA","addressCountry":"US"}},{"@type":"Place","name":"Virginia Beach","address":{"@type":"PostalAddress","addressLocality":"Virginia Beach","addressRegion":"VA","addressCountry":"US"}},{"@type":"Place","name":"Portsmouth","address":{"@type":"PostalAddress","addressLocality":"Portsmouth","addressRegion":"VA","addressCountry":"US"}},{"@type":"Place","name":"Suffolk","address":{"@type":"PostalAddress","addressLocality":"Suffolk","addressRegion":"VA","addressCountry":"US"}}]}
 </script>
+<style id="clean-draft">
+/* Guardrail (Marion, 2026-08-24): a visual draft carries zero internal noise. */
+.stamp,.notes,.slotmark,.grain ~ .notes{display:none!important}
+.seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
+.sv .ph.phslot{border-block-end:1px solid var(--line)!important}
+.bx .slot{display:none!important}
+</style>
 </head>
 <body>
 
-<p class="stamp">INTERNAL DRAFT</p>
 <a class="sr" href="#main">Skip to content</a>
 
 <!-- 1. UTILITY BAR -->
@@ -640,9 +646,9 @@ img{display:block;max-width:100%}
       <h2 class="h2">Come see us in person.</h2>
       <div class="grid">
         <article class="branch"><h3>Chesapeake</h3><p>1000 Poindexter Street</p><a href="tel:+17575430100">757 543 0100</a></article>
-        <article class="branch"><h3>Virginia Beach</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Branch details &rarr;</a></article>
-        <article class="branch"><h3>Portsmouth</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Branch details &rarr;</a></article>
-        <article class="branch"><h3>Suffolk</h3><p class="addr">ADDRESS TO VERIFY</p><a href="#">Branch details &rarr;</a></article>
+        <article class="branch"><h3>Virginia Beach</h3><a href="#">Branch details &rarr;</a></article>
+        <article class="branch"><h3>Portsmouth</h3><a href="#">Branch details &rarr;</a></article>
+        <article class="branch"><h3>Suffolk</h3><a href="#">Branch details &rarr;</a></article>
         <article class="branch train"><h3>Training facility</h3><p class="addr">NAME AND ADDRESS TBD</p><a href="#safe">Name TBD &rarr;</a></article>
       </div>
     </div>
@@ -683,27 +689,6 @@ img{display:block;max-width:100%}
   <a class="p" href="#find">Apply now <span class="arw" aria-hidden="true">&rarr;</span></a>
   <a class="s" href="tel:+17575430100">Call us</a>
 </nav>
-
-<section class="notes">
-  <div class="shell">
-    <h2>Direction 3, "Live Yard", internal rationale</h2>
-    <div class="cols">
-      <ul>
-        <li><strong>Structure follows the benchmark teardown.</strong> Proof sits at section three and job search at four, because that is what NSC and Aerotek do and it is the structural reason they beat TSI on visibility. The current TSI homepage buries its audience split at section five and carries no numbers at all.</li>
-        <li><strong>The comparison table is the strongest section.</strong> TSI wins every row against a national agency honestly. Instawork runs this pattern and it converts.</li>
-        <li><strong>Trade nouns are the AI-visibility lever.</strong> Only roles evidenced in TSI's own material appear. Everything else is a visible slot, because inventing a trade list would be fabrication.</li>
-        <li><strong>The 4.9 from 773 Google reviews appears nowhere on TSI's real site.</strong> It beats every benchmark competitor's proof and it is free.</li>
-      </ul>
-      <ul>
-        <li><strong>Motion:</strong> a four frame reel with a slow push, a sweep across the primary action, a trust marquee, a scroll-drawn process rail, and staggered reveals on the steps and rungs. All transform and opacity, all off the main thread where the platform allows, all collapsing to a static end state under reduced motion.</li>
-        <li><strong>Type:</strong> Anybody for display, which carries a width axis, with Geist for text and Geist Mono for data. Lato is not carried.</li>
-        <li><strong>Real assets:</strong> TSI's own logo artwork reversed to white, the six branding board colours, and their own photographs in portrait and landscape crops.</li>
-        <li><strong>Placeholders are deliberate.</strong> Fill time, trades and reviews are marked slots rather than invented numbers. Each one is a real thing TSI could measure or supply this month.</li>
-      </ul>
-    </div>
-    <p style="color:var(--fg-3);margin-block-start:1.5rem">Internal KODA draft, 2026-08-16. Not for client release. <a href="index.html">Back to all directions</a></p>
-  </div>
-</section>
 
 <script src="assets/vendor/gsap.min.js"></script>
 <script>
