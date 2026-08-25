@@ -31,6 +31,9 @@ def clean(path):
     if s2!=s: n+=1; s=s2
     if 'id="clean-draft"' not in s:
         s=s.replace("</head>", CSS+"</head>"); n+=1
+    RULE2 = '<style id="clean-draft-2">.no,.idx,.door .tag,p.tag{display:none!important}</style>'
+    if 'clean-draft-2' not in s:
+        s=s.replace("</head>", RULE2+"\n</head>"); n+=1
     open(path,"w").write(s)
     return n
 

@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="tier-yardhi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Direction 3, Live Yard | Tidewater Staffing homepage concept (internal)</title>
+<title>Yard High | Tidewater Staffing homepage concept (internal)</title>
 <meta name="description" content="Internal KODA homepage concept for Tidewater Staffing. Not a published page.">
 
 <link rel="preload" href="assets/fonts/anybody.woff2" as="font" type="font/woff2" crossorigin>
@@ -370,6 +370,21 @@ img{display:block;max-width:100%}
    on a review draft. Real headings stay; the mono number rows and photo badges go. */
 .no,.idx,.door .tag{display:none!important}
 p.tag{display:none!important}
+</style>
+<style id='tier'>
+
+/* Yard High: the cinematic reel design with the lively layer on top.
+   Living wave bands, button sheen, photo pans. */
+.waveband{position:relative;block-size:clamp(70px,9vw,130px);overflow:hidden}
+.waveband canvas{position:absolute;inset:0;inline-size:100%;block-size:100%}
+html.js.tier-yardhi .btn,{position:relative;overflow:hidden}
+html.js.tier-yardhi a[class*=btn]{position:relative;overflow:hidden}
+html.js.tier-yardhi a[class*=btn]::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%);transform:translateX(-120%)}
+html.js.tier-yardhi a[class*=btn]:hover::after{transition:transform .7s ease;transform:translateX(120%)}
+html.js.tier-yardhi .svc .ph img,html.js.tier-yardhi .card img{transition:transform .8s ease}
+html.js.tier-yardhi .svc:hover .ph img{transform:scale(1.06)}
+@media (prefers-reduced-motion:reduce){.waveband{display:none}}
+
 </style>
 </head>
 <body>
@@ -794,6 +809,26 @@ p.tag{display:none!important}
     clearTimeout(guard);
   }catch(e){clearTimeout(guard);settle();}
 })();
+</script>
+<script id='tierjs'>
+document.addEventListener('DOMContentLoaded',function(){
+
+function tsiWaves(canvas,pal){var ctx=canvas.getContext('2d'),W=0,H=0,t=0,run=true;
+function size(){var d=Math.min(devicePixelRatio||1,2);W=canvas.clientWidth;H=canvas.clientHeight;canvas.width=W*d;canvas.height=H*d;ctx.setTransform(d,0,0,d,0,0)}
+size();addEventListener('resize',size);
+var B=[{a:.34,y:.46,s:.9,v:.5,c:pal[0]},{a:.26,y:.62,s:1.4,v:.7,c:pal[1]},{a:.2,y:.78,s:1.9,v:.95,c:pal[2]}];
+function draw(){if(!run)return;ctx.clearRect(0,0,W,H);
+for(var i=0;i<B.length;i++){var b=B[i];ctx.beginPath();ctx.moveTo(0,H);
+for(var x=0;x<=W;x+=6){var u=x/W;var y=H*b.y-Math.sin(u*6.28*b.s+t*b.v)*H*b.a*.35-Math.sin(u*11*b.s-t*.31)*H*b.a*.12;ctx.lineTo(x,y)}
+ctx.lineTo(W,H);ctx.closePath();ctx.fillStyle=b.c;ctx.fill()}t+=.012;requestAnimationFrame(draw)}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){t=2.2;draw();run=false}else draw();}
+if(document.documentElement.classList.contains('js')){
+  var mains=document.querySelectorAll('main > section, main > .sec');
+  function band(afterEl,pal){if(!afterEl)return;var s=document.createElement('section');s.className='waveband';s.setAttribute('aria-hidden','true');var c=document.createElement('canvas');s.appendChild(c);afterEl.parentNode.insertBefore(s,afterEl.nextSibling);tsiWaves(c,pal)}
+  if(mains.length>2){band(mains[1],['rgba(17,84,104,.4)','rgba(81,148,168,.45)','rgba(126,198,219,.5)']);band(mains[mains.length-2],['rgba(74,84,36,.35)','rgba(102,113,55,.4)','rgba(214,215,200,.5)'])}
+}
+
+});
 </script>
 </body>
 </html>
