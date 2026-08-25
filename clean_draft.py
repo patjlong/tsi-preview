@@ -31,7 +31,7 @@ def clean(path):
     if s2!=s: n+=1; s=s2
     if 'id="clean-draft"' not in s:
         s=s.replace("</head>", CSS+"</head>"); n+=1
-    RULE2 = '<style id="clean-draft-2">.no,.idx,.door .tag,p.tag{display:none!important}</style>'
+    RULE2 = '<style id="clean-draft-2">.no,.idx,.door .tag{display:none!important}</style>'
     if 'clean-draft-2' not in s:
         s=s.replace("</head>", RULE2+"\n</head>"); n+=1
     open(path,"w").write(s)
@@ -46,13 +46,15 @@ if __name__=="__main__":
     bad=[]
     PATTERNS=["INTERNAL DRAFT","PHOTO TO SOURCE","TO CONFIRM","TO VERIFY","awaiting","PHOTO PENDING"]
     # rule 2 note: numbered labels are hidden by css; empty phslot panels are a publish failure per the mandatory-photograph rule
+    SHOWROOM={"index.html","gate-ladder.html"}   # review containers carry their own INTERNAL DRAFT chip by design
     for t in targets:
         try: s=open(t).read()
         except FileNotFoundError: continue
         low=s
         # only flag text OUTSIDE the clean-draft-hidden classes is hard statically;
         # flag any pattern not inside a display:none-managed class attribute line
-        for p in PATTERNS:
+        pats=[p for p in PATTERNS if not (t.split("/")[-1] in SHOWROOM and p=="INTERNAL DRAFT")]
+        for p in pats:
             for mm in re.finditer(re.escape(p), low, re.I):
                 ctx=low[max(0,mm.start()-160):mm.start()]
                 if not re.search(r'class="[^"]*(slot|stamp|notes|slotmark|slotbx)', ctx):
