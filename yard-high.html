@@ -58,7 +58,7 @@ header{position:absolute;inset-inline:0;inset-block-start:0;z-index:30}
 .rail .r2{background:var(--band-darker);color:var(--on-dark)}
 /* scorecard */
 .score{background:var(--band-darker);color:var(--on-dark);padding-block:clamp(2.5rem,6vw,4.5rem)}
-.stat{text-align:center;display:grid;gap:.3rem;justify-items:center}
+.stat{text-align:center;display:grid;gap:.3rem;justify-items:center;min-inline-size:0}
 .stat .num{font-family:'Anybody',sans-serif;font-weight:800;font-size:clamp(3.4rem,8vw,7rem);line-height:1;color:var(--stat);font-variant-numeric:tabular-nums;position:relative}
 .stat .num::after{content:"";display:block;block-size:3px;inline-size:2.2em;background:var(--accent);margin:.35rem auto 0}
 .stat .slab{font-family:'Geist Mono',monospace;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
@@ -159,11 +159,15 @@ footer .mail{color:var(--accent);text-decoration:none}
  form.req{grid-template-columns:1fr}
  .locgrid{grid-template-columns:1fr}
  footer .offs{grid-template-columns:1fr}
+ .stat .num{font-size:clamp(2.2rem,10vw,3rem)}
  .hero{min-block-size:100svh}
  .hero h1{font-size:clamp(1.9rem,8.6vw,2.2rem)}
  .slogan{font-size:.95rem;margin-block:.6rem .2rem}
  .tagline{display:none}
  .fpanel{padding:.9rem 1rem}
+ .hnav .tel{display:none}
+ .hbar img{block-size:34px}
+ .hbar .btn{padding:.6rem 1rem;font-size:.8rem}
  .fpanel p{display:none}
  .fpanel h2{font-size:1.05rem;margin-block-end:.45rem}
  .hero-inner{padding-block-end:5.4rem}
