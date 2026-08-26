@@ -422,6 +422,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }, { rootMargin: '15% 0px' });
       vio.observe(host);
+      v.dataset.livev = '1';
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) return;
+      document.querySelectorAll('video[data-livev]').forEach(function (lv) {
+        var r = lv.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight && lv.getAttribute('src')) {
+          var pr = lv.play();
+          if (pr && pr.then) pr.then(function () { lv.style.opacity = '1'; }).catch(function () {});
+        }
+      });
     });
   }
 
