@@ -376,7 +376,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var intro = document.getElementById('intro');
   if (!intro) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || sessionStorage.getItem('tsiIntroSeen')) { intro.remove(); return; }
+  var replay = location.search.indexOf('intro=replay') !== -1;
+  if (reduce || (sessionStorage.getItem('tsiIntroSeen') && !replay)) { intro.remove(); return; }
   sessionStorage.setItem('tsiIntroSeen', '1');
   document.documentElement.classList.add('intro-live');
   var done = false;
