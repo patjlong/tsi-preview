@@ -216,6 +216,7 @@ a{color:inherit}
           </p>
         </div>
         <a class="open" href="signal-med-alt.html" target="_blank" rel="noopener">OPEN FULL PAGE &nearr;</a>
+        <a class="open replayintro" data-page="signal-med-alt.html" href="#">REPLAY INTRO &#8635;</a>
       </div>
       <div class="views">
         <div class="desktop">
@@ -246,6 +247,7 @@ a{color:inherit}
           </p>
         </div>
         <a class="open" href="yard-high.html" target="_blank" rel="noopener">OPEN FULL PAGE &nearr;</a>
+        <a class="open replayintro" data-page="yard-high.html" href="#">REPLAY INTRO &#8635;</a>
       </div>
       <div class="views">
         <div class="desktop">
@@ -276,6 +278,7 @@ a{color:inherit}
           </p>
         </div>
         <a class="open" href="yard-high-alt.html" target="_blank" rel="noopener">OPEN FULL PAGE &nearr;</a>
+        <a class="open replayintro" data-page="yard-high-alt.html" href="#">REPLAY INTRO &#8635;</a>
       </div>
       <div class="views">
         <div class="desktop">
@@ -367,6 +370,20 @@ a{color:inherit}
   addEventListener("load",fit);
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
 })();
+</script>
+<script>
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('.replayintro');
+  if (!b) return;
+  e.preventDefault();
+  var page = b.getAttribute('data-page');
+  var dir = b.closest('.dir') || document;
+  dir.querySelectorAll('iframe').forEach(function (fr) {
+    if ((fr.getAttribute('src') || '').indexOf(page) === 0 || (fr.src || '').indexOf(page) !== -1) {
+      fr.src = page + '?intro=replay&r=' + Date.now();
+    }
+  });
+});
 </script>
 </body>
 </html>

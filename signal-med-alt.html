@@ -202,13 +202,25 @@ footer .mail{color:var(--accent);text-decoration:none}
 @keyframes markin{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
 html.intro-live body{overflow:hidden}
 </style>
+<style id="clean-draft">
+/* Guardrail (Marion, 2026-08-24): a visual draft carries zero internal noise. */
+.stamp,.notes,.slotmark,.grain ~ .notes{display:none!important}
+.seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
+.sv .ph.phslot{border-block-end:1px solid var(--line)!important}
+.bx .slot{display:none!important}
+/* Marion rule 2 (2026-08-24): section numbering and numbered labels go too. */
+.no,.idx{display:none!important}
+.door .tag,.tag{display:none!important}
+.sv .ph.phslot,.card .ph.phslot,.svc .ph.phslot{border-style:solid!important}
+</style>
+<style id="clean-draft-2">.no,.idx,.door .tag{display:none!important}</style>
 </head>
 <body>
 <div id="intro" aria-hidden="true">
  <div class="iwrap">
   <svg viewBox="0 0 1010 322">
-   <path class="wr" d="M -15 25 C 45 70, 105 125, 176 152 C 255 188, 340 258, 410 276 C 490 263, 575 231, 645 200 C 700 178, 740 150, 802 164 C 858 178, 908 226, 1000 302"/>
-   <path class="wl" d="M 268 228 C 236 218, 224 190, 244 163 C 262 139, 300 126, 338 116 C 405 90, 485 62, 562 46 C 615 41, 665 60, 722 92 C 745 106, 768 122, 784 136"/>
+   <path class="wr" d="M 2 42 C 55 80, 110 128, 176 152 C 255 188, 340 258, 410 276 C 490 263, 575 231, 645 200 C 700 178, 740 150, 802 164 C 858 178, 905 222, 982 286"/>
+   <path class="wl" d="M 272 222 C 240 214, 228 188, 246 163 C 262 139, 300 126, 338 116 C 405 90, 485 62, 562 46 C 615 41, 665 60, 722 92 C 745 106, 768 122, 784 136"/>
   </svg>
   <img class="imark" src="assets/logo/tsi-mark-white.png" alt="">
  </div>
@@ -395,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var p = video.play();
     if (p && p.catch) p.catch(finish);
     setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 1600);
-    setTimeout(finish, 9000);
+    setTimeout(finish, 11000);
   } else {
     intro.classList.add('intro-run');
     setTimeout(finish, 3000);
