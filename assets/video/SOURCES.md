@@ -14,3 +14,5 @@
 - **loop-branch.mp4** (410 KB, 5s) - leaves and clouds move (job 589f2f08).
 
 All eight flagged against the 2026-08-14 no-AI-imagery room rule (R32); Pat directed the build 2026-08-26 for the High pages and showroom. Raw masters kept local (*-raw.mp4, gitignored).
+
+- **intro-storm.mp4 v2** (1.3 MB, 10s, replaces v1 2026-08-26 per Pat): the hero photo's own ship sails through a storm at dusk, a wave crashes directly into the camera filling the frame, the whitewater drains to reveal the ship sailing into its dry dock, ending on the hero frame (job f07a0ee2, ship identity via image_references + end_image = hero photo). v1 raw kept as intro-storm-v1-raw.mp4.

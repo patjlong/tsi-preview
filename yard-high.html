@@ -385,16 +385,26 @@ document.addEventListener('DOMContentLoaded', function () {
   var video = intro.querySelector('video');
   if (video) {
     var finalPane = intro.querySelector('.ifinal');
-    var reveal = function () { if (finalPane) finalPane.classList.add('on'); setTimeout(finish, 1400); };
+    var revealed = false;
+    var reveal = function () {
+      if (revealed) return; revealed = true;
+      if (finalPane) {
+        finalPane.classList.add('on');
+        setTimeout(function () {
+          finalPane.classList.remove('on');
+          setTimeout(finish, 700);
+        }, 1400);
+      } else { setTimeout(finish, 800); }
+    };
     video.addEventListener('timeupdate', function () {
-      if (video.duration && video.currentTime > video.duration - 0.55) reveal();
+      if (video.duration && video.currentTime > video.duration - 1.1) reveal();
     });
     video.addEventListener('ended', reveal);
     video.addEventListener('error', finish);
     var p = video.play();
     if (p && p.catch) p.catch(finish);
     setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 1600);
-    setTimeout(finish, 11000);
+    setTimeout(finish, 13500);
   } else {
     intro.classList.add('intro-run');
     setTimeout(finish, 3000);
