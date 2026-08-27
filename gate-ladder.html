@@ -240,7 +240,7 @@ a{color:inherit}
         <div>
           <p class="n">CONCEPT &middot; LIVE YARD</p>
           <h2 style="margin-block-start:.4rem">Live Yard</h2>
-          <p class="th">Cinematic. A ship comes through the storm into the yard, and every photograph on the page moves with the water.</p>
+          <p class="th">Cinematic. A ship comes through the storm, every photograph moves with the water, and the hero rotates like a billboard - a ready-made place for Tidewater to run announcements, openings, and anything new they want to promote.</p>
           <p class="meta" style="margin-block-start:.875rem">
             <span class="sw" aria-hidden="true"><i style="background:#0B161B"></i><i style="background:#5194A8"></i><i style="background:#7EC6DB"></i><i style="background:#93A455"></i></span>
             ANYBODY + GEIST + GEIST MONO
@@ -343,13 +343,17 @@ document.addEventListener('click', function (e) {
   e.preventDefault();
   var page = b.getAttribute('data-page');
   var dir = b.closest('.dir') || document;
-  dir.querySelectorAll('iframe').forEach(function (fr) {
+  var scope = dir.querySelector('.desktop') || dir;
+  scope.querySelectorAll('iframe').forEach(function (fr) {
     var base = (fr.getAttribute('src') || '').split('?')[0];
     if (base.indexOf(page) === -1) return;
     var fresh = fr.cloneNode(false);
     fresh.src = page + '?intro=replay&r=' + Date.now();
     fr.parentNode.replaceChild(fresh, fr);
   });
+  var label = b.textContent;
+  b.textContent = 'REPLAYING\u2026';
+  setTimeout(function () { b.textContent = label; }, 2600);
   var view = dir.querySelector('.desktop');
   if (view) view.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });

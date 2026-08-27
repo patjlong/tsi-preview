@@ -411,7 +411,6 @@ document.addEventListener('DOMContentLoaded', function () {
     video.addEventListener('canplay', function () { var pr = video.play(); if (pr && pr.catch) pr.catch(function () {}); });
     var p = video.play();
     if (p && p.catch) p.catch(function () {});
-    setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 6500);
     setTimeout(finish, 19000);
   } else {
     var slowMo = location.search.indexOf('slow=1') !== -1 ? 4 : 1;
@@ -456,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var conn = navigator.connection || {};
     var slowNet = conn.saveData || /(^|-)2g$|^3g$/.test(conn.effectiveType || '');
     var liveImgs = Array.prototype.slice.call(document.querySelectorAll('img[data-live]'));
-    if (window.matchMedia('(max-width: 760px)').matches) liveImgs = liveImgs.slice(0, 1);
+    if (window.matchMedia('(max-width: 760px)').matches) liveImgs = liveImgs.slice(0, 2);
     if (slowNet) liveImgs = [];
     liveImgs.forEach(function (img) {
       var host = img.parentElement;

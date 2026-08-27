@@ -184,6 +184,12 @@ footer .mail{color:var(--accent);text-decoration:none}
 @media (prefers-reduced-motion: reduce){.hero-img{animation:none}}
 
 
+.hslide{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover;opacity:0;transition:opacity 1.1s ease;pointer-events:none}
+.hslide.on{opacity:1}
+.hero h1,.hero .tagline{transition:opacity .5s ease}
+.hero.swapping h1,.hero.swapping .tagline{opacity:0}
+@media (prefers-reduced-motion: reduce){.hslide{display:none}}
+
 #intro{position:fixed;inset:0;z-index:90;background:#04141B}
 #intro.intro-out{opacity:0;transition:opacity .6s ease}
 #intro video{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover}
@@ -227,7 +233,10 @@ html.intro-live body{overflow:hidden}
 
 <section class="hero" id="top">
  <img class="hero-img" src="assets/hero-r4/r4-drydock-norfolk-1920.jpg" data-live="assets/video/loop-drydock.mp4" srcset="assets/hero-r4/r4-drydock-norfolk-960.jpg 960w, assets/hero-r4/r4-drydock-norfolk-1920.jpg 1920w" sizes="100vw" alt="Ship repair in a dry dock at Norfolk Naval Shipyard (US Navy photo)" fetchpriority="high">
- <div class="hero-shade"></div>
+ <img class="hslide" data-h1="Crews In Days, Not Weeks" data-tag="What takes most staffing organizations 2-3 weeks, we do in under 7 days." src="assets/hero-r4/r4-welder-hull-1920.jpg" alt="" loading="lazy">
+<img class="hslide" data-h1="Absolutely No Hiring Fees. Ever." data-tag="In-house training, E-Verify, and onsite OSHA compliance on every placement." src="assets/hero-r4/r4-keel-welder-nn-1920.jpg" alt="" loading="lazy">
+<img class="hslide" data-h1="Now Placing: Welders, Pipefitters, PIT Operators" data-tag="Search open jobs or request a crew for your site today." src="assets/hero-r4/r4-crane-mast-nn-1920.jpg" alt="" loading="lazy">
+<div class="hero-shade"></div>
  <div class="hero-inner">
   <h1>Virginia Shipyard &amp; Warehouse Staffing Experts</h1>
   <p class="slogan">Put people to work. Do the right thing every day.</p>
@@ -400,7 +409,6 @@ document.addEventListener('DOMContentLoaded', function () {
     video.addEventListener('canplay', function () { var pr = video.play(); if (pr && pr.catch) pr.catch(function () {}); });
     var p = video.play();
     if (p && p.catch) p.catch(function () {});
-    setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 6500);
     setTimeout(finish, 19000);
   } else {
     var slowMo = location.search.indexOf('slow=1') !== -1 ? 4 : 1;
@@ -441,11 +449,38 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 })();
 
+(function () {
+  var hero = document.querySelector('.hero');
+  if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var slides = Array.prototype.slice.call(hero.querySelectorAll('.hslide'));
+  if (!slides.length) return;
+  var h1 = hero.querySelector('h1'), tag = hero.querySelector('.tagline');
+  var base = { h1: h1.textContent, tag: tag ? tag.textContent : '' };
+  var deck = [base].concat(slides.map(function (s) { return { el: s, h1: s.getAttribute('data-h1'), tag: s.getAttribute('data-tag') }; }));
+  var i = 0;
+  function show(n) {
+    var next = deck[n];
+    hero.classList.add('swapping');
+    setTimeout(function () {
+      h1.textContent = next.h1;
+      if (tag && next.tag) tag.textContent = next.tag;
+      slides.forEach(function (s) { s.classList.remove('on'); });
+      if (next.el) next.el.classList.add('on');
+      hero.classList.remove('swapping');
+    }, 500);
+  }
+  function tick() { i = (i + 1) % deck.length; show(i); }
+  function start() { setInterval(tick, 5500); }
+  var wait = setInterval(function () {
+    if (!document.getElementById('intro')) { clearInterval(wait); setTimeout(start, 2500); }
+  }, 400);
+})();
+
   if (!reduce) {
     var conn = navigator.connection || {};
     var slowNet = conn.saveData || /(^|-)2g$|^3g$/.test(conn.effectiveType || '');
     var liveImgs = Array.prototype.slice.call(document.querySelectorAll('img[data-live]'));
-    if (window.matchMedia('(max-width: 760px)').matches) liveImgs = liveImgs.slice(0, 1);
+    if (window.matchMedia('(max-width: 760px)').matches) liveImgs = liveImgs.slice(0, 2);
     if (slowNet) liveImgs = [];
     liveImgs.forEach(function (img) {
       var host = img.parentElement;
