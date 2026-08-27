@@ -16,3 +16,4 @@
 All eight flagged against the 2026-08-14 no-AI-imagery room rule (R32); Pat directed the build 2026-08-26 for the High pages and showroom. Raw masters kept local (*-raw.mp4, gitignored).
 
 - **intro-storm.mp4 v2** (1.3 MB, 10s, replaces v1 2026-08-26 per Pat): the hero photo's own ship sails through a storm at dusk, a wave crashes directly into the camera filling the frame, the whitewater drains to reveal the ship sailing into its dry dock, ending on the hero frame (job f07a0ee2, ship identity via image_references + end_image = hero photo). v1 raw kept as intro-storm-v1-raw.mp4.
+- **loop-welder.mp4** - Gate hero cinemagraph: welding arc flickers, sparks drift (job 38250bdf, from r4-welder-hull). All loop-*.mp4 files reprocessed 2026-08-26 into SEAMLESS loops: last second crossfaded into the first (tail-to-head xfade), motion forward-only, no visible reset. One misfired job (84b0638e) animated the logo PNG by mistake - unused, 27 credits.

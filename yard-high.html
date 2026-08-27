@@ -59,7 +59,7 @@ header{position:absolute;inset-inline:0;inset-block-start:0;z-index:30}
 /* scorecard */
 .score{background:var(--band-darker);color:var(--on-dark);padding-block:clamp(2.5rem,6vw,4.5rem)}
 .stat{text-align:center;display:grid;gap:.3rem;justify-items:center;min-inline-size:0}
-.stat .num{font-family:'Anybody',sans-serif;font-weight:800;font-size:clamp(3.4rem,8vw,7rem);line-height:1;color:var(--stat);font-variant-numeric:tabular-nums;position:relative}
+.stat .num{font-family:'Anybody',sans-serif;font-weight:800;font-size:clamp(2.8rem,5vw,5.5rem);line-height:1;color:var(--stat);font-variant-numeric:tabular-nums;position:relative}
 .stat .num::after{content:"";display:block;block-size:3px;inline-size:2.2em;background:var(--accent);margin:.35rem auto 0}
 .stat .slab{font-family:'Geist Mono',monospace;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
 .stat .qual{font-size:.8rem;color:var(--on-dark-dim);max-inline-size:24ch}
@@ -248,7 +248,7 @@ html.intro-live body{overflow:hidden}
 </section>
 
 <section class="score" aria-label="Tidewater Staffing by the numbers">
- <div class="col"><div class="statwrap grid"><div class="stat"><span class="num" data-count="1992">1992</span><span class="slab">Since</span><span class="qual">Trusted staffing partner for job seekers and employers since 1992</span></div><div class="stat"><span class="num" data-count="7">7</span><span class="slab">Days, not weeks</span><span class="qual">What takes most staffing organizations 2-3 weeks, we do in under 7 days</span></div><div class="stat"><span class="num" data-count="$0">$0</span><span class="slab">Hiring fees</span><span class="qual">Absolutely No Hiring Fees, EVER.</span></div><div class="stat"><span class="num" data-count="5">5</span><span class="slab">Locations</span><span class="qual">Across Hampton Roads, including TESC, our training center</span></div><div class="stat"><span class="num" data-count="4.9">4.9</span><span class="slab">Google rating</span><span class="qual">Portsmouth office</span></div><div class="stat"><span class="num" data-count="100%">100%</span><span class="slab">Screened</span><span class="qual">Drug screened & background checked before placement</span></div></div></div>
+ <div class="col"><div class="statwrap grid"><div class="stat"><span class="num" data-count="1992">1992</span><span class="slab">Since</span><span class="qual">A trusted staffing partner for job seekers and employers since 1992.</span></div><div class="stat"><span class="num" data-count="7">7</span><span class="slab">Days, not weeks</span><span class="qual">What takes most staffing organizations 2-3 weeks, we do in under 7 days.</span></div><div class="stat"><span class="num" data-count="$0">$0</span><span class="slab">Hiring fees</span><span class="qual">Absolutely no hiring fees for our clients. Ever.</span></div><div class="stat"><span class="num" data-count="5">5</span><span class="slab">Locations</span><span class="qual">Five locations across Hampton Roads, including TESC, our training center.</span></div><div class="stat"><span class="num" data-count="4.9">4.9</span><span class="slab">Google rating</span><span class="qual">Our Portsmouth office holds a 4.9 star Google rating.</span></div><div class="stat"><span class="num" data-count="100%">100%</span><span class="slab">Screened</span><span class="qual">Every associate is drug screened and background checked before placement.</span></div></div></div>
 </section>
 
 <section class="band why">
@@ -367,9 +367,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var intro = document.getElementById('intro');
   if (!intro) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var replay = location.search.indexOf('intro=replay') !== -1;
-  if (reduce || (sessionStorage.getItem('tsiIntroSeen') && !replay)) { intro.remove(); return; }
-  sessionStorage.setItem('tsiIntroSeen', '1');
+  if (reduce) { intro.remove(); return; }
   document.documentElement.classList.add('intro-live');
   var done = false;
   function finish() {
@@ -445,7 +443,12 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 
   if (!reduce) {
-    document.querySelectorAll('img[data-live]').forEach(function (img) {
+    var conn = navigator.connection || {};
+    var slowNet = conn.saveData || /(^|-)2g$|^3g$/.test(conn.effectiveType || '');
+    var liveImgs = Array.prototype.slice.call(document.querySelectorAll('img[data-live]'));
+    if (window.matchMedia('(max-width: 760px)').matches) liveImgs = liveImgs.slice(0, 1);
+    if (slowNet) liveImgs = [];
+    liveImgs.forEach(function (img) {
       var host = img.parentElement;
       if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
       var v = document.createElement('video');
