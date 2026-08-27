@@ -216,7 +216,7 @@ a{color:inherit}
           </p>
         </div>
         <a class="open" href="signal-med-alt.html" target="_blank" rel="noopener">OPEN FULL PAGE &nearr;</a>
-        <a class="open replayintro" data-page="signal-med-alt.html" href="#">REPLAY INTRO &#8635;</a>
+        <a class="open replayintro" data-page="signal-med-alt.html" href="#">PLAY INTRO FULL SCREEN &#8635;</a>
       </div>
       <div class="views">
         <div class="desktop">
@@ -247,7 +247,7 @@ a{color:inherit}
           </p>
         </div>
         <a class="open" href="yard-high.html" target="_blank" rel="noopener">OPEN FULL PAGE &nearr;</a>
-        <a class="open replayintro" data-page="yard-high.html" href="#">REPLAY INTRO &#8635;</a>
+        <a class="open replayintro" data-page="yard-high.html" href="#">PLAY INTRO FULL SCREEN &#8635;</a>
       </div>
       <div class="views">
         <div class="desktop">
@@ -278,7 +278,7 @@ a{color:inherit}
           </p>
         </div>
         <a class="open" href="yard-high-alt.html" target="_blank" rel="noopener">OPEN FULL PAGE &nearr;</a>
-        <a class="open replayintro" data-page="yard-high-alt.html" href="#">REPLAY INTRO &#8635;</a>
+        <a class="open replayintro" data-page="yard-high-alt.html" href="#">PLAY INTRO FULL SCREEN &#8635;</a>
       </div>
       <div class="views">
         <div class="desktop">
@@ -343,6 +343,7 @@ document.addEventListener('click', function (e) {
   e.preventDefault();
   var page = b.getAttribute('data-page');
   var dir = b.closest('.dir') || document;
+  window.open(page + '?intro=replay&r=' + Date.now(), '_blank', 'noopener');
   var scope = dir.querySelector('.desktop') || dir;
   scope.querySelectorAll('iframe').forEach(function (fr) {
     var base = (fr.getAttribute('src') || '').split('?')[0];
