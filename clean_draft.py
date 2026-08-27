@@ -38,7 +38,7 @@ def clean(path):
     return n
 
 if __name__=="__main__":
-    targets = sys.argv[1:] or (glob.glob("gate-*.html")+["signal-med.html","yard-high.html","signal-med-alt.html","yard-high-alt.html","D1-signal.html","D2-gate.html","D3-live-yard.html","V7-deployable.html"])
+    targets = sys.argv[1:] or (glob.glob("gate-*.html")+["signal-med.html","yard-high.html","signal-jobs.html","signal-crews.html","signal-med-alt.html","yard-high-alt.html","D1-signal.html","D2-gate.html","D3-live-yard.html","V7-deployable.html"])
     for t in targets:
         try: print(f"{t}: {clean(t)} cleanups")
         except FileNotFoundError: pass

@@ -181,6 +181,27 @@ footer .mail{color:var(--accent);text-decoration:none}
 }
 
 
+.board .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.board .tile{background:var(--band-dark);padding:1.3rem;min-block-size:9.5rem;display:flex;flex-direction:column;gap:.55rem}
+.board .tile b{font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.board .tile span{font-size:.9rem;color:var(--on-dark-dim)}
+@media (max-width:1000px){.board .tiles{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.board .tiles{grid-template-columns:1fr}}
+.split2x{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.split2x a{display:flex;flex-direction:column;gap:.8rem;padding:clamp(2rem,5vw,4rem);background:var(--band-darker);color:var(--on-dark);text-decoration:none}
+.split2x a:hover h3{color:var(--accent)}
+.split2x h3{font-size:clamp(1.4rem,2.8vw,2.2rem);text-transform:uppercase}
+.split2x p{color:var(--on-dark-dim);max-inline-size:44ch}
+.split2x .go{font-family:'IBM Plex Mono',monospace;font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+@media (max-width:760px){.split2x{grid-template-columns:1fr}}
+.loctable table{inline-size:100%;border-collapse:collapse;font-size:.92rem}
+.loctable th{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--label);text-align:start;padding:.7rem .6rem;border-block-end:1px solid var(--line)}
+.loctable td{padding:.85rem .6rem;border-block-end:1px solid var(--line);color:var(--on-dark)}
+.loctable td.city{font-family:'Big Shoulders',sans-serif;font-size:1.15rem;text-transform:uppercase;letter-spacing:.03em}
+.loctable td a{color:var(--accent);text-decoration:none;font-family:'IBM Plex Mono',monospace}
+.loctable .note{color:var(--on-dark-dim);font-size:.85rem}
+.subhero{min-block-size:52svh}
+
 #intro{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:var(--ground)}
 #intro.intro-out{opacity:0;transition:opacity .5s ease}
 #intro .iwrap{position:relative;inline-size:min(74vw,560px);aspect-ratio:1010/322}
@@ -199,6 +220,18 @@ footer .mail{color:var(--accent);text-decoration:none}
 #intro .iskip{position:absolute;inset-block-end:1.2rem;inset-inline-end:1.4rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-dim);background:none;border:1px solid var(--on-dark-dim);border-radius:2px;padding:.5rem .9rem;cursor:pointer}
 html.intro-live body{overflow:hidden}
 </style>
+<style id="clean-draft">
+/* Guardrail (Marion, 2026-08-24): a visual draft carries zero internal noise. */
+.stamp,.notes,.slotmark,.grain ~ .notes{display:none!important}
+.seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
+.sv .ph.phslot{border-block-end:1px solid var(--line)!important}
+.bx .slot{display:none!important}
+/* Marion rule 2 (2026-08-24): section numbering and numbered labels go too. */
+.no,.idx{display:none!important}
+.door .tag,.tag{display:none!important}
+.sv .ph.phslot,.card .ph.phslot,.svc .ph.phslot{border-style:solid!important}
+</style>
+<style id="clean-draft-2">.no,.idx,.door .tag{display:none!important}</style>
 </head>
 <body>
 <div id="intro" aria-hidden="true">
@@ -240,106 +273,47 @@ html.intro-live body{overflow:hidden}
    <div class="fpanel">
     <h2>I need a crew</h2>
     <p>Is your company in need of skilled personnel or temporary support? Tidewater Staffing finds the people you need faster than the competition.</p>
-    <div class="row"><a class="btn ghost" href="#request">Request Staff</a><a class="alt" href="#areas">Call an office</a></div>
+    <div class="row"><a class="btn ghost" href="signal-crews.html#request">Request Staff</a><a class="alt" href="#areas">Call an office</a></div>
    </div>
   </div>
  </div>
 </section>
 
 <section class="score" aria-label="Tidewater Staffing by the numbers">
- <div class="col"><div class="statwrap marquee"><div class="statrow"><div class="stat"><span class="num" data-count="1992">1992</span><span class="slab">Since</span><span class="qual">A trusted staffing partner for job seekers and employers since 1992.</span></div><div class="stat"><span class="num" data-count="7">7</span><span class="slab">Days, not weeks</span><span class="qual">What takes most staffing organizations 2-3 weeks, we do in under 7 days.</span></div><div class="stat"><span class="num" data-count="$0">$0</span><span class="slab">Hiring fees</span><span class="qual">Absolutely no hiring fees for our clients. Ever.</span></div><div class="stat"><span class="num" data-count="5">5</span><span class="slab">Locations</span><span class="qual">Five locations across Hampton Roads, including TESC, our training center.</span></div><div class="stat"><span class="num" data-count="4.9">4.9</span><span class="slab">Google rating</span><span class="qual">Our Portsmouth office holds a 4.9 star Google rating.</span></div><div class="stat"><span class="num" data-count="100%">100%</span><span class="slab">Screened</span><span class="qual">Every associate is drug screened and background checked before placement.</span></div></div><div class="statrow" aria-hidden="true"><div class="stat"><span class="num" data-count="1992">1992</span><span class="slab">Since</span><span class="qual">A trusted staffing partner for job seekers and employers since 1992.</span></div><div class="stat"><span class="num" data-count="7">7</span><span class="slab">Days, not weeks</span><span class="qual">What takes most staffing organizations 2-3 weeks, we do in under 7 days.</span></div><div class="stat"><span class="num" data-count="$0">$0</span><span class="slab">Hiring fees</span><span class="qual">Absolutely no hiring fees for our clients. Ever.</span></div><div class="stat"><span class="num" data-count="5">5</span><span class="slab">Locations</span><span class="qual">Five locations across Hampton Roads, including TESC, our training center.</span></div><div class="stat"><span class="num" data-count="4.9">4.9</span><span class="slab">Google rating</span><span class="qual">Our Portsmouth office holds a 4.9 star Google rating.</span></div><div class="stat"><span class="num" data-count="100%">100%</span><span class="slab">Screened</span><span class="qual">Every associate is drug screened and background checked before placement.</span></div></div></div></div>
+ <div class="col"><div class="statwrap marquee"><div class="statrow"><div class="stat"><span class="num" data-count="1992">1992</span><span class="slab">Since</span><span class="qual">A trusted staffing partner for job seekers and employers since 1992.</span></div><div class="stat"><span class="num" data-count="7">7</span><span class="slab">Days, not weeks</span><span class="qual">What takes most staffing organizations 2-3 weeks, we do in under 7 days.</span></div><div class="stat"><span class="num" data-count="$0">$0</span><span class="slab">Hiring fees</span><span class="qual">Absolutely no hiring fees for our clients. Ever.</span></div><div class="stat"><span class="num" data-count="5">5</span><span class="slab">Locations</span><span class="qual">Five locations across Hampton Roads, including TESC, our training center.</span></div><div class="stat"><span class="num" data-count="4.9">4.9</span><span class="slab">Google rating</span><span class="qual">Our Portsmouth office holds a 4.9 star Google rating.</span></div><div class="stat"><span class="num" data-count="100%">100%</span><span class="slab">Screened</span><span class="qual">Every associate is drug screened and background checked before placement.</span></div></div><div class="statrow" aria-hidden="true"><div class="stat"><span class="num" data-count="1992">1992</span><span class="slab">Since</span><span class="qual">A trusted staffing partner for job seekers and employers since 1992.</span></div><div class="stat"><span class="num" data-count="7">7</span><span class="slab">Days, not weeks</span><span class="qual">What takes most staffing organizations 2-3 weeks, we do in under 7 days.</span></div><div class="stat"><span class="num" data-count="$0">$0</span><span class="slab">Hiring fees</span><span class="qual">Absolutely no hiring fees for our clients. Ever.</span></div><div class="stat"><span class="num" data-count="5">5</span><span class="slab">Locations</span><span class="qual">Five locations across Hampton Roads, including TESC, our training center.</span></div><div class="stat"><span class="num" data-count="4.9">4.9</span><span class="slab">Google rating</span><span class="qual">Our Portsmouth office holds a 4.9 star Google rating.</span></div><div class="stat"><span class="num" data-count="100%">100%</span><span class="slab">Screened</span><span class="qual">Every associate is drug screened and background checked before placement.</span></div></div></div></div></div>
 </section>
 
-<section class="band why">
- <div class="col grid2">
-  <div class="lead">
-   <span class="eyebrow">Why Tidewater Staffing</span>
-   <h2 class="h2u">A family owned staffing <span class="u">partner</span></h2>
-   <p>Since 1992, Tidewater Staffing, Inc. (TSI) has been providing unrivaled workforce solutions for our clients in the ship repair, warehousing, and light industrial/manufacturing industries.</p>
-  </div>
-  <div>
-   <div class="rows reveal">
-    <div class="row8"><b>Family Owned</b><span>A family owned business with attention to detail for every customer.</span></div><div class="row8"><b>In-House Training</b><span>TESC, our company-owned training facility: associates show up trained and ready.</span></div><div class="row8"><b>E-Verify</b><span>E-Verify program participant.</span></div><div class="row8"><b>OSHA Onsite</b><span>Onsite OSHA compliance safety program.</span></div><div class="row8"><b>Coordinator Check-Ins</b><span>Coordinator-assisted check-ins.</span></div><div class="row8"><b>No Hiring Fees</b><span>Absolutely No Hiring Fees, EVER.</span></div><div class="row8"><b>Screened First</b><span>All employees are drug screened & background checked before placement.</span></div><div class="row8"><b>In-House Support</b><span>In-house accounting, human resources and safety departments, all available to help solve any issues.</span></div>
-   </div>
-   <blockquote class="quote reveal">
-    <p>&ldquo;It is clear that Tidewater Staffing cares about its clients and employees. They are the exception, not the rule.&rdquo;</p>
-    <cite>Marc M. &middot; Owner</cite>
-   </blockquote>
-  </div>
- </div>
-</section>
-
-<section id="areas" aria-label="Areas we serve">
- <div class="areas-cap">
-  <img src="assets/photos/tsi-branch-band-1920.jpg" data-live="assets/video/loop-branch.mp4" alt="A Tidewater Staffing branch office" loading="lazy">
-  <div class="cap"><div class="col"><h2 class="h2u">Areas we <span class="u">serve</span></h2></div></div>
- </div>
- <div class="areas-body">
-  <div class="col">
-   <p style="max-inline-size:70ch;margin-block-end:1.6rem;color:var(--on-dark-dim)">Tidewater Staffing serves the Hampton Roads, the southeast section of Virginia, filling roles in the following markets:</p>
-   <div class="locgrid reveal"><article class="loc"><h3>Virginia Beach</h3><p class="addr2">5425 Virginia Beach Blvd., Virginia Beach, VA 23462</p><a class="tel" href="tel:+17576717823">757-671-7823</a></article><article class="loc"><h3>Chesapeake</h3><p class="addr2">1000 Poindexter St., Chesapeake, VA 23324</p><a class="tel" href="tel:+17575430100">757-543-0100</a></article><article class="loc"><h3>Suffolk</h3><p class="addr2">604 W. Washington St., Suffolk, VA 23434</p><a class="tel" href="tel:+17579355935">757-935-5935</a></article><article class="loc"><h3>Portsmouth</h3><p class="addr2">749 Florida Ave., Portsmouth, VA 23707</p><a class="tel" href="tel:+17573910100">757-391-0100</a></article><article class="loc"><h3>TESC</h3><p class="addr2">742 Florida Ave., Portsmouth, VA 23707</p><p class="note">Our company-owned training facility, built to emulate warehouse and shipyard infrastructure and train safety standards.</p><a class="tel" href="tel:+17573910100">757-391-0100</a></article></div>
-  </div>
- </div>
-</section>
-
-<section class="band values" aria-label="Our values">
+<section class="band board" style="background:var(--band-dark)">
  <div class="col">
-  <span class="eyebrow">Our Values</span>
-  <h2 class="h2u" style="margin-block-end:1.6rem">What we stand <span class="u">behind</span></h2>
-  <div class="vrow reveal"><h3>Leadership</h3><p>Leadership of our industry, communities and our peer groups</p></div><div class="vrow reveal"><h3>Attitude</h3><p>Positive. No matter the challenge ahead, it is always better with a can-do attitude</p></div><div class="vrow reveal"><h3>Service</h3><p>Serve our clients, associates and fellow employees to the absolute best of our abilities</p></div><div class="vrow reveal"><h3>Integrity</h3><p>Do the right thing even when nobody's watching</p></div><div class="vrow reveal"><h3>Responsibility</h3><p>Embrace our actions and be accountable for what we do, even if it was a mistake</p></div>
+  <span class="eyebrow">Why Tidewater Staffing</span>
+  <h2 class="h2u" style="color:var(--on-dark);margin-block-end:1.6rem">The numbers behind the <span class="u">name</span></h2>
+  <div class="tiles reveal"><div class="tile"><b>Family Owned</b><span>A family owned business with attention to detail for every customer.</span></div><div class="tile"><b>In-House Training</b><span>TESC, our company-owned training facility: associates show up trained and ready.</span></div><div class="tile"><b>E-Verify</b><span>E-Verify program participant.</span></div><div class="tile"><b>OSHA Onsite</b><span>Onsite OSHA compliance safety program.</span></div><div class="tile"><b>Coordinator Check-Ins</b><span>Coordinator-assisted check-ins.</span></div><div class="tile"><b>No Hiring Fees</b><span>Absolutely No Hiring Fees, EVER.</span></div><div class="tile"><b>Screened First</b><span>All employees are drug screened & background checked before placement.</span></div><div class="tile"><b>In-House Support</b><span>In-house accounting, human resources and safety departments, all available to help solve any issues.</span></div></div>
  </div>
 </section>
 
-<section aria-label="Where we outperform">
- <div class="vert img-left band-light">
-<figure class="vphoto"><img src="assets/hero-r4/r4-drydock-norfolk-1920.jpg" data-live="assets/video/loop-drydock.mp4" alt="Ship repair in a dry dock at Norfolk Naval Shipyard (US Navy photo)" loading="lazy"></figure>
-<div class="vtext"><h3 class="h3u">Shipyard / Ship Repair</h3><p>No matter the exact skill set or experience your shipyard requires, Tidewater can provide it. Specializing in the specific needs of the maritime industry in Southeast Virginia, we train all of our associates in programs from Firewatch to Maritime OSHA 10-Hour to ensure you get the quality candidates your shipyard needs.</p>
-<ul class="pills"><li>Welders</li><li>Ship Fitters</li><li>Pipefitters</li><li>Inside/Outside Machinists</li><li>Sheet Metal Mechanics</li><li>Fire Preventers</li><li>Coatings Professionals</li><li>Tank & Confined Space Professionals</li></ul>
-<a class="xlink" href="https://www.tidewaterstaffing.com/job-listings/">Search open jobs</a></div>
-</div><div class="vert img-right band-dark2">
-<figure class="vphoto"><img src="assets/photos/tsi-warehouse-wide-1920.jpg" data-live="assets/video/loop-warehouse.mp4" alt="Warehouse and logistics work staffed by Tidewater Staffing" loading="lazy"></figure>
-<div class="vtext"><h3 class="h3u">Warehouse & Logistics</h3><p>Our team consistently exceeds our clients' expectations in filling high-volume work orders quickly and efficiently. We can supply customizable solutions to match exactly what your warehouse needs, and provide all manner of training to our associates so they can begin contributing immediately.</p>
-<ul class="pills"><li>PIT Operators</li><li>Yard Drivers</li><li>Material Handlers</li><li>Picker/Packers</li><li>Machine Operators</li><li>Front Office/Clerical</li></ul>
-<a class="xlink" href="https://www.tidewaterstaffing.com/job-listings/">Search open jobs</a></div>
-</div><div class="vert img-left band-light">
-<figure class="vphoto"><img src="assets/photos/tsi-training-wide-1920.jpg" data-live="assets/video/loop-training.mp4" alt="Tidewater Staffing associates during hands-on training" loading="lazy"></figure>
-<div class="vtext"><h3 class="h3u">Manufacturing</h3><p>Looking for experienced, reliable manufacturing candidates? Regardless of your specific needs, our team has the agility, experience, and pipeline of workers required to provide the solution that works for you.</p>
-<ul class="pills"><li>Assemblers</li><li>Machine Operators</li><li>Quality Control Inspectors</li><li>Front Office/Clerical</li></ul>
-<a class="xlink" href="https://www.tidewaterstaffing.com/job-listings/">Search open jobs</a></div>
-</div>
+<section class="split2x" aria-label="Choose your path">
+ <a href="signal-jobs.html">
+  <h3>Looking for a job?</h3>
+  <p>Weekly pay, insurance benefits, training for all positions, and a real person who always takes your call.</p>
+  <span class="go">See what we offer &#8594;</span>
+ </a>
+ <a href="signal-crews.html">
+  <h3>Need a crew on site?</h3>
+  <p>What takes most staffing organizations 2-3 weeks to find staff for, we can do in under 7 days.</p>
+  <span class="go">Start a staffing request &#8594;</span>
+ </a>
 </section>
 
-<section class="cta" id="request">
- <img src="assets/hero-r4/r4-keel-welder-nn-1920.jpg" data-live="assets/video/loop-keel.mp4" alt="A structural welder at work in a Newport News shipyard (US Navy photo)" loading="lazy">
- <div class="shade"></div>
- <div class="inner">
-  <div class="col">
-   <p class="slog">Put people to work. Do the right thing every day.</p>
-   
-   <div class="grid2">
-    <div class="cpanel">
-     <h2>Looking for a job?</h2>
-     <p>Access to a wide array of opportunities. Weekly pay. Insurance benefits. A real person always takes your call. Training for all positions.</p>
-     <a class="btn" href="https://application.tidewaterstaffing.com/">Apply Now</a>
-    </div>
-    <div class="cpanel">
-     <h2>Don't be short on staff</h2>
-     <p>What takes most staffing organizations 2-3 weeks to find staff for, we can do in under 7 days. Tell us about the talent you need.</p>
-     <form class="req" aria-label="Request staff">
-      <label>Name<input type="text" name="name" autocomplete="name"></label>
-      <label>Phone Number<input type="tel" name="phone" autocomplete="tel"></label>
-      <label>Email<input type="email" name="email" autocomplete="email"></label>
-      <label>Company Name<input type="text" name="company" autocomplete="organization"></label>
-      <label class="full">How did you hear about us?<select name="source"><option>Internet Ad (Google)</option><option>Internet Search (Google, Bing, etc.)</option><option>Referral</option><option>Other</option></select></label>
-      <label class="full">Tell us about the talent you need<textarea name="need"></textarea></label>
-      <div class="full"><button class="btn" type="submit">Request Staff</button></div>
-     </form>
-    </div>
-   </div>
-  </div>
+<section id="areas" class="band loctable" style="background:var(--band-darker)">
+ <div class="col">
+  <span class="eyebrow">Areas We Serve</span>
+  <h2 class="h2u" style="color:var(--on-dark);margin-block-end:1.4rem">Six days a week across Hampton <span class="u">Roads</span></h2>
+  <table>
+   <thead><tr><th>Location</th><th>Address</th><th>Phone</th></tr></thead>
+   <tbody><tr><td class="city">Virginia Beach</td><td>5425 Virginia Beach Blvd., Virginia Beach, VA 23462</td><td><a href="tel:+17576717823">757-671-7823</a></td></tr><tr><td class="city">Chesapeake</td><td>1000 Poindexter St., Chesapeake, VA 23324</td><td><a href="tel:+17575430100">757-543-0100</a></td></tr><tr><td class="city">Suffolk</td><td>604 W. Washington St., Suffolk, VA 23434</td><td><a href="tel:+17579355935">757-935-5935</a></td></tr><tr><td class="city">Portsmouth</td><td>749 Florida Ave., Portsmouth, VA 23707</td><td><a href="tel:+17573910100">757-391-0100</a></td></tr><tr><td class="city">TESC</td><td>742 Florida Ave., Portsmouth, VA 23707<div class="note">Our company-owned training facility, built to emulate warehouse and shipyard infrastructure and train safety standards.</div></td><td><a href="tel:+17573910100">757-391-0100</a></td></tr></tbody>
+  </table>
  </div>
 </section>
-
 <footer>
  <div class="col">
   <div class="top">
@@ -356,7 +330,7 @@ html.intro-live body{overflow:hidden}
 
 <nav class="mbar" aria-label="Actions">
  <a class="m1" href="https://application.tidewaterstaffing.com/">Apply Now</a>
- <a class="m2" href="#request">Request Staff</a>
+ <a class="m2" href="signal-crews.html#request">Request Staff</a>
  <a class="m3" href="#areas" aria-label="Call an office">&#9742;</a>
 </nav>
 
