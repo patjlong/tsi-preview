@@ -186,18 +186,6 @@ footer .mail{color:var(--accent);text-decoration:none}
 .hd-mark{inline-size:clamp(90px,9vw,150px);margin:0 auto .9rem;filter:drop-shadow(0 6px 18px rgba(4,20,27,.6))}
 .hd-mark img{inline-size:100%}
 </style>
-<style id="clean-draft">
-/* Guardrail (Marion, 2026-08-24): a visual draft carries zero internal noise. */
-.stamp,.notes,.slotmark,.grain ~ .notes{display:none!important}
-.seg span.slot,.chip.slot,.bx.slotbx,.roles span.slot{display:none!important}
-.sv .ph.phslot{border-block-end:1px solid var(--line)!important}
-.bx .slot{display:none!important}
-/* Marion rule 2 (2026-08-24): section numbering and numbered labels go too. */
-.no,.idx{display:none!important}
-.door .tag,.tag{display:none!important}
-.sv .ph.phslot,.card .ph.phslot,.svc .ph.phslot{border-style:solid!important}
-</style>
-<style id="clean-draft-2">.no,.idx,.door .tag{display:none!important}</style>
 </head>
 <body>
 <header>
@@ -213,7 +201,7 @@ footer .mail{color:var(--accent);text-decoration:none}
 </nav>
 
 <section class="hero" id="top">
- <div class="heroDoors" aria-hidden="true"><figure><img src="assets/photos/tsi-training-tall-1080.jpg" alt="Hands-on training at TESC" loading="eager"></figure><figure><img src="assets/photos/tsi-warehouse-tall-1080.jpg" alt="Warehouse operations staffed by Tidewater" loading="eager"></figure></div>
+ <div class="heroDoors" aria-hidden="true"><figure><img src="assets/photos/tsi-training-tall-1080.jpg" data-live="assets/video/loop-training.mp4" alt="Hands-on training at TESC" loading="eager"></figure><figure><img src="assets/photos/tsi-warehouse-tall-1080.jpg" data-live="assets/video/loop-warehouse.mp4" alt="Warehouse operations staffed by Tidewater" loading="eager"></figure></div>
  <div class="hero-shade"></div>
  <div class="hero-inner">
   <h1>Find Work. Find A Crew.</h1>
