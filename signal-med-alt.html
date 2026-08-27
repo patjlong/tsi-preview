@@ -196,6 +196,7 @@ footer .mail{color:var(--accent);text-decoration:none}
 @keyframes thick{to{stroke-width:58}}
 @keyframes fadeout{to{opacity:0}}
 @keyframes markin{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+#intro .iskip{position:absolute;inset-block-end:1.2rem;inset-inline-end:1.4rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-dim);background:none;border:1px solid var(--on-dark-dim);border-radius:2px;padding:.5rem .9rem;cursor:pointer}
 html.intro-live body{overflow:hidden}
 </style>
 <style id="clean-draft">
@@ -221,6 +222,7 @@ html.intro-live body{overflow:hidden}
   <img class="imark" src="assets/logo/tsi-mark-white.png" alt="">
  </div>
  <p class="islogan">Put people to work. Do the right thing every day.</p>
+ <button class="iskip" type="button">Skip</button>
 </div>
 <header>
  <div class="hbar">
@@ -384,9 +386,7 @@ document.addEventListener('DOMContentLoaded', function () {
     intro.classList.add('intro-out');
     setTimeout(function () { intro.remove(); document.documentElement.classList.remove('intro-live'); }, 620);
   }
-  ['wheel', 'touchstart', 'keydown'].forEach(function (evt) {
-    window.addEventListener(evt, finish, { once: true, passive: true });
-  });
+  window.addEventListener('keydown', function (e) { if (e.key === 'Escape') finish(); });
   var skip = intro.querySelector('.iskip');
   if (skip) skip.addEventListener('click', finish);
   var video = intro.querySelector('video');
@@ -408,10 +408,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     video.addEventListener('ended', reveal);
     video.addEventListener('error', finish);
+    video.addEventListener('canplay', function () { var pr = video.play(); if (pr && pr.catch) pr.catch(function () {}); });
     var p = video.play();
-    if (p && p.catch) p.catch(finish);
-    setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 1600);
-    setTimeout(finish, 13500);
+    if (p && p.catch) p.catch(function () {});
+    setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 6500);
+    setTimeout(finish, 19000);
   } else {
     var slowMo = location.search.indexOf('slow=1') !== -1 ? 4 : 1;
     var paths = intro.querySelectorAll('path');

@@ -375,9 +375,7 @@ document.addEventListener('DOMContentLoaded', function () {
     intro.classList.add('intro-out');
     setTimeout(function () { intro.remove(); document.documentElement.classList.remove('intro-live'); }, 620);
   }
-  ['wheel', 'touchstart', 'keydown'].forEach(function (evt) {
-    window.addEventListener(evt, finish, { once: true, passive: true });
-  });
+  window.addEventListener('keydown', function (e) { if (e.key === 'Escape') finish(); });
   var skip = intro.querySelector('.iskip');
   if (skip) skip.addEventListener('click', finish);
   var video = intro.querySelector('video');
@@ -399,10 +397,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     video.addEventListener('ended', reveal);
     video.addEventListener('error', finish);
+    video.addEventListener('canplay', function () { var pr = video.play(); if (pr && pr.catch) pr.catch(function () {}); });
     var p = video.play();
-    if (p && p.catch) p.catch(finish);
-    setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 1600);
-    setTimeout(finish, 13500);
+    if (p && p.catch) p.catch(function () {});
+    setTimeout(function () { if (video.currentTime < 0.2) finish(); }, 6500);
+    setTimeout(finish, 19000);
   } else {
     var slowMo = location.search.indexOf('slow=1') !== -1 ? 4 : 1;
     var paths = intro.querySelectorAll('path');
