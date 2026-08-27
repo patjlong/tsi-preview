@@ -366,41 +366,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (p && p.catch) p.catch(function () {});
     setTimeout(finish, 19000);
   } else {
-    var slowMo = location.search.indexOf('slow=1') !== -1 ? 4 : 1;
-    var paths = intro.querySelectorAll('path');
-    var tracks = [];
-    paths.forEach(function (path, pi) {
-      var total = path.getTotalLength();
-      var pts = [];
-      for (var i = 0; i <= 72; i++) pts.push(path.getPointAtLength(total * i / 72));
-      tracks.push({ el: path, pts: pts, exact: path.getAttribute('d'), phase: pi * 2.1 });
-    });
     intro.classList.add('intro-run');
-    var t0 = null;
-    var DRAW = 1.35 * slowMo, SETTLE = 1.8 * slowMo;
-    function frame(ts) {
-      if (!t0) t0 = ts;
-      var t = (ts - t0) / 1000;
-      var done = t >= SETTLE;
-      tracks.forEach(function (tr) {
-        if (done) { tr.el.setAttribute('d', tr.exact); return; }
-        var f = Math.min(t / DRAW, 1);
-        var reveal = 1 - Math.pow(1 - f, 3);
-        var n = Math.max(2, Math.round(72 * reveal));
-        var amp = 16 * Math.max(0, 1 - t / SETTLE);
-        var d = '';
-        for (var i = 0; i <= n; i++) {
-          var pnt = tr.pts[i];
-          var ripple = amp * Math.sin(6.283 * (i / 72) * 2.6 - t * (7 / slowMo) + tr.phase);
-          var tail = Math.min(1, (n - i) / 10);
-          d += (i ? ' L ' : 'M ') + pnt.x.toFixed(1) + ' ' + (pnt.y + ripple * tail).toFixed(1);
-        }
-        tr.el.setAttribute('d', d);
-      });
-      if (!done) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-    setTimeout(finish, 3400 * slowMo);
+    setTimeout(finish, 3200);
   }
 })();
 

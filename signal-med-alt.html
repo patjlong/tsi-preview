@@ -202,19 +202,22 @@ footer .mail{color:var(--accent);text-decoration:none}
 .loctable .note{color:var(--on-dark-dim);font-size:.85rem}
 .subhero{min-block-size:52svh}
 
-#intro{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:var(--ground)}
+#intro{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:var(--ground);overflow:hidden}
 #intro.intro-out{opacity:0;transition:opacity .5s ease}
 #intro .iwrap{position:relative;inline-size:min(74vw,560px);aspect-ratio:1010/322}
 #intro svg{position:absolute;inset:0;inline-size:100%;block-size:100%;overflow:visible}
-#intro .wl,#intro .wr{fill:none;stroke-width:24;stroke-linecap:round;stroke-linejoin:round;opacity:0}
-#intro .wr{stroke:#3B6A91}
-#intro .wl{stroke:#7EC6DB}
-#intro.intro-run .wr,#intro.intro-run .wl{opacity:1;animation:thick .45s ease-in 1.8s forwards, fadeout .5s ease 2.25s forwards}
+#intro path{fill:none;stroke:#FFFFFF;stroke-width:92;stroke-linecap:round;stroke-linejoin:round}
+#intro .gL{transform:translateX(-140%)}
+#intro .gR{transform:translateX(140%)}
+#intro.intro-run .gL{animation:tildeL 1.35s cubic-bezier(.2,.85,.25,1) forwards}
+#intro.intro-run .gR{animation:tildeR 1.35s cubic-bezier(.2,.85,.25,1) .12s forwards}
+@keyframes tildeL{0%{transform:translateX(-140%) translateY(-7%)}55%{transform:translateX(3.5%) translateY(2.2%)}78%{transform:translateX(-1.4%) translateY(-.8%)}100%{transform:translateX(0) translateY(0)}}
+@keyframes tildeR{0%{transform:translateX(140%) translateY(7%)}55%{transform:translateX(-3.5%) translateY(-2.2%)}78%{transform:translateX(1.4%) translateY(.8%)}100%{transform:translateX(0) translateY(0)}}
 #intro .imark{position:absolute;inset:0;inline-size:100%;opacity:0}
-#intro.intro-run .imark{animation:markin .6s ease-out 2.15s forwards}
+#intro.intro-run .imark{animation:markin .5s ease 1.75s forwards}
+#intro.intro-run svg{animation:fadeout .45s ease 1.85s forwards}
 #intro .islogan{position:absolute;inset-block-end:22vh;inset-inline:0;text-align:center;font-family:inherit;font-size:clamp(.95rem,2vw,1.25rem);letter-spacing:.04em;color:var(--on-dark);opacity:0;margin:0}
-#intro.intro-run .islogan{animation:markin .5s ease-out 2.6s forwards}
-@keyframes thick{to{stroke-width:58}}
+#intro.intro-run .islogan{animation:markin .5s ease-out 2.2s forwards}
 @keyframes fadeout{to{opacity:0}}
 @keyframes markin{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
 #intro .iskip{position:absolute;inset-block-end:1.2rem;inset-inline-end:1.4rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-dim);background:none;border:1px solid var(--on-dark-dim);border-radius:2px;padding:.5rem .9rem;cursor:pointer}
@@ -237,8 +240,8 @@ html.intro-live body{overflow:hidden}
 <div id="intro" aria-hidden="true">
  <div class="iwrap">
   <svg viewBox="0 0 1010 322">
-   <path class="wr" d="M 2 42 C 55 80, 110 128, 176 152 C 255 188, 340 258, 410 276 C 490 263, 575 231, 645 200 C 700 178, 740 150, 802 164 C 858 178, 905 222, 982 286"/>
-   <path class="wl" d="M 272 222 C 240 214, 228 188, 246 163 C 262 139, 300 126, 338 116 C 405 90, 485 62, 562 46 C 615 41, 665 60, 722 92 C 745 106, 768 122, 784 136"/>
+   <g class="gL"><path d="M 2 42 C 55 80, 110 128, 176 152 C 255 188, 340 258, 410 276 C 490 263, 575 231, 645 200 C 700 178, 740 150, 802 164 C 858 178, 905 222, 982 286"/></g>
+   <g class="gR"><path d="M 272 222 C 240 214, 228 188, 246 163 C 262 139, 300 126, 338 116 C 405 90, 485 62, 562 46 C 615 41, 665 60, 722 92 C 745 106, 768 122, 784 136"/></g>
   </svg>
   <img class="imark" src="assets/logo/tsi-mark-white.png" alt="">
  </div>
@@ -375,41 +378,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (p && p.catch) p.catch(function () {});
     setTimeout(finish, 19000);
   } else {
-    var slowMo = location.search.indexOf('slow=1') !== -1 ? 4 : 1;
-    var paths = intro.querySelectorAll('path');
-    var tracks = [];
-    paths.forEach(function (path, pi) {
-      var total = path.getTotalLength();
-      var pts = [];
-      for (var i = 0; i <= 72; i++) pts.push(path.getPointAtLength(total * i / 72));
-      tracks.push({ el: path, pts: pts, exact: path.getAttribute('d'), phase: pi * 2.1 });
-    });
     intro.classList.add('intro-run');
-    var t0 = null;
-    var DRAW = 1.35 * slowMo, SETTLE = 1.8 * slowMo;
-    function frame(ts) {
-      if (!t0) t0 = ts;
-      var t = (ts - t0) / 1000;
-      var done = t >= SETTLE;
-      tracks.forEach(function (tr) {
-        if (done) { tr.el.setAttribute('d', tr.exact); return; }
-        var f = Math.min(t / DRAW, 1);
-        var reveal = 1 - Math.pow(1 - f, 3);
-        var n = Math.max(2, Math.round(72 * reveal));
-        var amp = 16 * Math.max(0, 1 - t / SETTLE);
-        var d = '';
-        for (var i = 0; i <= n; i++) {
-          var pnt = tr.pts[i];
-          var ripple = amp * Math.sin(6.283 * (i / 72) * 2.6 - t * (7 / slowMo) + tr.phase);
-          var tail = Math.min(1, (n - i) / 10);
-          d += (i ? ' L ' : 'M ') + pnt.x.toFixed(1) + ' ' + (pnt.y + ripple * tail).toFixed(1);
-        }
-        tr.el.setAttribute('d', d);
-      });
-      if (!done) requestAnimationFrame(frame);
-    }
-    requestAnimationFrame(frame);
-    setTimeout(finish, 3400 * slowMo);
+    setTimeout(finish, 3200);
   }
 })();
 
