@@ -89,7 +89,10 @@ header{position:absolute;inset-inline:0;inset-block-start:0;z-index:30}
 .areas-cap h2{color:#F4F6F3;padding:0 0 1.4rem 0}
 .areas-cap .col{inline-size:var(--col);margin-inline:auto}
 .areas-body{background:var(--band-dark);color:var(--on-dark);padding-block:clamp(2.5rem,6vw,4rem) var(--rhythm)}
-.locgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.locgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.loc.tescband{grid-column:1 / -1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.8rem 2rem}
+.loc.tescband .note{max-inline-size:60ch}
+.loc.tescband .tm{text-align:end}
 .loc{background:var(--band-dark);padding:1.4rem}
 .loc h3{font-size:1.05rem;margin-block-end:.4rem}
 .loc .addr2{font-size:.88rem;color:var(--on-dark-dim)}
@@ -97,10 +100,10 @@ header{position:absolute;inset-inline:0;inset-block-start:0;z-index:30}
 .loc .tel{display:inline-block;margin-block-start:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.9rem;letter-spacing:.06em;color:var(--accent);text-decoration:none}
 /* values */
 .values{background:var(--band-dark);color:var(--on-dark)}
-.vrow{display:grid;grid-template-columns:minmax(11rem,.42fr) 1fr;gap:1.2rem;align-items:baseline;padding-block:1.3rem;border-block-end:1px solid var(--line)}
+.vrow{display:grid;grid-template-columns:minmax(13.5rem,.5fr) 1fr;gap:1.5rem;align-items:baseline;padding-block:1.3rem;border-block-end:1px solid var(--line)}
 .vrow:first-of-type{border-block-start:1px solid var(--line)}
 .vrow .mono{font-family:'Big Shoulders',sans-serif;font-weight:700;font-size:clamp(2.6rem,5vw,4rem);color:var(--accent);line-height:1}
-.vrow h3{font-size:1.05rem}
+.vrow h3{font-size:1rem;overflow-wrap:anywhere}
 .vrow p{color:var(--on-dark-dim);max-inline-size:62ch}
 /* verticals */
 .vert{display:grid;grid-template-columns:1fr 1fr;min-block-size:clamp(340px,44vw,520px)}
@@ -151,6 +154,7 @@ footer .mail{color:var(--accent);text-decoration:none}
  .why .grid2{grid-template-columns:1fr}.why .lead{position:static}
  .vert{grid-template-columns:1fr}.vert.img-right .vphoto{order:0}.vert .vphoto img{block-size:clamp(220px,45vw,340px)}
  .locgrid{grid-template-columns:1fr 1fr}
+ .loc.tescband .tm{text-align:start}
  .vrow{grid-template-columns:1fr;grid-template-rows:auto auto}.vrow p{grid-column:1}
  footer .offs{grid-template-columns:1fr 1fr}
 }
@@ -300,6 +304,18 @@ html.intro-live body{overflow:hidden}
   </table>
  </div>
 </section>
+<section class="band" style="background:var(--band-dark)" aria-label="Where we outperform">
+<div class="col">
+<span class="eyebrow">Where We Outperform</span>
+<h2 class="h2u" style="color:var(--on-dark);margin-block-end:1.4rem">Three industries. One <span class="u">standard</span></h2>
+<div class="row8" style="grid-template-columns:minmax(13rem,.4fr) 1fr"><b style="color:var(--accent)">Shipyard / Ship Repair</b><span style="color:var(--on-dark-dim)">No matter the exact skill set or experience your shipyard requires, Tidewater can provide it. Specializing in the specific needs of the maritime industry in Southeast Virginia, we train all of our associates in programs from Firewatch to Maritime OSHA 10-Hour to ensure you get the quality candidates your shipyard needs. <span style="display:block;margin-block-start:.5rem"><ul class="pills" style="color:var(--on-dark)"><li>Welders</li><li>Ship Fitters</li><li>Pipefitters</li><li>Inside/Outside Machinists</li><li>Sheet Metal Mechanics</li><li>Fire Preventers</li><li>Coatings Professionals</li><li>Tank & Confined Space Professionals</li></ul></span></span></div><div class="row8" style="grid-template-columns:minmax(13rem,.4fr) 1fr"><b style="color:var(--accent)">Warehouse & Logistics</b><span style="color:var(--on-dark-dim)">Our team consistently exceeds our clients' expectations in filling high-volume work orders quickly and efficiently. We can supply customizable solutions to match exactly what your warehouse needs, and provide all manner of training to our associates so they can begin contributing immediately. <span style="display:block;margin-block-start:.5rem"><ul class="pills" style="color:var(--on-dark)"><li>PIT Operators</li><li>Yard Drivers</li><li>Material Handlers</li><li>Picker/Packers</li><li>Machine Operators</li><li>Front Office/Clerical</li></ul></span></span></div><div class="row8" style="grid-template-columns:minmax(13rem,.4fr) 1fr"><b style="color:var(--accent)">Manufacturing</b><span style="color:var(--on-dark-dim)">Looking for experienced, reliable manufacturing candidates? Regardless of your specific needs, our team has the agility, experience, and pipeline of workers required to provide the solution that works for you. <span style="display:block;margin-block-start:.5rem"><ul class="pills" style="color:var(--on-dark)"><li>Assemblers</li><li>Machine Operators</li><li>Quality Control Inspectors</li><li>Front Office/Clerical</li></ul></span></span></div></div>
+</section>
+<section class="band" style="background:var(--band-darker)" aria-label="Our values">
+<div class="col">
+<span class="eyebrow">Our Values</span>
+<h2 class="h2u" style="color:var(--on-dark);margin-block-end:1.4rem">What we stand <span class="u">behind</span></h2>
+<div class="vrow" style="border-color:var(--line)"><h3 style="color:var(--on-dark)">Leadership</h3><p style="color:var(--on-dark-dim)">Leadership of our industry, communities and our peer groups</p></div><div class="vrow" style="border-color:var(--line)"><h3 style="color:var(--on-dark)">Attitude</h3><p style="color:var(--on-dark-dim)">Positive. No matter the challenge ahead, it is always better with a can-do attitude</p></div><div class="vrow" style="border-color:var(--line)"><h3 style="color:var(--on-dark)">Service</h3><p style="color:var(--on-dark-dim)">Serve our clients, associates and fellow employees to the absolute best of our abilities</p></div><div class="vrow" style="border-color:var(--line)"><h3 style="color:var(--on-dark)">Integrity</h3><p style="color:var(--on-dark-dim)">Do the right thing even when nobody's watching</p></div><div class="vrow" style="border-color:var(--line)"><h3 style="color:var(--on-dark)">Responsibility</h3><p style="color:var(--on-dark-dim)">Embrace our actions and be accountable for what we do, even if it was a mistake</p></div></div>
+</section>
 <footer>
  <div class="col">
   <div class="top">
@@ -347,12 +363,12 @@ document.addEventListener('DOMContentLoaded', function () {
         finalPane.classList.add('on');
         setTimeout(function () {
           finalPane.classList.remove('on');
-          setTimeout(finish, 700);
-        }, 1400);
+          setTimeout(finish, 350);
+        }, 600);
       } else { setTimeout(finish, 800); }
     };
     video.addEventListener('timeupdate', function () {
-      if (video.duration && video.currentTime > video.duration - 1.1) reveal();
+      if (video.duration && video.currentTime > video.duration - 0.7) reveal();
     });
     video.addEventListener('ended', reveal);
     video.addEventListener('error', finish);

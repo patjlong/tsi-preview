@@ -88,7 +88,10 @@ header{position:absolute;inset-inline:0;inset-block-start:0;z-index:30}
 .areas-cap h2{color:#F4F6F3;padding:0 0 1.4rem 0}
 .areas-cap .col{inline-size:var(--col);margin-inline:auto}
 .areas-body{background:var(--band-dark);color:var(--on-dark);padding-block:clamp(2.5rem,6vw,4rem) var(--rhythm)}
-.locgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.locgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.loc.tescband{grid-column:1 / -1;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.8rem 2rem}
+.loc.tescband .note{max-inline-size:60ch}
+.loc.tescband .tm{text-align:end}
 .loc{background:var(--band-dark);padding:1.4rem}
 .loc h3{font-size:1.05rem;margin-block-end:.4rem}
 .loc .addr2{font-size:.88rem;color:var(--on-dark-dim)}
@@ -96,10 +99,10 @@ header{position:absolute;inset-inline:0;inset-block-start:0;z-index:30}
 .loc .tel{display:inline-block;margin-block-start:.7rem;font-family:'IBM Plex Mono',monospace;font-size:.9rem;letter-spacing:.06em;color:var(--accent);text-decoration:none}
 /* values */
 .values{background:var(--ground);color:var(--ink)}
-.vrow{display:grid;grid-template-columns:minmax(11rem,.42fr) 1fr;gap:1.2rem;align-items:baseline;padding-block:1.3rem;border-block-end:1px solid var(--line)}
+.vrow{display:grid;grid-template-columns:minmax(13.5rem,.5fr) 1fr;gap:1.5rem;align-items:baseline;padding-block:1.3rem;border-block-end:1px solid var(--line)}
 .vrow:first-of-type{border-block-start:1px solid var(--line)}
 .vrow .mono{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,5vw,4rem);color:var(--accent);line-height:1}
-.vrow h3{font-size:1.05rem}
+.vrow h3{font-size:1rem;overflow-wrap:anywhere}
 .vrow p{color:#3C4F58;max-inline-size:62ch}
 /* verticals */
 .vert{display:grid;grid-template-columns:1fr 1fr;min-block-size:clamp(340px,44vw,520px)}
@@ -150,6 +153,7 @@ footer .mail{color:var(--accent);text-decoration:none}
  .why .grid2{grid-template-columns:1fr}.why .lead{position:static}
  .vert{grid-template-columns:1fr}.vert.img-right .vphoto{order:0}.vert .vphoto img{block-size:clamp(220px,45vw,340px)}
  .locgrid{grid-template-columns:1fr 1fr}
+ .loc.tescband .tm{text-align:start}
  .vrow{grid-template-columns:1fr;grid-template-rows:auto auto}.vrow p{grid-column:1}
  footer .offs{grid-template-columns:1fr 1fr}
 }
@@ -259,7 +263,7 @@ footer .mail{color:var(--accent);text-decoration:none}
  <div class="areas-body">
   <div class="col">
    <p style="max-inline-size:70ch;margin-block-end:1.6rem;color:var(--on-dark-dim)">Tidewater Staffing serves the Hampton Roads, the southeast section of Virginia, filling roles in the following markets:</p>
-   <div class="locgrid reveal"><article class="loc"><h3>Virginia Beach</h3><p class="addr2">5425 Virginia Beach Blvd., Virginia Beach, VA 23462</p><a class="tel" href="tel:+17576717823">757-671-7823</a></article><article class="loc"><h3>Chesapeake</h3><p class="addr2">1000 Poindexter St., Chesapeake, VA 23324</p><a class="tel" href="tel:+17575430100">757-543-0100</a></article><article class="loc"><h3>Suffolk</h3><p class="addr2">604 W. Washington St., Suffolk, VA 23434</p><a class="tel" href="tel:+17579355935">757-935-5935</a></article><article class="loc"><h3>Portsmouth</h3><p class="addr2">749 Florida Ave., Portsmouth, VA 23707</p><a class="tel" href="tel:+17573910100">757-391-0100</a></article><article class="loc"><h3>TESC</h3><p class="addr2">742 Florida Ave., Portsmouth, VA 23707</p><p class="note">Our company-owned training facility, built to emulate warehouse and shipyard infrastructure and train safety standards.</p><a class="tel" href="tel:+17573910100">757-391-0100</a></article></div>
+   <div class="locgrid reveal"><article class="loc"><h3>Virginia Beach</h3><p class="addr2">5425 Virginia Beach Blvd., Virginia Beach, VA 23462</p><a class="tel" href="tel:+17576717823">757-671-7823</a></article><article class="loc"><h3>Chesapeake</h3><p class="addr2">1000 Poindexter St., Chesapeake, VA 23324</p><a class="tel" href="tel:+17575430100">757-543-0100</a></article><article class="loc"><h3>Suffolk</h3><p class="addr2">604 W. Washington St., Suffolk, VA 23434</p><a class="tel" href="tel:+17579355935">757-935-5935</a></article><article class="loc"><h3>Portsmouth</h3><p class="addr2">749 Florida Ave., Portsmouth, VA 23707</p><a class="tel" href="tel:+17573910100">757-391-0100</a></article><article class="loc tescband"><div><h3>Tidewater Employment Simulation Center (TESC)</h3><p class="note">Our company-owned training facility, built to emulate warehouse and shipyard infrastructure and train safety standards.</p></div><div class="tm"><p class="addr2">742 Florida Ave., Portsmouth, VA 23707</p><a class="tel" href="tel:+17573910100">757-391-0100</a></div></article></div>
   </div>
  </div>
 </section>
