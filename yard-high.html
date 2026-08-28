@@ -219,7 +219,7 @@ footer .mail{color:var(--accent);text-decoration:none}
 #intro video{position:absolute;inset:0;inline-size:100%;block-size:100%;object-fit:cover}
 #intro .ifinal{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:1.2rem;opacity:0;transition:opacity .55s ease;background:rgba(4,20,27,.34)}
 #intro .ifinal.on{opacity:1}
-#intro .ifinal img{inline-size:clamp(150px,22vw,260px)}
+#intro .ifinal img{inline-size:clamp(280px,44vw,620px)}
 #intro .ifinal p{font-family:inherit;font-size:clamp(.95rem,2vw,1.3rem);letter-spacing:.04em;color:#F4F6F3;margin:0;text-align:center}
 #intro .iskip{position:absolute;inset-block-end:1.2rem;inset-inline-end:1.4rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#D6D7C8;background:none;border:1px solid #D6D7C8;border-radius:2px;padding:.5rem .9rem;cursor:pointer}
 html.intro-live body{overflow:hidden}
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else { setTimeout(finish, 800); }
     };
     video.addEventListener('timeupdate', function () {
-      if (video.duration && video.currentTime > video.duration - 0.7) reveal();
+      if (video.duration && video.currentTime > video.duration - 1.9) reveal();
     });
     video.addEventListener('ended', reveal);
     video.addEventListener('error', finish);
