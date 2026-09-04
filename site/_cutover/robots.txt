@@ -1,0 +1,9 @@
+# Tidewater Staffing, cutover file. Crawler policy from the 2026-08-14 analysis day:
+# the marketing site and the job pages stay open to every crawler, including AI crawlers;
+# bots do not follow the link to the application site.
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-json/
+
+Sitemap: https://www.tidewaterstaffing.com/sitemap.xml
