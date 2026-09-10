@@ -44,3 +44,15 @@ One provenance line, per the kickoff prompt: origin https://www.tidewaterstaffin
 client-owned, fetched 2026-09-04 through the public WordPress REST API with a
 browser User-Agent, one request per second, cached under ~/tsi-site/import/.
 Re-encoded to the Technical foundation v1 widths at build time.
+
+## TSI photo drop, 2026-09-10 (R78)
+
+Two photographs received as email attachments from TSI's office via Marion (Jay copied), 2026-09-10 13:28 ET.
+Client-owned, chosen by TSI for having no client name or logo visible. Filed at natural aspect, never upscaled:
+photos/tsi-cookout-1920.jpg and -960.jpg (from 3547x2672 PNG), photos/tsi-ppe-crew-1491.jpg and -960.jpg (from 1491x1988 PNG).
+Originals under ~/tsi-site/import/photos-2026-09-10/. Nine further Drive links in the same email are not yet accessible to KODA.
+
+## Warehouse still, 2026-09-10 (R74)
+
+img/tsi-warehouse-1280.jpg and -960.jpg are a single frame (t=2 s) from assets/video/loop-warehouse.mp4, the loop already
+used behind the warehouse hero. Same provenance as that loop. 1280 is the loop's native width; not upscaled.
