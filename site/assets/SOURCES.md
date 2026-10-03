@@ -56,3 +56,12 @@ Originals under ~/tsi-site/import/photos-2026-09-10/. Nine further Drive links i
 
 img/tsi-warehouse-1280.jpg and -960.jpg are a single frame (t=2 s) from assets/video/loop-warehouse.mp4, the loop already
 used behind the warehouse hero. Same provenance as that loop. 1280 is the loop's native width; not upscaled.
+
+## photos/ TESC set (added 2026-10-03)
+
+tsi-tesc-front, tsi-tesc-side, tsi-tesc-floor, each as 1200 and 1920 wide JPEGs (16:9).
+Photographs of TESC, the Tidewater Employment Simulation Center in Portsmouth, taken and
+emailed by Clarissa Shaddock (TSI) on 2026-10-01 after Jay asked for a picture of TESC on
+the TESC page. Cropped to 16:9 and downscaled from 3072x4080 originals, never upscaled or
+retouched. Originals and the crop record: assets-archive/tesc-originals-2026-10-01/.
+Client-owned photography; checked for customer and shipyard identifiers (R60): none.
