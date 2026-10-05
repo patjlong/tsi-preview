@@ -20,7 +20,7 @@ r4-keel-welder-nn is NOT copied (R48: out of every page of the new build).
 
 ## video/ (the six R59 files, byte-identical copies)
 
-intro-storm.mp4, loop-drydock.mp4, loop-crane.mp4, loop-branch.mp4,
+intro-storm-b.mp4 (2026-10-05 recut of intro-storm.mp4: 3.85 s to 4.40 s removed, 0.25 s dissolve; original in assets-archive/intro-original-2026-09-04/), loop-drydock.mp4, loop-crane.mp4, loop-branch.mp4,
 loop-warehouse.mp4, loop-training.mp4. Provenance unchanged: repo-root
 assets/video/SOURCES.md (Seedance-generated, flagged against R32 on 2026-08-25
 and 2026-08-26; exempt for this draft on Pat's authority, R59). loop-keel.mp4 and
