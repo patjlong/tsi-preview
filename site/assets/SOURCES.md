@@ -65,3 +65,20 @@ emailed by Clarissa Shaddock (TSI) on 2026-10-01 after Jay asked for a picture o
 the TESC page. Cropped to 16:9 and downscaled from 3072x4080 originals, never upscaled or
 retouched. Originals and the crop record: assets-archive/tesc-originals-2026-10-01/.
 Client-owned photography; checked for customer and shipyard identifiers (R60): none.
+
+## 2026-10-05 hero additions (Pat, in session)
+
+Real photographs, TSI's own, from their existing website's media library (import/media):
+- photos/tsi-merch-{1200,1920}.jpg from 2019/10/IMG_4308.jpeg (hoodie and beanie). Opens Merchandise.
+- photos/tsi-riverstar-{1200,1920}.jpg from 2021/02/IMG_2850-scaled.jpg (Elizabeth River Project River Star Business banner, 2021; faces masked). Opens Environmental Stewardship.
+- photos/tsi-tesc-front-* (Clarissa, 2026-10-01) now opens the Portsmouth branch page, focal point on the 742 Florida Ave. sign.
+
+Real photograph, widened by AI on one side only:
+- photos/tsi-tesc-wide-{1200,1920}.jpg. Centre is Clarissa's PXL_20261001_150921652 untouched (the whole building face, door, logo and brick sign are real pixels). The left third (the end of the building with the roll door, trees, lawn) was generated with Codex image generation to give the hero band room. Canvas and result in assets-archive/generated-2026-10-05/. Opens TESC.
+
+AI GENERATED, not photographs of Tidewater Staffing (Codex image generation, no people, no logos, no text):
+- photos/tsi-gen-jobs-* (boots, gloves and tool bag on a pier). Opens Open Jobs.
+- photos/tsi-gen-resume-* (application on a clipboard). Opens Submit Resume.
+- photos/tsi-gen-contact-* (a brick office entrance; NOT a real Tidewater Staffing office). Opens Contact.
+- photos/tsi-gen-contracting-* (paperwork on a desk, dry dock beyond). Opens Contracting Details.
+These four are placeholders for real photographs from TSI. Originals in assets-archive/generated-2026-10-05/.
