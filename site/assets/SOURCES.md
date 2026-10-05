@@ -82,3 +82,11 @@ AI GENERATED, not photographs of Tidewater Staffing (Codex image generation, no 
 - photos/tsi-gen-contact-* (a brick office entrance; NOT a real Tidewater Staffing office). Opens Contact.
 - photos/tsi-gen-contracting-* (paperwork on a desk, dry dock beyond). Opens Contracting Details.
 These four are placeholders for real photographs from TSI. Originals in assets-archive/generated-2026-10-05/.
+
+## 2026-10-05 later: branch office photographs (Pat, in session)
+
+Real photographs, uploaded by Tidewater Staffing to its own Google Business listings ("By owner" tab, read 2026-10-05). Originals in assets-archive/google-listing-owner-photos-2026-10-05/. No Street View or Google-owned imagery is used.
+- photos/tsi-vb-office-{1200,1920}.jpg: the Virginia Beach office, 5184x3456 original. Opens Virginia Beach.
+- photos/tsi-vb-sign-{1200,1920}.jpg: the roadside sign at 5425 Virginia Beach Blvd., 1600x1067 original. Opens Branches.
+- photos/tsi-branch-* is the Chesapeake office (the same photograph is on the Chesapeake listing). Opens Chesapeake; still opens the blog index too.
+TSI should confirm it holds the rights to these three (it posted them as owner).
