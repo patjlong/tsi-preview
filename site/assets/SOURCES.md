@@ -81,7 +81,8 @@ AI GENERATED, not photographs of Tidewater Staffing (Codex image generation, no 
 - photos/tsi-gen-resume-* (application on a clipboard). Opens Submit Resume.
 - photos/tsi-gen-contact-* (a brick office entrance; NOT a real Tidewater Staffing office). Opens Contact.
 - photos/tsi-gen-contracting-* (paperwork on a desk, dry dock beyond). Opens Contracting Details.
-These four are placeholders for real photographs from TSI. Originals in assets-archive/generated-2026-10-05/.
+- photos/tsi-gen-manufacturing-* (a plant floor: press brake, CNC machining centers, welding tables, bridge crane; no hard hats). Opens Manufacturing and Industrial Staffing (Gabe, 2026-10-06; added 2026-10-08).
+These five are placeholders for real photographs from TSI. Originals in assets-archive/generated-2026-10-05/ and assets-archive/generated-2026-10-08/.
 
 ## 2026-10-05 later: branch office photographs (Pat, in session)
 
